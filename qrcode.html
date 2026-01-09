@@ -106,6 +106,10 @@
 
     const data = getQueryParam("data");
 
+
+
+    function generateQRCode() {
+
     if(data) {
       new QRCode(document.getElementById("qrcode"), {
         text: data,
@@ -115,6 +119,9 @@
     } else {
       document.getElementById("qrcode").textContent = "No data provided in URL.";
     }
+  
+  }
+
   </script>
 
   <H1><a href="index.html">Back to scouting</a></H1>
@@ -164,7 +171,9 @@
     void cat.offsetWidth;           
     cat.classList.add("spin");
     item.classList.add("itemSpin");
-}
+
+    generateQRCode();
+  }
 
     </script>
 
