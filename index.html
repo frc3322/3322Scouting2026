@@ -45,7 +45,7 @@ Put the whole form into a form tag, and make it so that it clears when you submi
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3322 Rebuilt 2026 Scouting</title>
+  <title>3322 Rebuilt™ 2026 Scouting</title>
   <link rel="stylesheet" href="stylesheet.css">
 
 </head>
@@ -76,6 +76,7 @@ Put the whole form into a form tag, and make it so that it clears when you submi
         <button onclick="updateCrateData(1, 0, 1)" id="L4FailureButton" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
         <button onclick="updateCrateData(1, 0, -1)" class="decButton">-1</button>
       </div>
+      
     </div>
 
   </div>
@@ -94,13 +95,35 @@ Put the whole form into a form tag, and make it so that it clears when you submi
         <button onclick="updateCrateData(4, 0, 1)" id="hubfailure" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
         <button onclick="updateCrateData(4, 0, -1)" class="decButton">-1</button>
       </div>
+      
     </div>
+    <br>
+          <div class="buttons">
+        <div id="l4-button-success" class="successButton">
+          <button id="scoring" class="incButton">Scoring time: 0.00</button>
+        </div>
+        <div id="l4-button-failure" class="failureButton">
+          <button onclick="updateCrateData(4, 0, 1)" id="shuttleing" class="incButton">Shuttleing time: 0.00</button>
+        </div>
+      </div>
+
+
     <select  id="Climb">
       <option value=L1>L1 Climb</option>
       <option value=L2>L2 Climb</option>
       <option value=L3>L3 Climb</option>
       <option value=Failure>Climb Failed :( </option>
     </select>
+    <br>    <br>
+
+      <label for="bump">Did they use Bump?</label>
+
+      <input type="checkbox" id="bump"><br>
+
+      <label for="trench">Did they use Trench?</label>
+
+      <input type="checkbox" id="trench"><br>
+
   </div>
   
 
@@ -126,6 +149,11 @@ Put the whole form into a form tag, and make it so that it clears when you submi
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
 
+      let timerInterval = null;
+  let startTime = 0;
+  let elapsed = 0;
+
+  
     let breakdownTotal = 0;
     let breakdownInterval;
     let isBroken = false;
@@ -147,14 +175,7 @@ Put the whole form into a form tag, and make it so that it clears when you submi
       "Bucket Success",
       "Bucket Failure"],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [document.getElementById("L1SuccessButton").textContent,
-    document.getElementById("L1FailureButton").textContent,
-    document.getElementById("L2SuccessButton").textContent,
-    document.getElementById("L2FailureButton").textContent,
-    document.getElementById("L3SuccessButton").textContent,
-    document.getElementById("L3FailureButton").textContent,
-    document.getElementById("L4SuccessButton").textContent,
-    document.getElementById("L4FailureButton").textContent]]
+    []]
 
 
 
@@ -236,6 +257,46 @@ Put the whole form into a form tag, and make it so that it clears when you submi
 
     document.getElementById("submit").addEventListener("click", submit);
     document.getElementById("breakdown").addEventListener("click", breakdownToggle);
+
+      const scoring = document.getElementById("scoring");
+      const shuttleing = document.getElementById("shuttleing");
+
+      function startScoringTimer() {
+          if (timerInterval) return; // Prevent multiple intervals
+          startTime = Date.now() - elapsed;
+          timerInterval = setInterval(() => {
+              elapsed = Date.now() - startTime;
+              scoring.textContent = "Scoring time: " + (elapsed / 1000).toFixed(2);
+          }, 10);
+      }
+      function startShuttleingTimer() {
+          if (timerInterval) return; // Prevent multiple intervals
+          startTime = Date.now() - elapsed;
+          timerInterval = setInterval(() => {
+              elapsed = Date.now() - startTime;
+              shuttleing.textContent = "Shuttleing time: " + (elapsed / 1000).toFixed(2);
+          }, 10);
+      }
+
+      // Stop counting when button is released
+      function stopScoringTimer() {
+          clearInterval(timerInterval);
+          timerInterval = null;
+      }
+      function stopShuttleingTimer() {
+          clearInterval(timerInterval);
+          timerInterval = null;
+      }
+
+      // Mouse events
+      scoring.addEventListener("mousedown", startScoringTimer);
+      scoring.addEventListener("mouseup", stopScoringTimer);
+      scoring.addEventListener("mouseleave", stopScoringTimer);
+
+      shuttleing.addEventListener("mousedown", startShuttleingTimer);
+      shuttleing.addEventListener("mouseup", stopShuttleingTimer);
+      shuttleing.addEventListener("mouseleave", stopShuttleingTimer);
+
   </script>
 </body>
 
