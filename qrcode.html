@@ -132,7 +132,7 @@
 
     function myFunction() {
         //This top area is what chooses the character
-    let selection = Math.floor(Math.random() * (3));
+    let selection = Math.floor(Math.random() * (7));
     if(selection == 0)
     {
         document.getElementById("item").src = 'https://i.ibb.co/g06SMJt/Image-20251116-163929-931.jpg';
@@ -148,6 +148,32 @@
         document.getElementById("item").src = 'https://i.ibb.co/ZpcVcHg2/Screenshot-2026-01-08-at-6-19-06-PM.png';
         document.getElementById("youFound").textContent = "You found Little Sean ";
     }
+    else if(selection == 3)
+    {
+        document.getElementById("item").src = 'https://i.ibb.co/m5hp6Bdh/Screenshot-2026-01-08-at-6-17-07-PM.png';
+        document.getElementById("youFound").textContent = "You found Jack ";
+    }
+    else if(selection == 4)
+    {
+        document.getElementById("item").src = 'https://i.ibb.co/KpskHDpg/Image-20260117-080759-367.jpg';
+        document.getElementById("youFound").textContent = "You found Joowon ";
+    }
+    else if(selection == 5)
+    {
+        document.getElementById("item").src = 'https://i.ibb.co/ZpcVcHg2/Screenshot-2026-01-08-at-6-19-06-PM.png';
+        document.getElementById("youFound").textContent = "You found Little Sean ";
+    }
+    else if(selection == 6)
+    {
+        document.getElementById("item").src = 'https://i.ibb.co/bjD79qr2/Image-20260117-080757-764.jpg';
+        document.getElementById("youFound").textContent = "You found Roman ";
+    }
+    else if(selection == 7)
+    {
+        document.getElementById("item").src = 'https://i.ibb.co/jZJ1m3gt/Image-20260117-080758-680.jpg';
+        document.getElementById("youFound").textContent = "You found Med ";
+    }
+
 
     //This following part is what will select the atribute.
     let attributeSelection = Math.floor(Math.random() * (2));
@@ -165,6 +191,7 @@
     
 
     const cat = document.getElementById("cat");
+    
     const item = document.getElementById("item");
     cat.classList.remove("spin");   // restart animation
     item.classList.remove("itemSpin");   // restart animation
@@ -175,6 +202,8 @@
     generateQRCode();
   }
 
+
+  
     </script>
 
 
