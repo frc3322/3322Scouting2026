@@ -45,104 +45,64 @@ Put the whole form into a form tag, and make it so that it clears when you submi
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3322 Wapur 2025 Scouting</title>
+  <title>3322 Rebuilt 2026 Scouting</title>
   <link rel="stylesheet" href="stylesheet.css">
 
 </head>
 
 <body>
   <div class="section">
-    <h1>3322 Wapur 2025 Scouting</h1>
+    <h1>3322 Rebuilt 2026 Scouting</h1>
   </div>
   <br>
+  <!-- auton -->
   <div class="section">
     <h2>Auton:</h2>
     <label for="mobility">Mobility:</label>
     <br>
     <input type="checkbox" id="mobility"><br>
     <br>
+    
+    <label for="autoclimb">Climb:</label>
+    <br>
+    <input type="checkbox" id="autoclimb"><br>
+    <br>
+    <div class="buttons">
+      <div id="auto-button-success" class="successButton">
+        <button onclick="updateCrateData(1, 1, 1)" id="AutoSuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
+        <button onclick="updateCrateData(1, 1, -1)" class="decButton">-1</button>
+      </div>
+      <div id="auto-button-failure" class="failureButton">
+        <button onclick="updateCrateData(1, 0, 1)" id="L4FailureButton" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
+        <button onclick="updateCrateData(1, 0, -1)" class="decButton">-1</button>
+      </div>
+    </div>
 
-    <label for="ballsShotOver">How many balls were shot over?:</label>
-    <br>
-    <select name="ballsShotOver" id="ballsShotOver">
-      <option value=4>All shot over</option>
-      <option value=3>More than half shot over</option>
-      <option value=2>Half shot over</option>
-      <option value=1>Less than half shot over</option>
-      <option value=0>None shot over</option>
-    </select>
-    <br>
-    <br>
-    <label for="cratesPushed">How many crates were pushed over the line?:</label>
-    <br>
-    <input type="number" id="cratesPushed" placeholder="Crates">
   </div>
+
   <br>
   <div class="section">
     <h2>Teleop</h2>
 
     <!-- L4 -->
     <div class="buttons">
-      <div id="l4-button-success" class="successButton">
-        <button onclick="updateCrateData(4, 1, 1)" id="L4SuccessButton" class="incButton">L4 Success: </br>&lt 0 &gt</button>
+      <div id="hubsuccess" class="successButton">
+        <button onclick="updateCrateData(4, 1, 1)" id="hubsuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
         <button onclick="updateCrateData(4, 1, -1)" class="decButton">-1</button>
       </div>
-      <div id="l4-button-failure" class="failureButton">
-        <button onclick="updateCrateData(4, 0, 1)" id="L4FailureButton" class="incButton">L4 Failure: </br>&lt 0 &gt</button>
+      <div id="hubfailure" class="failureButton">
+        <button onclick="updateCrateData(4, 0, 1)" id="hubfailure" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
         <button onclick="updateCrateData(4, 0, -1)" class="decButton">-1</button>
       </div>
     </div>
-
-    <!-- L3 -->
-    <div class="buttons">
-      <div id="l3-button-success" class="successButton">
-        <button onclick="updateCrateData(3, 1, 1)" id="L3SuccessButton" class="incButton">L3 Success: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(3, 1, -1)" class="decButton">-1</button>
-      </div>
-      <div id="l3-button-failure" class="failureButton">
-        <button onclick="updateCrateData(3, 0, 1)" id="L3FailureButton" class="incButton">L3 Failure: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(3, 0, -1)" class="decButton">-1</button>
-      </div>
-    </div>
-
-    <!-- L2 -->
-    <div class="buttons">
-      <div id="l2-button-success" class="successButton">
-        <button onclick="updateCrateData(2, 1, 1)" id="L2SuccessButton" class="incButton">L2 Success: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(2, 1, -1)" class="decButton">-1</button>
-      </div>
-      <div id="l2-button-failure" class="failureButton">
-        <button onclick="updateCrateData(2, 0, 1)" id="L2FailureButton" class="incButton">L2 Failure: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(2, 0, -1)" class="decButton">-1</button>
-      </div>
-    </div>
-
-    <!-- L1 -->
-    <div class="buttons">
-      <div id="l1-button-success" class="successButton">
-        <button onclick="updateCrateData(1, 1, 1)" id="L1SuccessButton" class="incButton">L1 Success: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(1, 1, -1)" class="decButton">-1</button>
-      </div>
-      <div id="l1-button-failure" class="failureButton">
-        <button onclick="updateCrateData(1, 0, 1)" id="L1FailureButton" class="incButton">L1 Failure: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(1, 0, -1)" class="decButton">-1</button>
-      </div>
-    </div>
-
-
-    <h3>Buckets:</h3>
-    <br>
-    <div class="buttons">
-      <div id="l5-button-success" class="successButton">
-        <button onclick="updateCrateData(5, 1, 1)" id="L5SuccessButton" class="incButton">Bucket Success: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(5, 1, -1)" class="decButton">-1</button>
-      </div>
-      <div id="l5-button-failure" class="failureButton">
-        <button onclick="updateCrateData(5, 0, 1)" id="L5FailureButton" class="incButton">Bucket Failure: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(5, 0, -1)" class="decButton">-1</button>
-      </div>
-
-    </div>
+    <select  id="Climb">
+      <option value=L1>L1 Climb</option>
+      <option value=L2>L2 Climb</option>
+      <option value=L3>L3 Climb</option>
+      <option value=Failure>Climb Failed :( </option>
+    </select>
+  </div>
+  
 
 
 
@@ -150,16 +110,7 @@ Put the whole form into a form tag, and make it so that it clears when you submi
 
   <div class="section">
     <h2>Match info:</h2>
-    <select  id="teamNumber">
-  <option value=830>830 - Jeff</option>
-  <option value=1076>1076 - Gary</option>
-  <option value=3322>3322 - Eve</option>
-  <option value=5066>5066 - John </option>
-  <option value=5067>5067 - Tobot</option>
-  <option value=5708>5708 - Eli</option>
-  <option value=6101>6101 - Clanka</option>
-  <option value=7660>7660 - Perry</option>
-  <option value=10656>10656 - WallE</option>
+    <input type="number"  id="teamNumber" placeholder="Team Number">
 </select>
     <input type="text" id="scouterName" placeholder="Scouter Name">
     <input type="number" id="matchNumber" placeholder="Match Number">
