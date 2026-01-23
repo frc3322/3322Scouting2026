@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- You can link CSS files here -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+<body style="background-color:#00eeff;">
+    <!-- This is the visible content of the page -->
+
+    <div class="fixedElement" style="top: 43%;">
+    <button>Auto</button>
+    </div>
+    <div class="fixedElement" style="top: 50%;">
+    <button>Teleop</button>
+    </div>
+    <div class="fixedElement" style="top: 57%;">
+    <button>Endgame</button>
+    </div>
+
+
+    <h1>Auton</h1>
+    <p>3322 Rebuilt Scouting</p>
+    <br>
+  <div class="section">
+    <h2>Auton:</h2>
+    <label for="mobility">Mobility:</label>
+    <br>
+    <input type="checkbox" id="mobility"><br>
+    <br>
+    
+    <label for="autoclimb">Climb:</label>
+    <br>
+    <input type="checkbox" id="autoclimb"><br>
+    <br>
+    <div class="buttons">
+      <div id="auto-button-success" class="successButton">
+        <button onclick="updateCrateData(1, 1, 1)" id="AutoSuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
+        <button onclick="updateCrateData(1, 1, -1)" class="decButton">-1</button>
+      </div>
+      <div id="auto-button-failure" class="failureButton">
+        <button onclick="updateCrateData(1, 0, 1)" id="L4FailureButton" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
+        <button onclick="updateCrateData(1, 0, -1)" class="decButton">-1</button>
+      </div>
+      
+    </div>
+
+  </div>
+
+    <!-- You can link JavaScript files here -->
+    <script src="script.js"></script>
+</body>
+</html>
