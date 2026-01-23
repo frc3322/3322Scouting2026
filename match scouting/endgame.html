@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- You can link CSS files here -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+<body style="background-color:#00eeff;">
+    <!-- This is the visible content of the page -->
+
+    <div class="fixedElement" style="top: 43%;">
+    <button>Auto</button>
+    </div>
+    <div class="fixedElement" style="top: 50%;">
+    <button>Teleop</button>
+    </div>
+    <div class="fixedElement" style="top: 57%;">
+    <button>Endgame</button>
+    </div>
+
+
+    <h1>Endgame</h1>
+    <p>3322 Rebuilt Scouting</p>
+    <br>
+
+      <div class="section">
+    <h2>Endgame</h2>
+
+
+    <br>
+          <div class="buttons">
+        <div id="l4-button-success" class="successButton">
+          <button id="scoring" class="incButton">Scoring time: 0.00</button>
+        </div>
+        <div id="l4-button-failure" class="failureButton">
+          <button onclick="updateCrateData(4, 0, 1)" id="shuttleing" class="incButton">Shuttleing time: 0.00</button>
+        </div>
+      </div>
+
+
+    <select  id="Climb">
+      <option value=L1>L1 Climb</option>
+      <option value=L2>L2 Climb</option>
+      <option value=L3>L3 Climb</option>
+      <option value=Failure>Climb Failed :( </option>
+    </select>
+    <br>    <br>
+
+      <label for="bump">Did they use Bump?</label>
+
+      <input type="checkbox" id="bump"><br>
+
+      <label for="trench">Did they use Trench?</label>
+
+      <input type="checkbox" id="trench"><br>
+
+
+
+    <!-- You can link JavaScript files here -->
+    <script src="script.js"></script>
+</body>
+</html>
