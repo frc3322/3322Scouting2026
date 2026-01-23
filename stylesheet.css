@@ -29,7 +29,6 @@ select {
 .fixedElement{
     position: fixed;
     left: 20px;
-    right: 1120px;
     background-color:#3D6AA2;
     color: white;
     padding: 10px; 
