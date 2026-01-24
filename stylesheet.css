@@ -26,7 +26,7 @@ select {
     margin-bottom: 10px;
     width: 100%;
 }
-.fixedElement{
+.navBar{
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ select {
     color: white;
     padding: 0px; 
     z-index: 1000;
-    width: 10%; 
+    width: 15%; 
     top:50%;
     transform: translate(0,-50%);
     height:fit-content;

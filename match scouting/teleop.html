@@ -11,7 +11,7 @@
 <body style="background-color:#00eeff;">
     <!-- This is the visible content of the page -->
 
-    <div class="fixedElement">
+    <div class="navBar">
     <a href = "auton.html">
     <img src="../images/Auto-Button.png" width="100%" height="100%">
     </a>
@@ -32,19 +32,19 @@
 
     <!-- L4 -->
     <div class="buttons">
-      <div id="hubsuccess" class="successButton">
-        <button onclick="updateCrateData(4, 1, 1)" id="hubsuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(4, 1, -1)" class="decButton">-1</button>
+      <div id="hubf32r3success" class="successButton">
+        <button onclick="" id="hubsuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
+        <button onclick="getTeleopButton()" class="decButton">-1</button>
       </div>
       <div id="hubfailure" class="failureButton">
-        <button onclick="updateCrateData(4, 0, 1)" id="hubfailure" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
-        <button onclick="updateCrateData(4, 0, -1)" class="decButton">-1</button>
+        <button onclick="" id="hubfailure" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
+        <button onclick="" class="decButton">-1</button>
       </div>
       
     </div>
 
     <!-- You can link JavaScript files here -->
-    <script src="script.js"></script>
+    <script src="MatchScouting.js"></script>
 </body>
 </html>
 
