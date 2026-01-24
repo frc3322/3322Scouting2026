@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- You can link CSS files here -->
+    <link rel="stylesheet" href="../stylesheet.css">
+
+</head>
+<body style="background-color:#00eeff;">
+    <!-- This is the visible content of the page -->
+
+    <div class="fixedElement">
+      <a href = "auton.html">
+      <img src="../images/Auto-Button.png">
+      </a>
+      <a href = "teleop1.html">
+      <img src="../images/Tele-button.png">
+      </a>
+      <a href = "teleop2.html">
+      <img src="../images/Tele-button.png">
+      </a>
+      <a href = "teleop3.html">
+      <img src="../images/Tele-button.png">
+      </a>
+      <a href = "teleop4.html">
+      <img src="../images/Tele-button.png">
+      </a>
+      <a href = "endgame.html">
+      <img src="../images/Endgame-Button.png">
+      </a>
+    </div>
+
+
+    <h1>Teleop</h1>
+    <p>3322 Rebuilt Scouting</p>
+    <br>
+  <div class="section">
+    <h2>Teleop</h2>
+
+    <h1>Total Balls:</h1>
+    <p id = "ballsCounter">0</p>
+    <h1>Amount of cycles:</h1>
+    <p id = "cyclesCounter">0</p>
+
+
+    <!-- L4 -->
+    <label for="cars">How much did bro shoot? :</label>
+
+<select name="cars" id="cars">
+  <option value="1">shot one</option>
+  <option value="5">shot five</option>
+  <option value="10">shot ten</option>
+  <option value="25">shot twenty five</option>
+  <option value="50">shot fifty</option>
+  <option value="75">shot seventy five</option>
+  <option value="100">shot one hundred</option>
+
+
+</select>
+<br>
+<button onclick="submit(999)">submit</button>
+<br>
+<button onclick="undo(999)">undo</button>
+
+    <!-- You can link JavaScript files here -->
+    <script src="MatchScouting.js"></script>
+
+    <script>
+      function submit(amount)
+      {
+        document.getElementById("cyclesCounter").innerText = parseInt(document.getElementById("cyclesCounter").innerText) + 1;
+        document.getElementById("ballsCounter").innerText = parseInt(document.getElementById("ballsCounter").innerText) + parseInt(document.getElementById("cars").value);
+      }
+      function undo(amount)
+      {
+        document.getElementById("cyclesCounter").innerText = parseInt(document.getElementById("cyclesCounter").innerText) - 1;
+        document.getElementById("ballsCounter").innerText = parseInt(document.getElementById("ballsCounter").innerText) - parseInt(document.getElementById("cars").value);
+      }
+    </script>
+</body>
+</html>
+

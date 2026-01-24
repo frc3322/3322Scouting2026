@@ -31,37 +31,30 @@
       <img src="../images/Endgame-Button.png">
       </a>
     </div>
-    
 
 
-    <h1>Auton</h1>
+    <h1>Teleop</h1>
     <p>3322 Rebuilt Scouting</p>
     <br>
   <div class="section">
-    <h2>Auton:</h2>
-    <label for="mobility">Mobility:</label>
-    <br>
-    <input type="checkbox" id="mobility"><br>
-    <br>
-    
-    <label for="autoclimb">Climb:</label>
-    <br>
-    <input type="checkbox" id="autoclimb"><br>
-    <br>
+    <h2>Teleop</h2>
+
+    <!-- L4 -->
+    <h1>How many balls?: </h1>
+    <h1 id="counter">0</h1>
     <div class="buttons">
-      <div id="auto-button-success" class="successButton">
-        <button onclick="setButton(3)" id="AutoSuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
-        <button onclick="getButton()" class="decButton">-1</button>
-      </div>
-      <div id="auto-button-failure" class="failureButton">
-        <button onclick="setButton(2)" id="L4FailureButton" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
-        <button onclick="" class="decButton">-1</button>
-      </div>
+        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(1)" id="hubsuccess" class="incButton">Plus 1</button>
+        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(5)" id="hubsuccess" class="incButton">Plus 5</button>
+        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(10)" id="hubsuccess" class="incButton">Plus 10</button>
       
     </div>
 
-  </div>
-
+    <script>
+      function increaseNumber(amount)
+      {
+        document.getElementById("counter").textContent = parseInt(document.getElementById("counter").textContent) + amount;
+      }
+    </script>
     <!-- You can link JavaScript files here -->
     <script src="MatchScouting.js"></script>
 </body>

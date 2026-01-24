@@ -31,36 +31,26 @@
       <img src="../images/Endgame-Button.png">
       </a>
     </div>
-    
 
 
-    <h1>Auton</h1>
+    <h1>Teleop</h1>
     <p>3322 Rebuilt Scouting</p>
     <br>
   <div class="section">
-    <h2>Auton:</h2>
-    <label for="mobility">Mobility:</label>
-    <br>
-    <input type="checkbox" id="mobility"><br>
-    <br>
-    
-    <label for="autoclimb">Climb:</label>
-    <br>
-    <input type="checkbox" id="autoclimb"><br>
-    <br>
+    <h2>Teleop</h2>
+
+    <!-- L4 -->
     <div class="buttons">
-      <div id="auto-button-success" class="successButton">
-        <button onclick="setButton(3)" id="AutoSuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
-        <button onclick="getButton()" class="decButton">-1</button>
+      <div id="hubf32r3success" class="successButton">
+        <button onclick="" id="hubsuccess" class="incButton">Hub Success: </br>&lt 0 &gt</button>
+        <button onclick="getTeleopButton()" class="decButton">-1</button>
       </div>
-      <div id="auto-button-failure" class="failureButton">
-        <button onclick="setButton(2)" id="L4FailureButton" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
+      <div id="hubfailure" class="failureButton">
+        <button onclick="" id="hubfailure" class="incButton">Hub Failure: </br>&lt 0 &gt</button>
         <button onclick="" class="decButton">-1</button>
       </div>
       
     </div>
-
-  </div>
 
     <!-- You can link JavaScript files here -->
     <script src="MatchScouting.js"></script>
