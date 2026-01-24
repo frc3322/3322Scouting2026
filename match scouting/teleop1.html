@@ -54,6 +54,8 @@
       let timerInterval = null;
   let startTime = 0;
   let elapsed = 0;
+  let startTime2 = 0;
+  let elapsed2 = 0;
 
   
     let breakdownTotal = 0;
@@ -171,10 +173,10 @@
       }
       function startpassingTimer() {
           if (timerInterval) return; // Prevent multiple intervals
-          startTime = Date.now() - elapsed;
+          startTime2 = Date.now() - elapsed2;
           timerInterval = setInterval(() => {
-              elapsed = Date.now() - startTime;
-              passing.textContent = "passing time: " + (elapsed / 1000).toFixed(2);
+              elapsed2 = Date.now() - startTime2;
+              passing.textContent = "passing time: " + (elapsed2 / 1000).toFixed(2);
           }, 10);
       }
 
