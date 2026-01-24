@@ -1,5 +1,3 @@
-
-
 class DataHandler{
     #autoFuel
     #teleFuel
@@ -26,5 +24,5 @@ class DataHandler{
         return this.#teleFuel;
     }
 
-
+    
 }
