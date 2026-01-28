@@ -1,4 +1,4 @@
-class DataHandler{
+export class DataHandler{
     #autoFuelAttempted
     #autoFuelScored
     #teleFuelAttempted
@@ -7,6 +7,10 @@ class DataHandler{
     #teleClimbLevel
     #stackAuto
     #stackTele
+    #autoFuelTime
+    #teleFuelTime
+    #autoFuelAccuracy
+    #teleFuelAccuracy
     
     constructor(){
         this.#autoFuelAttempted = 0;
