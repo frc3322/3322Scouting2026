@@ -212,6 +212,23 @@
 
   </div>   
 
+    <script>
+        function submitData() {
+      // Gather all data
+
+      //datalist.push(document.getElementById("matchNumber").value + "");
+
+
+
+      // Generate QR code linking to the CSV data URL
+
+      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("lowValue").textContent + "," + document.getElementById("highValue").textContent;
+    }
+
+  </script>
+
+        <button onclick="submitData()">jajajjajajajajajaja</button>
+
     <!-- You can link JavaScript files here -->
     <script src="MatchScouting.js"></script>
     <script src="teleop4.js"></script>

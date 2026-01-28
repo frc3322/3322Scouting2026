@@ -59,10 +59,12 @@
 
 
 </select>
+
+
 <br>
 <button onclick="submit(999)">submit</button>
 <br>
-<button onclick="undo(999)">undo</button>
+      <button onclick="submitData()">jajajjajajajajajaja</button>
 
     <!-- You can link JavaScript files here -->
     <script src="MatchScouting.js"></script>
@@ -73,11 +75,19 @@
         document.getElementById("cyclesCounter").innerText = parseInt(document.getElementById("cyclesCounter").innerText) + 1;
         document.getElementById("ballsCounter").innerText = parseInt(document.getElementById("ballsCounter").innerText) + parseInt(document.getElementById("cars").value);
       }
-      function undo(amount)
-      {
-        document.getElementById("cyclesCounter").innerText = parseInt(document.getElementById("cyclesCounter").innerText) - 1;
-        document.getElementById("ballsCounter").innerText = parseInt(document.getElementById("ballsCounter").innerText) - parseInt(document.getElementById("cars").value);
-      }
+
+          function submitData() {
+      // Gather all data
+
+      //datalist.push(document.getElementById("matchNumber").value + "");
+
+
+
+      // Generate QR code linking to the CSV data URL
+
+      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("ballsCounter").textContent; 
+    }
+
     </script>
 </body>
 </html>

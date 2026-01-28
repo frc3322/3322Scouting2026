@@ -48,6 +48,8 @@
           <button style="width: 100%; height: 200px; font-size:30px;" onclick="updateCrateData(4, 0, 1)" id="passing" class="incButton">passing time: 0.00</button>
         </div>
       </div>
+      <button onclick="submitData()">jajajjajajajajajaja</button>
+
 
         <script>
 
@@ -63,23 +65,6 @@
     let isBroken = false;
     let starting = 0;
 
-
-    const dataList = [
-      "teamNumber,scouterName,matchNumber,mobility,ballsShotOver,Crates Pushed,L1S,L1F,L2S,L2F,L3S,L3F,L4S,L4F"]
-
-    //l1 success, l1 fail, l2 success, l2 fail, l3 success, l3 fail, l4 success, l4 fail
-    const crateData = [["L1 Success: ",
-      "L1 Failure: ",
-      "L2 Success: ",
-      "L2 Failure: ",
-      "L3 Success: ",
-      "L3 Failure: ",
-      "L4 Success: ",
-      "L4 Failure: ", 
-      "Bucket Success",
-      "Bucket Failure"],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    []]
 
 
 
@@ -110,54 +95,18 @@
 
     }
 
-    function submit() {
+    function submitData() {
       // Gather all data
 
       //datalist.push(document.getElementById("matchNumber").value + "");
-      data = document.getElementById("teamNumber").value + "," +
-        document.getElementById("scouterName").value + "," +
-        document.getElementById("matchNumber").value + "," +
-        (document.getElementById("mobility").checked ? "1" : "0") + "," +
-        document.getElementById("ballsShotOver").value + "," +
-        document.getElementById("cratesPushed").value + "," +
-        crateData[1][0] + "," +
-        crateData[1][1] + "," +
-        crateData[1][2] + "," +
-        crateData[1][3] + "," +
-        crateData[1][4] + "," +
-        crateData[1][5] + "," +
-        crateData[1][6] + "," +
-        crateData[1][7] + "," +
-        crateData[1][8] + "," +
-        crateData[1][9] + "," +
-        + breakdownTotal;
 
 
-      dataList.push(data);
-
-
-      document.getElementById("qrcode").innerHTML = "";
 
       // Generate QR code linking to the CSV data URL
-      new QRCode(document.getElementById("qrcode"), {
-        text: data,   // this is the file download link encoded in the QR
-        width: 200,
-        height: 200
-      });
 
-      window.location.href = "qrcode.html" + "?data=" + data;
+      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("scoring").textContent + "," + document.getElementById("passing").textContent;
     }
 
-    function updateCrateData(level, success, change) {
-      const index = (level * 2 - 1) - success;
-      crateData[1][index] += change;
-
-      const levelString = "L" + level;
-      const successString = (success == 1) ? "Success" : "Failure";
-
-      document.getElementById(levelString + successString + "Button").textContent = crateData[0][index] + "\n < " + crateData[1][index] + " >";
-
-    }
 
 
       const scoring = document.getElementById("scoring");
