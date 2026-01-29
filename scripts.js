@@ -1,9 +1,13 @@
-import { DataHandler } from "./match scouting/DataHandler";
+import { DataHandler } from "./match-scouting/DataHandler.js";
+import { ActionType } from "./match-scouting/Constants.js"; 
 
-function initDatahandler(){
-    var dataHandler = new DataHandler();
-    localStorage.setItem("dataHandler",JSON.stringify(dataHandler))
-    var retrievedObject = localStorage.getItem('testObject');
-    var recovered = JSON.parse(retrievedObject)
-    console.log("Success!")
-}
+document.getElementById("scoutBtn").addEventListener("click", () => {
+    const dataHandler = new DataHandler();
+    localStorage.setItem("dataHandler", JSON.stringify(dataHandler));
+    dataHandler.incrementAuto(ActionType.AutoFuelAttempted, 4)
+    let data = new DataHandler();
+    Object.assign(data, dataHandler);
+    data.incrementAuto(ActionType.AutoFuelAttempted, 4)
+    console.log(JSON.stringify(data));
+    console.log("Success!");
+});
