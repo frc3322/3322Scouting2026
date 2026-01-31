@@ -1,119 +1,224 @@
 import { ActionType } from "./Constants.js"
 
-export class DataHandler{
-    autoFuelAttempted
-    autoFuelScored
-    teleFuelAttempted
-    teleFuelScored
+export class DataHandler {
+    autoFuel
+    teleFuel
+
     autoClimb
     teleClimbLevel
-    stackAuto
-    stackTele
+
     autoFuelTime
     teleFuelTime
+
+    autoPassingTime
+    telePassingTime
+
     autoFuelAccuracy
     teleFuelAccuracy
 
-    variableKeys
+    autoFuelPassed
+    teleFuelPassed
 
-    constructor(){
-        this.autoFuelAttempted = 0;
-        this.autoFuelScored = 0;
-        this.teleFuelAttempted = 0;
-        this.teleFuelScored = 0;
+    autoFuelShuttled
+    teleFuelShuttled
 
-        this.stackAuto = [];
-        this.stackTele = [];
+    fuelStolen
 
-        this.autoClimb = 0;
-        this.teleClimbLevel = 0;
+    stackAuto
+    stackTele
 
-        this.autoFuelTime = 0;
-        this.teleFuelTime = 0;
-        this.autoFuelAccuracy = 0;
-        this.teleFuelAccuracy = 0;
-        
-        this.variableKeys = [
-            "autoFuelAttempted",
-            "autoFuelScored",
-            "teleFuelAttempted",
-            "teleFuelScored",
-            "autoClimb",
-            "teleClimbLevel",
-            "stackAuto",
-            "stackTele",
-            "autoFuelTime",
-            "teleFuelTime",
-            "autoFuelAccuracy",
-            "teleFuelAccuracy"
-            ]
+    variableKeys = [
+        "autoFuel",
+        "teleFuel",
+
+        "autoClimb",
+        "teleClimbLevel",
+
+        "autoFuelTime",
+        "teleFuelTime",
+
+        "autoPassingTime",
+        "telePassingTime",
+
+        "autoFuelAccuracy",
+        "teleFuelAccuracy",
+
+        "autoFuelPassed",
+        "teleFuelPassed",
+
+        "autoFuelShuttled",
+        "teleFuelShuttled",
+
+        "fuelStolen",
+
+        "stackAuto",
+        "stackTele"
+    ];
+
+    constructor() {
+        this.autoFuel = 0;
+this.teleFuel = 0;
+
+this.autoClimb = 0;
+this.teleClimbLevel = 0;
+
+this.autoFuelTime = 0;
+this.teleFuelTime = 0;
+
+this.autoPassingTime = 0;
+this.telePassingTime = 0;
+
+this.autoFuelAccuracy = 1;
+this.teleFuelAccuracy = 1;
+
+this.autoFuelPassed = 0;
+this.teleFuelPassed = 0;
+
+this.autoFuelShuttled = 0;
+this.teleFuelShuttled = 0;
+
+this.fuelStolen = 0;
+
+this.stackAuto = [];
+this.stackTele = [];
+
     }
 
-    changeFuel(actionType, val){
-        switch(actionType){
-            case ActionType.AutoFuelAttempted:
-                this.autoFuelAttempted += val;
+    loadData(string) {
+        let data = string.split(";");
+        for (let i = 0; i < this.variableKeys.length; i++) {
+            this[this.variableKeys[i]] = JSON.parse(data[i]);
+        }
+    }
+
+    toString() {
+        let string = "";
+        for (let i = 0; i < this.variableKeys.length; i++) {
+            string += "" + JSON.stringify(this[this.variableKeys[i]])+ ";"
+        }
+        return string;
+    }
+
+    #changeFuel(actionType, val) {
+        switch (actionType) {
+            case ActionType.AutoFuel:
+                this.autoFuel += val;
                 break;
-            case ActionType.AutoFuelScored:
-                this.autoFuelScored += val;
+            case ActionType.TeleFuel:
+                this.teleFuel += val;
                 break;
-            case ActionType.TeleFuelAttempted:
-                this.teleFuelAttempted += val;
+            case ActionType.AutoFuelTime:
+                this.autoFuelAccuracy += val;
                 break;
-            case ActionType.TeleFuelScored:
-                this.teleFuelScored += val;
+            case ActionType.TeleFuelTime:
+                this.teleFuelAccuracy += val;
                 break;
             default:
                 break;
         }
     }
 
-    incrementAuto(actionType, val){
-        this.addActionAuto([actionType, val])
-        this.changeFuel(actionType, val)
+
+    incrementAuto(actionType, val) {
+        this.#addActionAuto([actionType, val])
+        this.#changeFuel(actionType, val)
     }
 
-    undoAuto(){
-        if(this.stackAuto.length > 0){
+    undoAuto() {
+        if (this.stackAuto.length > 0) {
             var action = this.stackAuto.pop()
-            this.changeFuel(action[0], -action[1])
+            this.#changeFuel(action[0], -action[1])
         }
     }
 
-    incrementTele(actionType, val){
-        this.addActionTele([actionType, val])
-        this.changeFuel(actionType, val)
+    incrementTele(actionType, val) {
+        this.#addActionTele([actionType, val])
+        this.#changeFuel(actionType, val)
     }
 
-    undoTele(){
-        if(this.stackTele.length > 0){
+    undoTele() {
+        if (this.stackTele.length > 0) {
             var action = this.stackTele.pop()
-            this.changeFuel(action[0], -action[1])
+            this.#changeFuel(action[0], -action[1])
         }
     }
 
-    setAutoClimb(val){
+    setAutoFuelTime(val) {
+        this.autoFuelTime = val;
+    }
+
+    setTeleFuelTime(val) {
+        this.teleFuelTime = val;
+    }
+
+    setAutoPassTime(val) {
+        this.autoPassTime = val;
+    }
+
+    setTelePassTime(val) {
+        this.telePassTime = val;
+    }
+
+    setAutoClimb(val) {
         this.autoClimb = val;
     }
 
-    setTeleopClimb(val){
+    setTeleopClimb(val) {
         this.teleClimbLevel = val;
     }
 
-    addActionAuto(action){
+    #addActionAuto(action) {
         this.stackAuto.push(action);
-        if(this.stackAuto.length > 200){
+        if (this.stackAuto.length > 200) {
             this.stackAuto.shift();
         }
     }
 
-    addActionTele(action){
+    #addActionTele(action) {
         this.stackTele.push(action);
-        if(this.stackTele.length > 200){
+        if (this.stackTele.length > 200) {
             this.stackTele.shift();
         }
     }
 
-    
+
+    /*
+        Getters
+    */
+
+    getAutoFuel() {
+        return this.autoFuel;
+    }
+
+    getTeleFuel() {
+        return this.teleFuel;
+    }
+
+    getAutoFuelAccuracy() {
+        return this.teleFuel;
+    }
+
+    getTeleFuelAccuracy() {
+        return this.teleFuel;
+    }
+
+    getTeleFuelTime() {
+        return this.teleFuelTime;
+    }
+
+    getAutoFuelTime() {
+        return this.autoFuelTime;
+    }
+
+    getTelePassTime() {
+        return this.teleFuelTime;
+    }
+
+    getAutoPassTime() {
+        return this.autoPassingTime;
+    }
+
+
+
 
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Scouting App</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="../stylesheet.css">
 
@@ -12,22 +12,22 @@
     <!-- This is the visible content of the page -->
 
     <div class="fixedElement">
-      <a href = "auton.html">
+      <a id="nav-auton" href = "auton.html">
       <img src="../images/Auto-Button.png">
       </a>
-      <a href = "teleop1.html">
+      <a id="nav-teleop1" href = "teleop1.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop2.html">
+      <a id="nav-teleop2" href = "teleop2.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop3.html">
+      <a id="nav-teleop3" href = "teleop3.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop4.html">
+      <a id="nav-teleop4" href = "teleop4.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "endgame.html">
+      <a id="nav-endgame" href = "endgame.html">
       <img src="../images/Endgame-Button.png">
       </a>
     </div>
@@ -43,34 +43,17 @@
     <h1>How many balls?: </h1>
     <h1 id="counter">0</h1>
     <div class="buttons">
-        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(1)" id="hubsuccess" class="incButton">Plus 1</button>
-        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(5)" id="hubsuccess" class="incButton">Plus 5</button>
-        <button style="width: 25%; height: 200px; font-size:30px;" onclick="increaseNumber(10)" id="hubsuccess" class="incButton">Plus 10</button>
+        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease1" class="incButton">Plus 1</button>
+        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease5" class="incButton">Plus 5</button>
+        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease10" class="incButton">Plus 10</button>
 
     </div>
-      <button onclick="submitData()">jajajjajajajajajaja</button>
+      <button onclick="">jajajjajajajajajaja</button>
 
-    <script>
-          function submitData() {
-      // Gather all data
-
-      //datalist.push(document.getElementById("matchNumber").value + "");
-
-
-
-      // Generate QR code linking to the CSV data URL
-
-      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("counter").textContent;
-    }
-
-
-      function increaseNumber(amount)
-      {
-        document.getElementById("counter").textContent = parseInt(document.getElementById("counter").textContent) + amount;
-      }
-    </script>
     <!-- You can link JavaScript files here -->
-    <script src="MatchScouting.js"></script>
+    <script type="module" src="Constants.js"></script>
+    <script type="module" src="DataHandler.js"></script>
+    <script type="module" src="teleop2.js"></script>
 </body>
 </html>
 

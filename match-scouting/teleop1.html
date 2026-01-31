@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Scouting App</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="../stylesheet.css">
 
@@ -12,22 +12,22 @@
     <!-- This is the visible content of the page -->
 
     <div class="fixedElement">
-      <a href = "auton.html">
+      <a id="nav-auton" href = "auton.html">
       <img src="../images/Auto-Button.png">
       </a>
-      <a href = "teleop1.html">
+      <a id="nav-teleop1" href = "teleop1.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop2.html">
+      <a id="nav-teleop2" href = "teleop2.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop3.html">
+      <a id="nav-teleop3" href = "teleop3.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop4.html">
+      <a id="nav-teleop4" href = "teleop4.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "endgame.html">
+      <a id="nav-endgame" href = "endgame.html">
       <img src="../images/Endgame-Button.png">
       </a>
     </div>
@@ -41,118 +41,17 @@
 
     <!-- L4 -->
           <div class="buttons">
-        <div id="l4-button-success" class="successButton">
-          <button style="width: 100%; height: 200px; font-size:30px;" id="scoring" class="incButton">Scoring time: 0.00</button>
-        </div>
-        <div id="l4-button-failure" class="failureButton">
-          <button style="width: 100%; height: 200px; font-size:30px;" onclick="updateCrateData(4, 0, 1)" id="passing" class="incButton">passing time: 0.00</button>
-        </div>
+          <button style="width: 100%; height: 200px; font-size:30px;" id="scoring" >Scoring time: 0.00</button>
+          <button style="width: 100%; height: 200px; font-size:30px;"  id="passing" >Passing time: 0.00</button>
       </div>
       <button onclick="submitData()">jajajjajajajajajaja</button>
 
 
-        <script>
-
-      let timerInterval = null;
-  let startTime = 0;
-  let elapsed = 0;
-  let startTime2 = 0;
-  let elapsed2 = 0;
-
-  
-    let breakdownTotal = 0;
-    let breakdownInterval;
-    let isBroken = false;
-    let starting = 0;
-
-
-
-
-    function breakdownToggle() {
-      if (isBroken == false) {
-        starting = Date.now(); // Use global variable
-        isBroken = true;
-        document.getElementById("breakdown").style.backgroundColor = "yellow";
-
-
-        breakdownInterval = setInterval(() => {
-          document.getElementById("breakdown").textContent = (((Date.now() - starting)+ breakdownTotal) / 1000 ).toFixed(2);
-        }, 100);
-      }
-      else {
-        document.getElementById("breakdown").style.backgroundColor = "LightGray";
-        isBroken = false;
-        //alert(Date.now() - starting);
-        clearInterval(breakdownInterval);
-        let elapsed = ((Date.now() - starting));
-        breakdownTotal += elapsed;
-        document.getElementById("breakdown").textContent = (breakdownTotal/1000).toFixed(2);
-
-
-
-      }
-      //let starting = (now.getMinutes() + "." + now.getSeconds() + now.getMilliseconds()); 
-
-    }
-
-    function submitData() {
-      // Gather all data
-
-      //datalist.push(document.getElementById("matchNumber").value + "");
-
-
-
-      // Generate QR code linking to the CSV data URL
-
-      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("scoring").textContent + "," + document.getElementById("passing").textContent;
-    }
-
-
-
-      const scoring = document.getElementById("scoring");
-      const passing = document.getElementById("passing");
-
-      function startScoringTimer() {
-          if (timerInterval) return; // Prevent multiple intervals
-          startTime = Date.now() - elapsed;
-          timerInterval = setInterval(() => {
-              elapsed = Date.now() - startTime;
-              scoring.textContent = "Scoring time: " + (elapsed / 1000).toFixed(2);
-          }, 10);
-      }
-      function startpassingTimer() {
-          if (timerInterval) return; // Prevent multiple intervals
-          startTime2 = Date.now() - elapsed2;
-          timerInterval = setInterval(() => {
-              elapsed2 = Date.now() - startTime2;
-              passing.textContent = "passing time: " + (elapsed2 / 1000).toFixed(2);
-          }, 10);
-      }
-
-      // Stop counting when button is released
-      function stopScoringTimer() {
-          clearInterval(timerInterval);
-          timerInterval = null;
-      }
-      function stoppassingTimer() {
-          clearInterval(timerInterval);
-          timerInterval = null;
-      }
-
-      // Mouse events
-      scoring.addEventListener("mousedown", startScoringTimer);
-      scoring.addEventListener("mouseup", stopScoringTimer);
-      scoring.addEventListener("mouseleave", stopScoringTimer);
-
-      passing.addEventListener("mousedown", startpassingTimer);
-      passing.addEventListener("mouseup", stoppassingTimer);
-      passing.addEventListener("mouseleave", stoppassingTimer);
-
-  </script>
-
 
     <!-- You can link JavaScript files here -->
-    <script src="MatchScouting.js"></script>
+    <script type="module" src="Constants.js"></script>
+    <script type="module" src="DataHandler.js"></script>
+    <script type="module" src="teleop1.js"></script>
 </body>
 </html>
 

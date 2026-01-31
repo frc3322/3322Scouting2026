@@ -1,10 +1,11 @@
 
 
 export const ActionType = {
-    AutoFuelAttempted: "autoFuelAttempted",
-    AutoFuelScored: "autoFuelScored",
-    TeleFuelAttempted: "teleFuelAttempted",
-    TeleFuelScored: "teleFuelScored"
+    AutoFuel: "AutoFuel",
+    TeleFuel: "TeleFuel",
+
+    AutoFuelTime: "AutoFuelTime",
+    TeleFuelTime: "TeleFuelTime"
 };
 
 
