@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Scouting App</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="../stylesheet.css">
 
@@ -33,44 +33,44 @@
     </div>
 
 
-    <h1>Endgame</h1>
+    <h1>Teleop</h1>
     <p>3322 Rebuilt Scouting</p>
     <br>
+  <div class="section">
+    <h2>Teleop</h2>
 
-      <div class="section">
-    <h2>Endgame</h2>
-
-
-    <br>
-          <div class="buttons">
-        <div id="l4-button-success" class="successButton">
-          <button id="scoring" class="incButton">Scoring time: 0.00</button>
-        </div>
-        <div id="l4-button-failure" class="failureButton">
-          <button onclick="updateCrateData(4, 0, 1)" id="shuttleing" class="incButton">Shuttleing time: 0.00</button>
-        </div>
-      </div>
+    <h1>Total Balls:</h1>
+    <p id = "ballsCounter">0</p>
+    <h1>Number of cycles:</h1>
+    <p id = "cyclesCounter">0</p>
 
 
-    <select  id="Climb">
-      <option value=L1>L1 Climb</option>
-      <option value=L2>L2 Climb</option>
-      <option value=L3>L3 Climb</option>
-      <option value=Failure>Climb Failed :( </option>
-    </select>
-    <br>    <br>
+    <!-- L4 -->
+    <label for="cars">How much did bro shoot? :</label>
 
-      <label for="bump">Did they use Bump?</label>
-
-      <input type="checkbox" id="bump"><br>
-
-      <label for="trench">Did they use Trench?</label>
-
-      <input type="checkbox" id="trench"><br>
+<select name="cars" id="cars">
+  <option value="1">shot one</option>
+  <option value="5">shot five</option>
+  <option value="10">shot ten</option>
+  <option value="25">shot twenty five</option>
+  <option value="50">shot fifty</option>
+  <option value="75">shot seventy five</option>
+  <option value="100">shot one hundred</option>
 
 
+</select>
+
+
+<br>
+<button id = "submitShotBalls">submit</button>
+<br>
+      <button >jajajjajajajajajaja</button>
 
     <!-- You can link JavaScript files here -->
-    <script src="script.js"></script>
+    <script type="module" src="Constants.js"></script>
+    <script type="module" src="DataHandler.js"></script>
+    <script type="module" src="teleop3.js"></script>
+
 </body>
 </html>
+

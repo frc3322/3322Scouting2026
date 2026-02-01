@@ -1,6 +1,14 @@
-    function updateCrateData(level, success, change) {
-        if(level == 0 && success == 0)
+import { DataHandler } from "./match-scouting/DataHandler.js";
+import { ActionType } from "./match-scouting/Constants.js"; 
 
-        document.getElementById("AutoSuccess").textContent += "bbbbbbb";
-        document.getElementById("AutoSuccess").textContent += "aaaaaaa";
-    }
+document.getElementById("scoutBtn").addEventListener("click", () => {
+    console.log("Success!");
+});
+
+const dataHandler = new DataHandler();
+
+console.log(dataHandler.toString());
+localStorage.setItem("dataHandler", dataHandler.toString())
+
+dataHandler.loadData(localStorage.getItem("dataHandler"));
+console.log(localStorage.getItem("dataHandler"));

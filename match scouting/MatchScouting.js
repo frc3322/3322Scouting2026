@@ -1,4 +1,0 @@
-
-dataHandler = new DataHandler();
-
-
