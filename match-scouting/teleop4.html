@@ -41,23 +41,37 @@
     <p>3322 Rebuilt Scouting</p>
     <br>
 
-  <div class="section">
-
-    <div class="slider-section">
-      <h2>Teleop</h2>
-    
-      <p>
-        Rough Estimate of Balls Scored:
-      </p>
-
-      <div class="slide-container">
-        <input type="range" min="0" max="500" value="50" class="slider" step="10">
   
-        <p>BALLS: <span id="value"></span></p>
+    <div class="section">
 
+      <h2>Teleop</h2>
+
+      <div class = "adjustments">
+        <div>
+          <p style = "font-size: 25px; margin-bottom: 20px;" >User-Set Maximumum Ball Count:</p>
+          <!-- <input class="error" id = "max-ball" type="number" min = "100" max = "400"> -->
+          <button class = "adjust-button" id = "max-ball"> + 5 </button>
+          <button class = "adjust-button" id = "max-ball-two"> - 5 </button>
+        </div>
       </div>
 
-      <!-- <p><span id="demo"></span></p> -->
+      <div class="slider-section">
+        
+          <p>
+            Rough Estimate of Balls Scored:
+          </p>
+
+          <div class="slide-container">
+            <div class = "embed-container">
+              <input type="range" min="0" max="20" value="20" class="slider" step="1">
+              <div class = "marginLine" ></div>
+            </div>
+            
+
+            <p>BALLS: <span id="value"></span></p>
+
+          </div>     
+      </div>
 
       <p>
         Rough Margin of Error:
@@ -128,7 +142,7 @@
               </g>
             </svg>
 
-            <input type="number" class="error" min="0" max="25" value="0">
+            <input type="number" id = "error" class="error" min="0" value="0">
 
             <svg
 
@@ -187,7 +201,7 @@
               </g>
             </svg>
             
-          </div>
+        </div>
         
         </div>
 
@@ -195,41 +209,13 @@
           <p >Highest Possible:</p>
           <p id="highValue">0</p>
         </div>
+      
 
-
-      </div>
-
-
-        
-
-
-
+      </div>   
 
     </div>  
-    
 
-    </div>
-
-  </div>   
-
-    <script>
-        function submitData() {
-      // Gather all data
-
-      //datalist.push(document.getElementById("matchNumber").value + "");
-
-
-
-      // Generate QR code linking to the CSV data URL
-
-      window.location.href = "../qrcode.html" + "?data=" + document.getElementById("lowValue").textContent + "," + document.getElementById("highValue").textContent;
-    }
-
-  </script>
-
-        <button onclick="submitData()">jajajjajajajajajaja</button>
-
-    <!-- You can link JavaScript files here -->
+      <!-- You can link JavaScript files here -->
     <script src="MatchScouting.js"></script>
     <script src="teleop4.js"></script>
 
