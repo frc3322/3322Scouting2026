@@ -8,7 +8,7 @@ export class DataHandler {
     teleClimbLevel
 
     teleFuelTime
-    telePassingTime
+    telePassTime
 
     autoFuelAccuracy
     teleFuelAccuracy
@@ -34,7 +34,7 @@ export class DataHandler {
         "teleClimbLevel",
 
         "teleFuelTime",
-        "telePassingTime",
+        "telePassTime",
 
         "autoFuelAccuracy",
         "teleFuelAccuracy",
@@ -59,7 +59,7 @@ export class DataHandler {
         this.teleClimbLevel = 0;
 
         this.teleFuelTime = 0;
-        this.telePassingTime = 0;
+        this.telePassTime = 0;
 
         this.autoFuelAccuracy = 1;
         this.teleFuelAccuracy = 1;
@@ -144,16 +144,9 @@ export class DataHandler {
         }
     }
 
-    setAutoFuelTime(val) {
-        this.autoFuelTime = val;
-    }
 
     setTeleFuelTime(val) {
         this.teleFuelTime = val;
-    }
-
-    setAutoPassTime(val) {
-        this.autoPassTime = val;
     }
 
     setTelePassTime(val) {
@@ -203,7 +196,7 @@ export class DataHandler {
         return this.autoFuelPassed;
     }
 
-     getTelePass() {
+    getTelePass() {
         return this.teleFuelPassed;
     }
 
@@ -219,16 +212,8 @@ export class DataHandler {
         return this.teleFuelTime;
     }
 
-    getAutoFuelTime() {
-        return this.autoFuelTime;
-    }
-
     getTelePassTime() {
-        return this.teleFuelTime;
-    }
-
-    getAutoPassTime() {
-        return this.autoPassingTime;
+        return this.telePassTime;
     }
 
     getTeleCycleCounter() {

@@ -14,7 +14,6 @@ var mouseDown = false;
 var dataHandler = new DataHandler();
 dataHandler.loadData(localStorage.getItem("dataHandler"));
 
-console.log(dataHandler.getTeleFuelTime());
 
 function updateDataHandler(){
     localStorage.setItem("dataHandler", dataHandler.toString());
@@ -23,12 +22,8 @@ function updateDataHandler(){
 ScoringTotal = dataHandler.getTeleFuelTime();
 PassingTotal = dataHandler.getTelePassTime();
 
-console.log(dataHandler.getTeleFuelTime());
+console.log(dataHandler.toString());
 
-function setTimes(){
-    dataHandler.setTeleFuelTime(Math.round(100*ScoringTotal)/100);
-    dataHandler.setTelePassTime(Math.round(100*PassingTotal)/100);
-}
 
 setButtons();
 
@@ -60,7 +55,9 @@ function startScoringTimer() {
         scoring.textContent = "Scoring time: " + (ScoringTotal + ScoringElapsed/ 1000).toFixed(2);
     }, 10);
 }
+
 function startpassingTimer() {
+    mouseDown = true;
     if (timerInterval) return; // Prevent multiple intervals
     PassingStartTime = Date.now();
     timerInterval = setInterval(() => {
@@ -77,53 +74,25 @@ function stopScoringTimer() {
         ScoringTotal += ScoringElapsed/1000;
         dataHandler.setTeleFuelTime(Math.round(100*ScoringTotal)/100);
         updateDataHandler()
-        console.log(dataHandler.getTeleFuelTime());
 
         mouseDown = false;
     }
 }
 function stopPassingTimer() {
+    if(mouseDown){
         clearInterval(timerInterval);
         timerInterval = null;
         PassingTotal += PassingElapsed/1000;
         dataHandler.setTelePassTime(Math.round(100*PassingTotal)/100);
         updateDataHandler()
-        console.log(dataHandler.getTelePassTime());
+        console.log(dataHandler.toString());
 
         mouseDown = false;
+    }
 }
 
 function setButtons() {
 
-    document.getElementById("nav-auton").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
-
-    document.getElementById("nav-teleop1").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
-
-    document.getElementById("nav-teleop2").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
-
-    document.getElementById("nav-teleop3").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
-
-    document.getElementById("nav-teleop4").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
-
-    document.getElementById("nav-endgame").addEventListener("click", () => {
-        setTimes()
-        updateDataHandler()
-    });
 
 }
 

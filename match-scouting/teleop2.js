@@ -19,7 +19,7 @@ function submitData() {
 }
 
 document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel()
-document.getElementById("passingCounter").textContent = dataHandler.getTeleFuel()
+document.getElementById("passingCounter").textContent = dataHandler.getTelePass()
 
 
 function increaseNumber(amount) {
