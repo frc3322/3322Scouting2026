@@ -3,31 +3,39 @@ import { DataHandler } from "./DataHandler.js";
 var timerInterval = null;
 var ScoringStartTime = 0;
 var ScoringElapsed = 0;
+var ScoringTotal = 0;
 var PassingStartTime = 0;
 var PassingElapsed = 0;
+var PassingTotal = 0;
+var mouseDown = false;
 
 
-console.log(localStorage.getItem("dataHandler"));
 
 var dataHandler = new DataHandler();
 dataHandler.loadData(localStorage.getItem("dataHandler"));
 
-console.log(dataHandler.toString());
+console.log(dataHandler.getTeleFuelTime());
 
 function updateDataHandler(){
     localStorage.setItem("dataHandler", dataHandler.toString());
 }
 
-function increaseTimes(){
-    dataHandler.incTeleShootingTime(ScoringElapsed);
+ScoringTotal = dataHandler.getTeleFuelTime();
+PassingTotal = dataHandler.getTelePassTime();
+
+console.log(dataHandler.getTeleFuelTime());
+
+function setTimes(){
+    dataHandler.setTeleFuelTime(Math.round(100*ScoringTotal)/100);
+    dataHandler.setTelePassTime(Math.round(100*PassingTotal)/100);
 }
+
+setButtons();
 
 function submitData() {
     // Gather all data
 
     //datalist.push(document.getElementById("matchNumber").value + "");
-
-
 
     // Generate QR code linking to the CSV data URL
 
@@ -43,81 +51,82 @@ scoring.textContent = "Scoring time: " + dataHandler.getTeleFuelTime().toFixed(2
 passing.textContent = "Passing time: " + dataHandler.getTelePassTime().toFixed(2);
 
 function startScoringTimer() {
+    mouseDown = true;
     if (timerInterval) return; // Prevent multiple intervals
-    ScoringStartTime = Date.now() - ScoringElapsed;
+    ScoringStartTime = Date.now();
     timerInterval = setInterval(() => {
         ScoringElapsed = Date.now() - ScoringStartTime;
-        scoring.textContent = "Scoring time: " + (ScoringElapsed / 1000).toFixed(2);
+        
+        scoring.textContent = "Scoring time: " + (ScoringTotal + ScoringElapsed/ 1000).toFixed(2);
     }, 10);
 }
 function startpassingTimer() {
     if (timerInterval) return; // Prevent multiple intervals
-    PassingStartTime = Date.now() - PassingElapsed;
+    PassingStartTime = Date.now();
     timerInterval = setInterval(() => {
         PassingElapsed = Date.now() - PassingStartTime;
-        passing.textContent = "Passing time: " + (PassingElapsed / 1000).toFixed(2);
+        passing.textContent = "Passing time: " + (PassingTotal + PassingElapsed / 1000).toFixed(2);
     }, 10);
 }
 
 // Stop counting when button is released
 function stopScoringTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    dataHandler.setTeleFuelTime(ScoringElapsed / 1000);
+    if(mouseDown){
+        clearInterval(timerInterval);
+        timerInterval = null;
+        ScoringTotal += ScoringElapsed/1000;
+        dataHandler.setTeleFuelTime(Math.round(100*ScoringTotal)/100);
+        updateDataHandler()
+        console.log(dataHandler.getTeleFuelTime());
+
+        mouseDown = false;
+    }
 }
 function stopPassingTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    dataHandler.setTelePassTime(PassingElapsed / 1000);  
+        clearInterval(timerInterval);
+        timerInterval = null;
+        PassingTotal += PassingElapsed/1000;
+        dataHandler.setTelePassTime(Math.round(100*PassingTotal)/100);
+        updateDataHandler()
+        console.log(dataHandler.getTelePassTime());
+
+        mouseDown = false;
 }
 
 function setButtons() {
 
-    document.getElementById("hubSuccessIncrease1").addEventListener("click", () => {
-        increaseNumber(1);
-    });
-
-    document.getElementById("hubSuccessIncrease5").addEventListener("click", () => {
-        increaseNumber(5);
-    });
-
-    document.getElementById("hubSuccessIncrease10").addEventListener("click", () => {
-        increaseNumber(10);
-    });
-
     document.getElementById("nav-auton").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
     document.getElementById("nav-teleop1").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
     document.getElementById("nav-teleop2").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
     document.getElementById("nav-teleop3").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
     document.getElementById("nav-teleop4").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
     document.getElementById("nav-endgame").addEventListener("click", () => {
+        setTimes()
         updateDataHandler()
-        increaseTimes()
     });
 
-    
-
 }
+
 
 
 // Mouse events

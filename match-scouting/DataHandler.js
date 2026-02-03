@@ -7,10 +7,7 @@ export class DataHandler {
     autoClimb
     teleClimbLevel
 
-    autoFuelTime
     teleFuelTime
-
-    autoPassingTime
     telePassingTime
 
     autoFuelAccuracy
@@ -21,6 +18,8 @@ export class DataHandler {
 
     autoFuelShuttled
     teleFuelShuttled
+
+    teleCycleCounter
 
     fuelStolen
 
@@ -34,10 +33,7 @@ export class DataHandler {
         "autoClimb",
         "teleClimbLevel",
 
-        "autoFuelTime",
         "teleFuelTime",
-
-        "autoPassingTime",
         "telePassingTime",
 
         "autoFuelAccuracy",
@@ -57,30 +53,27 @@ export class DataHandler {
 
     constructor() {
         this.autoFuel = 0;
-this.teleFuel = 0;
+        this.teleFuel = 0;
 
-this.autoClimb = 0;
-this.teleClimbLevel = 0;
+        this.autoClimb = 0;
+        this.teleClimbLevel = 0;
 
-this.autoFuelTime = 0;
-this.teleFuelTime = 0;
+        this.teleFuelTime = 0;
+        this.telePassingTime = 0;
 
-this.autoPassingTime = 0;
-this.telePassingTime = 0;
+        this.autoFuelAccuracy = 1;
+        this.teleFuelAccuracy = 1;
 
-this.autoFuelAccuracy = 1;
-this.teleFuelAccuracy = 1;
+        this.autoFuelPassed = 0;
+        this.teleFuelPassed = 0;
 
-this.autoFuelPassed = 0;
-this.teleFuelPassed = 0;
+        this.autoFuelShuttled = 0;
+        this.teleFuelShuttled = 0;
 
-this.autoFuelShuttled = 0;
-this.teleFuelShuttled = 0;
+        this.fuelStolen = 0;
 
-this.fuelStolen = 0;
-
-this.stackAuto = [];
-this.stackTele = [];
+        this.stackAuto = [];
+        this.stackTele = [];
 
     }
 
@@ -94,7 +87,15 @@ this.stackTele = [];
     toString() {
         let string = "";
         for (let i = 0; i < this.variableKeys.length; i++) {
-            string += "" + JSON.stringify(this[this.variableKeys[i]])+ ";"
+            string += "" + JSON.stringify(this[this.variableKeys[i]]) + ";"
+        }
+        return string;
+    }
+
+    exportData() {
+        let string = "";
+        for (let i = 0; i < this.variableKeys.length - 2; i++) {
+            string += "" + JSON.stringify(this[this.variableKeys[i]]) + ";"
         }
         return string;
     }
@@ -107,11 +108,11 @@ this.stackTele = [];
             case ActionType.TeleFuel:
                 this.teleFuel += val;
                 break;
-            case ActionType.AutoFuelTime:
-                this.autoFuelAccuracy += val;
+            case ActionType.TelePass:
+                this.teleFuelPassed += val;
                 break;
-            case ActionType.TeleFuelTime:
-                this.teleFuelAccuracy += val;
+            case ActionType.Steal:
+                this.fuelStolen += val;
                 break;
             default:
                 break;
@@ -167,6 +168,10 @@ this.stackTele = [];
         this.teleClimbLevel = val;
     }
 
+    setTeleCycleCounter(val) {
+        this.teleCycleCounter = val;
+    }
+
     #addActionAuto(action) {
         this.stackAuto.push(action);
         if (this.stackAuto.length > 200) {
@@ -194,6 +199,14 @@ this.stackTele = [];
         return this.teleFuel;
     }
 
+    getAutoPass() {
+        return this.autoFuelPassed;
+    }
+
+     getTelePass() {
+        return this.teleFuelPassed;
+    }
+
     getAutoFuelAccuracy() {
         return this.teleFuel;
     }
@@ -218,6 +231,9 @@ this.stackTele = [];
         return this.autoPassingTime;
     }
 
+    getTeleCycleCounter() {
+        return this.teleCycleCounter;
+    }
 
 
 

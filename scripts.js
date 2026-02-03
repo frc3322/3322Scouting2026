@@ -10,5 +10,4 @@ const dataHandler = new DataHandler();
 console.log(dataHandler.toString());
 localStorage.setItem("dataHandler", dataHandler.toString())
 
-dataHandler.loadData(localStorage.getItem("dataHandler"));
-console.log(localStorage.getItem("dataHandler"));
+
