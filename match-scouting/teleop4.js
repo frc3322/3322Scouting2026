@@ -143,5 +143,8 @@ slider.addEventListener("input", () => {
     // lineTwo.style.marginLeft = "10px";
 });
 
+inputField.addEventListener("input", () => {
+    updateMargins(parseInt(inputField.value), parseInt(slider.value)); 
+});
 
 
