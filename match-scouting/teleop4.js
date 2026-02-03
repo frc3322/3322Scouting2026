@@ -21,9 +21,20 @@ var maxBallCount = document.getElementById("max-ball");
 var maxBallCountTwo = document.getElementById("max-ball-two");
 var maxValue = 20;
 
-const line = document.querySelector(".marginLine");
+const lineOne = document.querySelector(".marginLine");
+const lineTwo = document.querySelector(".marginLineTwo");
+const embedSlider = document.querySelector(".embed-container");
+const sliderButton = document.querySelector(".slider::-webkit-slider-thumb");
+
 var marginLength = 0;
 let lengthAdjuster = 0;
+
+function updateMargins(currentValue, sliderValue) {
+    lineOne.style.width = (100*(currentValue))/(parseInt(slider.max)) + "%";
+    lineTwo.style.width = (100*(currentValue))/(parseInt(slider.max)) + "%";
+    lineOne.style.right = 100*(1-(sliderValue)/(parseInt(slider.max))) + "%";
+    lineTwo.style.left = 100*((sliderValue)/(parseInt(slider.max))) + "%";
+}
 
 
 maxBallCount.addEventListener("click", () => {
@@ -39,6 +50,8 @@ maxBallCount.addEventListener("click", () => {
     // else {
     //     slider.max = parseInt(maxBallCount.value);
     // }
+
+    updateMargins(parseInt(inputField.value), parseInt(slider.value));
     
 })
 
@@ -50,6 +63,7 @@ maxBallCountTwo.addEventListener("click", () =>{
         output.innerHTML = maxValue;
     }
 
+    updateMargins(parseInt(inputField.value), parseInt(slider.value));
 })
 
 
@@ -74,7 +88,8 @@ upArrow.addEventListener("click", () => {
         }
     highValue.innerHTML = highestPossible;
 
-    line.style.width = ( parseInt(highValue.innerHTML) - parseInt(lowValue.innerHTML) )+ "px";
+    updateMargins(parseInt(inputField.value), parseInt(slider.value));  
+
 });
 
 downArrow.addEventListener("click", () => {
@@ -99,9 +114,8 @@ downArrow.addEventListener("click", () => {
         }
     highValue.innerHTML = highestPossible;
 
-    let scaleFactor = (100)/(highValue)
+    updateMargins(parseInt(inputField.value), parseInt(slider.value));
 
-    line.style.width = parseInt(inputField.value)*scaleFactor + "%";
 
 });
 
@@ -109,6 +123,7 @@ downArrow.addEventListener("click", () => {
 slider.addEventListener("input", () => {
     let marginOfError = parseInt(inputField.value);
     let sliderValue = parseInt(slider.value);
+    
 
     let lowestPossible = sliderValue - marginOfError;
     if (lowestPossible < 0) {
@@ -123,7 +138,9 @@ slider.addEventListener("input", () => {
         }
     highValue.innerHTML = highestPossible;
 
+    updateMargins(parseInt(inputField.value), parseInt(slider.value));  
 
+    // lineTwo.style.marginLeft = "10px";
 });
 
 
