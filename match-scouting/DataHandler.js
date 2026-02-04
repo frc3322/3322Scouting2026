@@ -1,6 +1,7 @@
 import { ActionType } from "./Constants.js"
 
 export class DataHandler {
+    
     autoFuel
     teleFuel
 
@@ -71,6 +72,7 @@ export class DataHandler {
         this.teleFuelShuttled = 0;
 
         this.fuelStolen = 0;
+        this.teleCycleCounter = 0;
 
         this.stackAuto = [];
         this.stackTele = [];
@@ -78,7 +80,13 @@ export class DataHandler {
     }
 
     loadData(string) {
-        let data = string.split(";");
+        let data;
+        if(string != null) {
+         data = string.split(";");
+        }
+        else{
+         data = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]; //Fix this
+        }
         for (let i = 0; i < this.variableKeys.length; i++) {
             this[this.variableKeys[i]] = JSON.parse(data[i]);
         }
@@ -100,7 +108,8 @@ export class DataHandler {
         return string;
     }
 
-    #changeFuel(actionType, val) {
+    changeFuel(actionType, val) {
+        
         switch (actionType) {
             case ActionType.AutoFuel:
                 this.autoFuel += val;
@@ -114,6 +123,10 @@ export class DataHandler {
             case ActionType.Steal:
                 this.fuelStolen += val;
                 break;
+            case ActionType.Cycle:
+                this.teleCycleCounter += val;
+                alert(this.teleCycleCounter);
+                break;
             default:
                 break;
         }
@@ -121,26 +134,26 @@ export class DataHandler {
 
 
     incrementAuto(actionType, val) {
-        this.#addActionAuto([actionType, val])
-        this.#changeFuel(actionType, val)
+        this.addActionAuto([actionType, val])
+        this.changeFuel(actionType, val)
     }
 
     undoAuto() {
         if (this.stackAuto.length > 0) {
             var action = this.stackAuto.pop()
-            this.#changeFuel(action[0], -action[1])
+            this.changeFuel(action[0], -action[1])
         }
     }
 
     incrementTele(actionType, val) {
-        this.#addActionTele([actionType, val])
-        this.#changeFuel(actionType, val)
+        //this.addActionTele([actionType, val])
+        this.changeFuel(actionType, val)
     }
 
     undoTele() {
         if (this.stackTele.length > 0) {
             var action = this.stackTele.pop()
-            this.#changeFuel(action[0], -action[1])
+            this.changeFuel(action[0], -action[1])
         }
     }
 
@@ -165,14 +178,14 @@ export class DataHandler {
         this.teleCycleCounter = val;
     }
 
-    #addActionAuto(action) {
+    addActionAuto(action) {
         this.stackAuto.push(action);
         if (this.stackAuto.length > 200) {
             this.stackAuto.shift();
         }
     }
 
-    #addActionTele(action) {
+    addActionTele(action) {
         this.stackTele.push(action);
         if (this.stackTele.length > 200) {
             this.stackTele.shift();
