@@ -26,32 +26,7 @@ export class DataHandler {
 
     stackAuto
     stackTele
-
-    variableKeys = [
-        "autoFuel",
-        "teleFuel",
-
-        "autoClimb",
-        "teleClimbLevel",
-
-        "teleFuelTime",
-        "telePassTime",
-
-        "autoFuelAccuracy",
-        "teleFuelAccuracy",
-
-        "autoFuelPassed",
-        "teleFuelPassed",
-
-        "autoFuelShuttled",
-        "teleFuelShuttled",
-
-        "fuelStolen",
-
-        "stackAuto",
-        "stackTele"
-    ];
-
+    
     constructor() {
         this.autoFuel = 0;
         this.teleFuel = 0;
@@ -80,30 +55,34 @@ export class DataHandler {
     }
 
     loadData(string) {
-        let data;
-        if(string != null) {
-         data = string.split(";");
+        try{
+            let data = string.split(";");
+            let i = 0;
+            for (const [key, value] of Object.entries(this)) {
+                this[key] = JSON.parse(data[i]);
+                i++;
+            }
         }
-        else{
-         data = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]; //Fix this
-        }
-        for (let i = 0; i < this.variableKeys.length; i++) {
-            this[this.variableKeys[i]] = JSON.parse(data[i]);
+        catch{
+
         }
     }
 
     toString() {
         let string = "";
-        for (let i = 0; i < this.variableKeys.length; i++) {
-            string += "" + JSON.stringify(this[this.variableKeys[i]]) + ";"
+        for (const [key, value] of Object.entries(this)) {
+            string += "" + JSON.stringify(value) + ";"
         }
         return string;
     }
 
     exportData() {
         let string = "";
-        for (let i = 0; i < this.variableKeys.length - 2; i++) {
-            string += "" + JSON.stringify(this[this.variableKeys[i]]) + ";"
+        for (const [key, value] of Object.entries(this)) {
+            if(typeof value == "number"){
+                string += "" + JSON.stringify(value) + ";"
+            }
+            
         }
         return string;
     }

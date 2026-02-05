@@ -8,6 +8,7 @@ document.getElementById("scoutBtn").addEventListener("click", () => {
 const dataHandler = new DataHandler();
 
 console.log(dataHandler.toString());
+console.log(dataHandler.exportData());
 localStorage.setItem("dataHandler", dataHandler.toString())
 
 

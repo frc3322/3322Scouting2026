@@ -1,14 +1,14 @@
 
 
 export const ActionType = {
-    AutoFuel: "AutoFuel",
-    TeleFuel: "TeleFuel",
+    AutoFuel: "AF",
+    TeleFuel: "TF",
     
-    TelePass: "TelePass",
-    Steal: "Steal",
+    TelePass: "TP",
+    Steal: "S",
 
-    AutoFuelTime: "AutoFuelTime",
-    TeleFuelTime: "TeleFuelTime"
+    AutoFuelTime: "AFT",
+    TeleFuelTime: "TFT"
 };
 
 
