@@ -51,15 +51,15 @@ function setButtons() {
         increaseNumber(10);
     });
 
-    document.getElementById("fuelHubSuccessIncrease1").addEventListener("click", () => {
+    document.getElementById("hubPassingIncrease1").addEventListener("click", () => {
         increasePassing(1);
     });
 
-    document.getElementById("fuelHubSuccessIncrease5").addEventListener("click", () => {
+    document.getElementById("hubPassingIncrease5").addEventListener("click", () => {
         increasePassing(5);
     });
 
-    document.getElementById("fuelHubSuccessIncrease10").addEventListener("click", () => {
+    document.getElementById("hubPassingIncrease10").addEventListener("click", () => {
         increasePassing(10);
     });
 

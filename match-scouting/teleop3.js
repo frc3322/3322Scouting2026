@@ -5,7 +5,6 @@ var dataHandler = new DataHandler();
 dataHandler.loadData(localStorage.getItem("dataHandler"))
 
 
-alert(dataHandler.getTeleCycleCounter());
 
 var fuelCounter = document.getElementById("fuelCounter");
 var fuelIncrements = document.getElementById("fuelIncrements");

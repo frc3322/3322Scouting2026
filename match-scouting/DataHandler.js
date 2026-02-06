@@ -5,8 +5,11 @@ export class DataHandler {
     autoFuel
     teleFuel
 
+    autoFuelFailed
+
     autoClimb
     teleClimbLevel
+
 
     teleFuelTime
     telePassTime
@@ -51,6 +54,8 @@ export class DataHandler {
 
         this.stackAuto = [];
         this.stackTele = [];
+
+        this.autoFuelFailed = 0;
 
     }
 
@@ -104,7 +109,9 @@ export class DataHandler {
                 break;
             case ActionType.Cycle:
                 this.teleCycleCounter += val;
-                alert(this.teleCycleCounter);
+                break;
+            case ActionType.AutoFuelFailed:
+                this.autoFuelFailed += val;
                 break;
             default:
                 break;
@@ -175,6 +182,10 @@ export class DataHandler {
     /*
         Getters
     */
+
+    getAutoFuelFailed() {
+        return this.autoFuelFailed;
+    }
 
     getAutoFuel() {
         return this.autoFuel;

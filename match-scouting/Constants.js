@@ -8,7 +8,9 @@ export const ActionType = {
     Steal: "S",
 
     AutoFuelTime: "AFT",
-    TeleFuelTime: "TFT"
+    TeleFuelTime: "TFT",
+    
+    AutoFuelFailed: "AFF"
 };
 
 
