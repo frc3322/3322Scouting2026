@@ -65,6 +65,19 @@ select {
     background-color: #101010;
 }
 
+.star-Raiting {
+    display: flex;
+    justify-content: center;
+    gap: 6px;        /* space between stars */
+}
+
+.star-Raiting p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 28px; /* make stars bigger if you want */
+}
+
+
 h1{
     color:#e9fbff;
 }
