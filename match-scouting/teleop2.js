@@ -8,16 +8,6 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
 
 console.log(dataHandler.toString());
 
-function submitData() {
-    // Gather all data
-
-    //datalist.push(document.getElementById("matchNumber").value + "");
-
-    // Generate QR code linking to the CSV data URL
-
-    window.location.href = "../qrcode.html" + "?data=" + document.getElementById("fuelCount").textContent;
-}
-
 
 function updateFields(){
     document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel()
@@ -44,27 +34,27 @@ function increasePassing(amount) {
 
 function setButtons() {
     
-    document.getElementById("hubSuccessIncrease1").addEventListener("click", () => {
+    document.getElementById("hub1").addEventListener("click", () => {
         increaseNumber(1);
     });
 
-    document.getElementById("hubSuccessIncrease5").addEventListener("click", () => {
+    document.getElementById("hub5").addEventListener("click", () => {
         increaseNumber(5);
     });
 
-    document.getElementById("hubSuccessIncrease10").addEventListener("click", () => {
+    document.getElementById("hub10").addEventListener("click", () => {
         increaseNumber(10);
     });
 
-    document.getElementById("hubPassingIncrease1").addEventListener("click", () => {
+    document.getElementById("pass1").addEventListener("click", () => {
         increasePassing(1);
     });
 
-    document.getElementById("hubPassingIncrease5").addEventListener("click", () => {
+    document.getElementById("pass5").addEventListener("click", () => {
         increasePassing(5);
     });
 
-    document.getElementById("hubPassingIncrease10").addEventListener("click", () => {
+    document.getElementById("pass10").addEventListener("click", () => {
         increasePassing(10);
     });
 

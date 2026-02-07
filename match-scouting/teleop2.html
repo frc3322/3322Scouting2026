@@ -37,29 +37,32 @@
     <p>3322 Rebuilt Scouting</p>
     <br>
   <div class="section">
-    <h2>Teleop</h2>
 
     <!-- L4 -->
     <h1>How many scored?: </h1>
     <h1 id="fuelCounter">0</h1>
     <div class="buttons">
-        <button class="button" style="background-color: rgb(130, 229, 143);" id="hubSuccessIncrease1" class="incButton">+1</button>
-        <button class="button" style="background-color: rgb(102, 196, 114);" id="hubSuccessIncrease5" class="incButton">+5</button>
-        <button class="button" style="background-color: rgb(67, 153, 78);" id="hubSuccessIncrease10" class="incButton">+10</button>
+        <button class="button" style="background-color: rgb(130, 229, 143);" id="hub1" class="incButton">+1</button>
+        <button class="button" style="background-color: rgb(102, 196, 114);" id="hub5" class="incButton">+5</button>
+        <button class="button" style="background-color: rgb(67, 153, 78);" id="hub10" class="incButton">+10</button>
 
     </div>
+
+    <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
+    <output style="color:#e9fbff;">90%</output>
+
     <h1>How many passed?: </h1>
     <h1 id="passingCounter">0</h1>
     <div class="buttons">
-        <button class="button" style="background-color: rgb(150, 195, 224);"  id="fuelHubSuccessIncrease1" class="incButton">+1</button>
-        <button class="button" style="background-color: rgb(110, 157, 189);"  id="fuelHubSuccessIncrease5" class="incButton">+5</button>
-        <button class="button" style="background-color: rgb(92, 139, 170);"  id="fuelHubSuccessIncrease10" class="incButton">+10</button>
+        <button class="button" style="background-color: rgb(150, 195, 224);"  id="pass1" class="incButton">+1</button>
+        <button class="button" style="background-color: rgb(110, 157, 189);"  id="pass5" class="incButton">+5</button>
+        <button class="button" style="background-color: rgb(92, 139, 170);"  id="pass10" class="incButton">+10</button>
 
     </div>
 
     <h2>Accuracy</h2>
     <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
-    <output style="color:white;">90%</output>
+    <output style="color:#e9fbff;">90%</output>
 
     <button class="undo-button" id="undo">Undo</button>
     

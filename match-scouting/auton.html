@@ -3,66 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
+    <title>Scouting App</title>
     <!-- You can link CSS files here -->
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../CSS/auton.css">
 
 </head>
 <body>
     <!-- This is the visible content of the page -->
 
     <div class="fixedElement">
-      <a href = "auton.html">
+      <a id="nav-auton" href = "auton.html">
       <img src="../images/Auto-Button.png">
       </a>
-      <a href = "teleop1.html">
+      <a id="nav-teleop1" href = "teleop1.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop2.html">
+      <a id="nav-teleop2" href = "teleop2.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop3.html">
+      <a id="nav-teleop3" href = "teleop3.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "teleop4.html">
+      <a id="nav-teleop4" href = "teleop4.html">
       <img src="../images/Tele-button.png">
       </a>
-      <a href = "endgame.html">
+      <a id="nav-endgame" href = "endgame.html">
       <img src="../images/Endgame-Button.png">
       </a>
     </div>
-    
 
 
     <h1>Auton</h1>
-    <p>3322 Rebuilt Scouting :)</p>
+    <p>3322 Rebuilt Scouting</p>
     <br>
   <div class="section">
-    <h2>Auto</h2>
 
     <!-- L4 -->
     <h1>How many scored?: </h1>
     <h1 id="fuelCounter">0</h1>
     <div class="buttons">
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease1" class="incButton">Plus 1</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease5" class="incButton">Plus 5</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease10" class="incButton">Plus 10</button>
+        <button class="button" style="background-color: rgb(130, 229, 143);" id="hub1" class="incButton">+1</button>
+        <button class="button" style="background-color: rgb(102, 196, 114);" id="hub5" class="incButton">+5</button>
+        <button class="button" style="background-color: rgb(67, 153, 78);" id="hub10" class="incButton">+10</button>
 
     </div>
-    <h1>How many failed?: </h1>
-    <h1 id="passingCounter">0</h1>
-    <div class="buttons">
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubFailedIncrease1" class="incButton">Plus 1</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubFailedIncrease5" class="incButton">Plus 5</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubFailedIncrease10" class="incButton">Plus 10</button>
 
-    </div>
-      <button onclick="">jajajjajajajajajaja</button>
-
-    <!-- You can link JavaScript files here -->
+    <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
+    <output style="color:#e9fbff;">90%</output>
+    <button class="undo-button" id="undo">Undo</button>
+    
+        <!-- You can link JavaScript files here -->
     <script type="module" src="Constants.js"></script>
     <script type="module" src="DataHandler.js"></script>
-    <script type="module" src="auton.js"></script>
-</body>
+    <script type="module" src="auton.js"></script></body>
 </html>
 
