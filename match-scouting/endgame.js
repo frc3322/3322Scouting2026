@@ -1,3 +1,11 @@
+import { ActionType } from "./Constants.js";
+import { DataHandler } from "./DataHandler.js";
+
+var dataHandler = new DataHandler;
+dataHandler.loadData(localStorage.getItem("dataHandler"));
+
+
+
 let stars;
 
 
@@ -63,4 +71,13 @@ function setButtons() {
 
 }
 
+
+document.getElementById("initials").value = dataHandler.getScouterName();
+document.getElementById("teamNumber").value = dataHandler.getTeamNumber();
+document.getElementById("matchNumber").value = dataHandler.getMatchNumber();
+
+
+
+
 setButtons();
+

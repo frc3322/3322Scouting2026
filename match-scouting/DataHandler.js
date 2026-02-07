@@ -30,6 +30,8 @@ export class DataHandler {
     stackAuto
     stackTele
 
+    scouterName
+
     constructor() {
         this.autoFuel = 0;
         this.teleFuel = 0;
@@ -56,6 +58,10 @@ export class DataHandler {
         this.stackTele = [];
 
         this.autoFuelFailed = 0;
+
+        this.scouterName = "";
+        this.teamNumber = "";
+        this.matchNumber = "";
 
     }
 
@@ -164,6 +170,10 @@ export class DataHandler {
         this.teleCycleCounter = val;
     }
 
+    setScouterName(name) {
+        this.scouterName = name;
+    }
+
     addActionAuto(action) {
         this.stackAuto.push(action);
         if (this.stackAuto.length > 200) {
@@ -176,6 +186,12 @@ export class DataHandler {
         if (this.stackTele.length > 200) {
             this.stackTele.shift();
         }
+    }
+    setTeamNumber(num) {
+        this.teamNumber = num;
+    }
+    setMatchNumber(num) {
+        this.matchNumber = num;
     }
 
 
@@ -223,6 +239,15 @@ export class DataHandler {
         return this.teleCycleCounter;
     }
 
+    getScouterName() {
+        return this.scouterName;
+    }
+    getTeamNumber() {
+        return this.teamNumber;
+    }
+    getMatchNumber() {
+        return this.matchNumber;
+    }
 
 
 }
