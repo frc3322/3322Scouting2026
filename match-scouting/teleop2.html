@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scouting App</title>
     <!-- You can link CSS files here -->
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../CSS/teleop2.css">
 
 </head>
 <body>
@@ -43,22 +43,32 @@
     <h1>How many balls?: </h1>
     <h1 id="fuelCounter">0</h1>
     <div class="buttons">
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease1" class="incButton">Plus 1</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease5" class="incButton">Plus 5</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="hubSuccessIncrease10" class="incButton">Plus 10</button>
+        <button class="button" style="background-color: rgb(130, 229, 143);" id="hubSuccessIncrease1" class="incButton">+1</button>
+        <button class="button" style="background-color: rgb(102, 196, 114);" id="hubSuccessIncrease5" class="incButton">+5</button>
+        <button class="button" style="background-color: rgb(67, 153, 78);" id="hubSuccessIncrease10" class="incButton">+10</button>
 
     </div>
+
+    <h2>Accuracy</h2>
+    <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
+    <output style="color:white;">90%</output>
+
     <h1>How many passing?: </h1>
     <h1 id="passingCounter">0</h1>
     <div class="buttons">
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="fuelHubSuccessIncrease1" class="incButton">Plus 1</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="fuelhubSuccessIncrease5" class="incButton">Plus 5</button>
-        <button style="width: 25%; height: 200px; font-size:30px;"  id="fuelHubSuccessIncrease10" class="incButton">Plus 10</button>
+        <button class="button" style="background-color: rgb(150, 195, 224);"  id="fuelHubSuccessIncrease1" class="incButton">+1</button>
+        <button class="button" style="background-color: rgb(110, 157, 189);"  id="fuelHubSuccessIncrease5" class="incButton">+5</button>
+        <button class="button" style="background-color: rgb(92, 139, 170);"  id="fuelHubSuccessIncrease10" class="incButton">+10</button>
 
     </div>
-      <button onclick="">jajajjajajajajajaja</button>
 
-    <!-- You can link JavaScript files here -->
+    <h2>Accuracy</h2>
+    <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
+    <output style="color:white;">90%</output>
+
+    <button class="undo-button" id="undo">Undo</button>
+    
+        <!-- You can link JavaScript files here -->
     <script type="module" src="Constants.js"></script>
     <script type="module" src="DataHandler.js"></script>
     <script type="module" src="teleop2.js"></script>

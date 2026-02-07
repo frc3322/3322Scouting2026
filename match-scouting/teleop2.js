@@ -18,14 +18,19 @@ function submitData() {
     window.location.href = "../qrcode.html" + "?data=" + document.getElementById("fuelCount").textContent;
 }
 
-document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel()
-document.getElementById("passingCounter").textContent = dataHandler.getTelePass()
+
+function updateFields(){
+    document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel()
+    document.getElementById("passingCounter").textContent = dataHandler.getTelePass()
+}
+
+updateFields()
 
 
 function increaseNumber(amount) {
     
     dataHandler.incrementTele(ActionType.TeleFuel, amount);
-    console.log(dataHandler.getTeleFuel());
+    console.log(dataHandler.toString());
     document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel();
     localStorage.setItem("dataHandler", dataHandler.toString());
 }
@@ -63,6 +68,11 @@ function setButtons() {
         increasePassing(10);
     });
 
+    document.getElementById("undo").addEventListener("click", () => {
+        dataHandler.undoTele();
+        console.log("undo")
+        updateFields();
+    });
 
 }
 

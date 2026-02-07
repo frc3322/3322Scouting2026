@@ -26,7 +26,7 @@ export class DataHandler {
 
     stackAuto
     stackTele
-    
+
     constructor() {
         this.autoFuel = 0;
         this.teleFuel = 0;
@@ -125,7 +125,7 @@ export class DataHandler {
     }
 
     incrementTele(actionType, val) {
-        //this.addActionTele([actionType, val])
+        this.addActionTele([actionType, val])
         this.changeFuel(actionType, val)
     }
 

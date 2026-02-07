@@ -1,6 +1,5 @@
 var slider = document.querySelector(".slider");
 var output = document.getElementById("value");
-output.innerHTML = slider.value; 
 
 
 
@@ -8,12 +7,13 @@ output.innerHTML = slider.value;
 
 slider.oninput = function() 
 {
-  output.innerHTML = this.value;
+  output.innerHTML = this.value + "±" + (inputField.value/2);
 }
 
 const upArrow = document.getElementById("upArrow");
 const downArrow = document.getElementById("downArrow");
 const inputField = document.querySelector("#error");
+const submit = document.getElementById("submit");
 var highValue = document.getElementById("highValue");
 var lowValue = document.getElementById("lowValue");
 let lowestPossible = 0;
@@ -28,6 +28,8 @@ const sliderButton = document.querySelector(".slider::-webkit-slider-thumb");
 
 var marginLength = 0;
 let lengthAdjuster = 0;
+
+output.innerHTML = slider.value +"±" + (inputField.value/2); 
 
 function updateMargins(currentValue, sliderValue) {
     lineOne.style.width = (100*(currentValue))/(parseInt(slider.max)) + "%";
@@ -60,7 +62,7 @@ maxBallCountTwo.addEventListener("click", () =>{
     {
         maxValue-=5;
         slider.max = maxValue;
-        output.innerHTML = maxValue;
+        output.innerHTML = maxValue + "±" + (inputField.value/2);
     }
 
     updateMargins(parseInt(inputField.value), parseInt(slider.value));
@@ -72,6 +74,7 @@ upArrow.addEventListener("click", () => {
     let currentValue = parseInt(inputField.value);
     let sliderValue = parseInt(slider.value);
 
+    if(currentValue)
     inputField.value = currentValue + 1;
     currentValue=inputField.value;
 
@@ -87,6 +90,8 @@ upArrow.addEventListener("click", () => {
             highestPossible = parseInt(slider.max);
         }
     highValue.innerHTML = highestPossible;
+
+    output.innerHTML = slider.value +"±" + (inputField.value/2); 
 
     updateMargins(parseInt(inputField.value), parseInt(slider.value));  
 
@@ -114,6 +119,8 @@ downArrow.addEventListener("click", () => {
         }
     highValue.innerHTML = highestPossible;
 
+    output.innerHTML = slider.value + "±" + (inputField.value/2);
+
     updateMargins(parseInt(inputField.value), parseInt(slider.value));
 
 
@@ -123,6 +130,7 @@ downArrow.addEventListener("click", () => {
 slider.addEventListener("input", () => {
     let marginOfError = parseInt(inputField.value);
     let sliderValue = parseInt(slider.value);
+    
     
 
     let lowestPossible = sliderValue - marginOfError;
@@ -145,6 +153,10 @@ slider.addEventListener("input", () => {
 
 inputField.addEventListener("input", () => {
     updateMargins(parseInt(inputField.value), parseInt(slider.value)); 
+});
+
+submit.addEventListener("click", () => {
+
 });
 
 

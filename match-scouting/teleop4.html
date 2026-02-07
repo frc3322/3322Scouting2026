@@ -55,28 +55,7 @@
         </div>
       </div>
 
-      <div class="slider-section">
-        
-          <p>
-            Rough Estimate of Balls Scored:
-          </p>
-
-          <div class="slide-container">
-            <div class = "embed-container">
-
-              <div class = "marginLine" ></div>
-              <div class = "marginLineTwo" ></div>
-              <input type="range" min="0" max="20" value="20" class="slider" step="1">
-              
-            </div>
-            
-
-            <p>BALLS: <span id="value"></span></p>
-
-          </div>     
-      </div>
-
-      <p>
+       <p>
         Rough Margin of Error:
       </p>
 
@@ -88,7 +67,7 @@
         </div>
 
         <div class = "input-container">
-          <div style = " height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-left: 10px;">
+          <div style = " height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-left: 10px; margin-top: 0px;">
 
             <svg
               width="210mm"
@@ -214,12 +193,36 @@
         </div>
       
 
-      </div>   
+      </div> 
+
+      <div class="slider-section">
+        
+          <p>
+            Rough Estimate of Balls Scored:
+          </p>
+
+          <div class="slide-container">
+            <div class = "embed-container">
+
+              <div class = "marginLine" ></div>
+              <div class = "marginLineTwo" ></div>
+              <input type="range" min="0" max="20" value="20" class="slider" step="1">
+              
+            </div>
+            
+
+            <p>BALLS: <span id="value"></span></p>
+
+            <button class="submit" id="submit" > Submit </button>
+
+          </div>     
+      </div>
+
+       
 
     </div>  
 
       <!-- You can link JavaScript files here -->
-    <script src="MatchScouting.js"></script>
     <script src="teleop4.js"></script>
 
 </body>
