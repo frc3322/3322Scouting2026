@@ -1,0 +1,62 @@
+
+.parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+
+}
+
+.buttonField{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 70%;
+}
+
+.secondToMid{
+    padding: 0;
+    width: 85%;
+    height: 22%;
+    margin-bottom: 2%;
+    background-color: rgb(17, 117, 75);
+    border: 0;
+    border-radius: 20px;
+}
+
+.first, .third, .fifth{
+    width:25%;
+    padding: 0;
+}
+
+.second, .fourth{
+    height: 95%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.left, .right, .middle{
+    height: 95%;
+    width: 65%;
+    background-color: rgb(128, 128, 128);
+    border: 0;
+    border-radius: 20px;
+}
+
+.right-field-image{
+    /* height: 25%; */
+    width: 100%; 
+}
+
+.secondToMid img{
+    /* height: 100%; */
+    width: 100%;
+}
+
+.right-button{
+    padding: 0;
+}
