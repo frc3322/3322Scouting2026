@@ -42,16 +42,9 @@
 
 
     <br>
-          <div class="buttons">
-        <div id="l4-button-success" class="successButton">
-          <button id="scoring" class="incButton">Scoring time: 0.00</button>
-        </div>
-        <div id="l4-button-failure" class="failureButton">
-          <button onclick="updateCrateData(4, 0, 1)" id="shuttleing" class="incButton">Shuttleing time: 0.00</button>
-        </div>
-      </div>
 
-
+        <p>Raiting:</p>
+        <br>
     <select  id="Climb">
       <option value=L1>L1 Climb</option>
       <option value=L2>L2 Climb</option>
@@ -68,10 +61,33 @@
 
       <input type="checkbox" id="trench"><br>
 
+      <br><br>
+
+      <label for="defence">Did they do Defence?</label>
+
+      <input type="checkbox" id="defence"><br>
+        <div class="star-Raiting">
+        
+        <p id="rate1" onclick="updateStars()"> &nbsp;</p><p id="rate2" onclick="updateStars()">&#nbsp</p><p id="rate3" onclick="updateStars()">&#nbsp</p><p id="rate4" onclick="updateStars()">&#nbsp</p><p id="rate5" onclick="updateStars()">&#nbsp</p>
+        </div>
+
+        <input type="checkbox" class="image-checkbox" style="top: 100px">
+
+        <br>
+
+
+        <input id="initials"> <br>
+        <input id="teamNumber"> <br>
+        <input id="matchNumber"> <br>
+
+
       <a href="../index.html" class="button">Submit</a>
 
 
     <!-- You can link JavaScript files here -->
-    <script src="script.js"></script>
+    <script type="module" src="Constants.js"></script>
+    <script type="module" src="DataHandler.js"></script>
+    <script type="module" src="endgame.js"></script>
+
 </body>
 </html>
