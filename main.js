@@ -13,6 +13,7 @@ function setButtons() {
         dataHandler.setMatchNumber(prompt("What match number is this? (Ex. 14)"));
 
         window.location.href = "/match-scouting/auton.html";
+    localStorage.setItem("dataHandler", dataHandler.toString());
 
 
     });

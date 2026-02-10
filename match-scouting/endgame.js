@@ -72,6 +72,7 @@ function setButtons() {
 }
 
 
+
 document.getElementById("initials").value = dataHandler.getScouterName();
 document.getElementById("teamNumber").value = dataHandler.getTeamNumber();
 document.getElementById("matchNumber").value = dataHandler.getMatchNumber();
