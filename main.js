@@ -12,7 +12,7 @@ function setButtons() {
         dataHandler.setTeamNumber(prompt("What team are WE scouting? (Ex. 10656)"));
         dataHandler.setMatchNumber(prompt("What match number is this? (Ex. 14)"));
 
-        window.location.href = "/3322Scouting2026/match-scouting/auton.html";
+        window.location.href = "../3322Scouting2026/match-scouting/auton.html";
     localStorage.setItem("dataHandler", dataHandler.toString());
 
 
