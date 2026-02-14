@@ -30,7 +30,14 @@ export class DataHandler {
     stackAuto
     stackTele
 
+    scouterName
+    
+    booleanValues;
+
     constructor() {
+        this.booleanValues = [false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
+        
+
         this.autoFuel = 0;
         this.teleFuel = 0;
 
@@ -56,6 +63,10 @@ export class DataHandler {
         this.stackTele = [];
 
         this.autoFuelFailed = 0;
+
+        this.scouterName = "";
+        this.teamNumber = "";
+        this.matchNumber = "";
 
     }
 
@@ -164,6 +175,10 @@ export class DataHandler {
         this.teleCycleCounter = val;
     }
 
+    setScouterName(name) {
+        this.scouterName = name;
+    }
+
     addActionAuto(action) {
         this.stackAuto.push(action);
         if (this.stackAuto.length > 200) {
@@ -177,12 +192,24 @@ export class DataHandler {
             this.stackTele.shift();
         }
     }
+    setTeamNumber(num) {
+        this.teamNumber = num;
+    }
+    setMatchNumber(num) {
+        this.matchNumber = num;
+    }
+    setBooleanValue(index, value) {
+        this.booleanValues[index] = value;
+    }
 
 
     /*
         Getters
     */
 
+    getBooleanValues() {
+        return this.booleanValues;
+    }
     getAutoFuelFailed() {
         return this.autoFuelFailed;
     }
@@ -223,6 +250,15 @@ export class DataHandler {
         return this.teleCycleCounter;
     }
 
+    getScouterName() {
+        return this.scouterName;
+    }
+    getTeamNumber() {
+        return this.teamNumber;
+    }
+    getMatchNumber() {
+        return this.matchNumber;
+    }
 
 
 }

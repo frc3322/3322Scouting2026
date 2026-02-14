@@ -11,7 +11,7 @@
 <body>
     <!-- This is the visible content of the page -->
 
-    <div class="fixedElement">
+    <div class="fixedElement" id="nav">
       <a id="nav-auton" href = "auton.html">
       <img src="../images/Auto-Button.png">
       </a>
@@ -51,6 +51,26 @@
     <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
     <output style="color:#e9fbff;">90%</output>
     <button class="undo-button" id="undo">Undo</button>
+    <br><br><br><br><br>
+    
+
+      <label for="neutralZone">Did they use Neutral Zone?</label>
+      <input type="checkbox" id="neutralZone"><br>
+
+      <label for="Depot">Did they use Depot?</label>
+      <input type="checkbox" id="depot"><br>
+
+      <label for="Outpost">Did they use Outpost?</label>
+      <input type="checkbox" id="outpost"><br>
+
+    <select  id="Climb">
+      <option value=L1>L1 Climb</option>
+      <option value=L2>L2 Climb</option>
+      <option value=L3>L3 Climb</option>
+      <option value=Failure>Climb Failed :( </option>
+    </select>
+
+
     
         <!-- You can link JavaScript files here -->
     <script type="module" src="Constants.js"></script>

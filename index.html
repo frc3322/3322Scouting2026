@@ -6,7 +6,7 @@
     <title>Scouting App</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="css/extraStyling.css">
+    <link rel="stylesheet" href="CSS/extraStyling.css">
 
 </head>
 <body style="background-color:#00eeff;">
@@ -19,11 +19,38 @@
     <p>(This page is the home page)</p>
     <p>This is a basic paragraph within the body of the webpage.</p>
     <p>Stone cold Joe is watching</p>
-    <a class = "scout-div" id="scoutBtn" href="./match-scouting/auton.html"><button class = "scoutBtn" id="scoutBtn"><p>SCOUTING</p></button></a>
+    <button class = "scoutBtn" id="scoutBtn">SCOUTING</button>
     <img class = "logo"src="https://avatars.githubusercontent.com/u/1799921?s=280&v=4">
     <!-- You can link JavaScript files here -->
     <script type="module" src="./match-scouting/Constants.js"></script>
     <script type="module" src="./match-scouting/DataHandler.js"></script>
     <script type="module" src="scripts.js"></script>
+    <script type="module" src="main.js"></script>
+    <br>
+    <image src="../images/DouglassRemovedBackground.png" id="Douglass" style="width: 10%; height: auto;">
+    
+      <script>
+
+x = 0;
+setInterval(() => {
+
+x += 2.5;
+  console.log(x);
+if (x > window.innerWidth / 2) {
+  x = - window.innerWidth / 2;
+}
+angle = Math.sin(x/25) * 20;
+
+  document.getElementById("Douglass").style.transform =
+    `translateX(${x}px) rotate(${angle}deg)`;
+
+
+
+}, 10);
+
+
+
+      </script>
+
 </body>
 </html>
