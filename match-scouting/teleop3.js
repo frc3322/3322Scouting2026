@@ -40,7 +40,7 @@ const s = canvasWidth/1080;
 
 console.log(canvasHeight, canvasWidth);
 
-var ballList = [[140*s,canvasHeight-120*s]]
+var ballList = []
 
 function updateDataHandler(){
     localStorage.setItem("dataHandler", dataHandler.toString());
