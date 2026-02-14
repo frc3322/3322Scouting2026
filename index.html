@@ -26,5 +26,31 @@
     <script type="module" src="./match-scouting/DataHandler.js"></script>
     <script type="module" src="scripts.js"></script>
     <script type="module" src="main.js"></script>
+    <br>
+    <image src="../images/DouglassRemovedBackground.png" id="Douglass" style="width: 10%; height: auto;">
+    
+      <script>
+
+x = 0;
+setInterval(() => {
+
+x += 2.5;
+  console.log(x);
+if (x > window.innerWidth / 2) {
+  x = - window.innerWidth / 2;
+}
+angle = Math.sin(x/25) * 20;
+
+  document.getElementById("Douglass").style.transform =
+    `translateX(${x}px) rotate(${angle}deg)`;
+
+
+
+}, 10);
+
+
+
+      </script>
+
 </body>
 </html>
