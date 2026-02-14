@@ -12,7 +12,21 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
     }
 
 
-    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," +  dataHandler.getScouterName() + "," +   dataHandler.getTeamNumber() + "," +   dataHandler.getMatchNumber()
+    let condensedList = [];
+
+    for(const element of dataHandler.getBooleanValues()) {
+        if(element == true) {
+            condensedList.push("t");
+        } 
+        else if (element == false) {
+            condensedList.push("f");
+        }
+        else {
+            condensedList.push(element);
+        }
+    }
+
+    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," +  dataHandler.getScouterName() + "," +   dataHandler.getTeamNumber() + "," +   dataHandler.getMatchNumber() + "," + condensedList;
 
     document.getElementById("data").textContent = data;
 

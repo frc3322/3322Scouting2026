@@ -6,10 +6,12 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
 
 
 
-let stars;
+let stars = -1;
 
 
 function updateStars(stars) {
+    dataHandler.setBooleanValue(7, stars);
+
     if(stars >= 1) {
         document.getElementById("rate1").innerHTML = "&#9733";
     } else {
@@ -71,6 +73,18 @@ function setButtons() {
 
 }
 
+setInterval(() => {
+    dataHandler.setBooleanValue(4, document.getElementById("bump").checked);
+    dataHandler.setBooleanValue(5, document.getElementById("trench").checked);
+    dataHandler.setBooleanValue(6, document.getElementById("defence").checked);
+    //dataHandler.setBooleanValue(7, stars);
+
+    console.log(dataHandler.getBooleanValues());
+    localStorage.setItem("dataHandler", dataHandler.toString());
+
+    console.log("stored");
+
+}, 1000);
 
 
 document.getElementById("initials").value = dataHandler.getScouterName();

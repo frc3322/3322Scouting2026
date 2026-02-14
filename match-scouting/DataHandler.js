@@ -31,8 +31,13 @@ export class DataHandler {
     stackTele
 
     scouterName
+    
+    booleanValues;
 
     constructor() {
+        this.booleanValues = [false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
+        
+
         this.autoFuel = 0;
         this.teleFuel = 0;
 
@@ -193,12 +198,18 @@ export class DataHandler {
     setMatchNumber(num) {
         this.matchNumber = num;
     }
+    setBooleanValue(index, value) {
+        this.booleanValues[index] = value;
+    }
 
 
     /*
         Getters
     */
 
+    getBooleanValues() {
+        return this.booleanValues;
+    }
     getAutoFuelFailed() {
         return this.autoFuelFailed;
     }
