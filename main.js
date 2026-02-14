@@ -1,5 +1,5 @@
-import { ActionType } from "/match-scouting/Constants.js";
-import { DataHandler } from "/match-scouting/DataHandler.js";
+import { ActionType } from "./match-scouting/Constants.js";
+import { DataHandler } from "./match-scouting/DataHandler.js";
 
 var dataHandler = new DataHandler;
 dataHandler.loadData(localStorage.getItem("dataHandler"));
