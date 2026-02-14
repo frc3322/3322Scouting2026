@@ -1,0 +1,132 @@
+.circle {
+  height: 50vh;
+  width: 50vh;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot {
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  position: absolute;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+body {
+    background-color: #1b1b1b;
+    font-family: "Barlow", sans-serif;
+    text-align: center;
+}
+
+input {
+    padding: 18px 18px;
+    margin: 6px;
+}
+input[type="checkbox"] {
+    transform: scale(2.5);
+    margin: 10px;
+    cursor: pointer;
+  }
+select {
+    padding: 18px 18px;
+}
+buttons{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+.fixedElement {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    top:0;
+    height:auto; 
+    max-width: 10vh;
+    left: 0px;
+    padding: 0px; 
+    z-index: 1000;
+
+    top:50%;
+    transform: translate(0, -50%);
+    
+}
+.fixedElement a {
+    flex: 1;
+    margin:0;
+}
+.fixedElement img {
+    display:block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+
+.section{
+    margin: auto;
+    width: 80%;
+    /* border: 1px solid black; */
+    border-radius: 50px;
+    padding: 10px;
+    background-color: #101010;
+}
+
+button{
+    margin-top: 7px;
+    width: 30%;
+    border-radius: 20px;
+    height: 170px;
+    font-size: 35px;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.slider{
+    width: 80%;
+    background-color: rgba(25, 97, 184, 0.673);
+    margin-top: 0px;
+    border-radius: 20px;
+}
+
+.undo-button{
+    margin-top: 7px;
+    width: 25%;
+    border-radius: 20px;
+    height: 90px;
+    font-size: 20px;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 10px;
+    margin-left:10px;
+
+    background-color:#991d1d;
+    color:#e9fbff
+}
+
+h1{
+    color:#e9fbff;
+}
+
+h2{
+    color:#e9fbff;
+}
+
+p{
+    color:#e9fbff;
+}
+
+label{
+    color: #e9fbff;
+}
