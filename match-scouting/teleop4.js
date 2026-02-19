@@ -74,7 +74,7 @@ upArrow.addEventListener("click", () => {
     let currentValue = parseInt(inputField.value);
     let sliderValue = parseInt(slider.value);
 
-    if(currentValue)
+    // if(currentValue)
     inputField.value = currentValue + 1;
     currentValue=inputField.value;
 
@@ -156,7 +156,7 @@ inputField.addEventListener("input", () => {
 });
 
 submit.addEventListener("click", () => {
-
+    
 });
 
 

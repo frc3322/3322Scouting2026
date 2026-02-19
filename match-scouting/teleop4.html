@@ -55,10 +55,35 @@
         </div>
       </div>
 
-       <p>
+      
+
+
+      <div class="slider-section">
+        
+          <p style="font-size: 25px; margin-bottom: 20px;" >
+            Rough Estimate of Balls Scored:
+          </p>
+
+          <div class="slide-container">
+
+            <div class = "embed-container">
+
+              <div class = "marginLine" ></div>
+              <div class = "marginLineTwo" ></div>
+              <input type="range" min="0" max="20" value="20" class="slider" step="1">
+              
+            </div>
+
+            <p>BALLS: <span id="value"></span></p>
+
+
+          </div>     
+      </div>
+
+      <p style = "font-size: 45px; margin-top: 60px; margin-bottom: -20px;" >
         Rough Margin of Error:
       </p>
-
+      
       <div class = "Margin-of-Error">
 
         <div style="display: flex; flex-direction: column; align-items: center;">
@@ -191,31 +216,14 @@
           <p >Highest Possible:</p>
           <p id="highValue">0</p>
         </div>
-      
+        
+       
+        
 
       </div> 
 
-      <div class="slider-section">
-        
-          <p>
-            Rough Estimate of Balls Scored:
-          </p>
-
-          <div class="slide-container">
-            <div class = "embed-container">
-
-              <div class = "marginLine" ></div>
-              <div class = "marginLineTwo" ></div>
-              <input type="range" min="0" max="20" value="20" class="slider" step="1">
-              
-            </div>
-            
-
-            <p>BALLS: <span id="value"></span></p>
-
-            <button class="submit" id="submit" > Submit </button>
-
-          </div>     
+      <div>
+        <button class="submit" id="submit" > Submit </button>
       </div>
 
        
