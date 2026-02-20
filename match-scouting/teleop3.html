@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scouting App</title>
     <!-- You can link CSS files here -->
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../CSS/teleop3.css">
 
 </head>
 <body>
@@ -37,38 +37,17 @@
     <p>3322 Rebuilt Scouting</p>
     <br>
   <div class="section">
+    <canvas canvas id="canvas" height="500" width="500"
+style="border:1px solid #d3d3d3;"></canvas>
+     <input id = "slider" type="range" min="0" max="100" value="0" class="slider" step="1" >
+     <p id = "sliderNumber" style = "color:#d3d3d3">0.00 b/s</p>
+    
+    </div>
 
-    <h1>Total Fuel:</h1>
-    <p id = "fuelCounter">0</p>
-    <h1>Number of cycles:</h1>
-    <p id = "cyclesCounter">0</p>
-
-
-    <!-- L4 -->
-    <label for="fuelIncrements">How much did bro shoot? :</label>
-
-<select name="fuelIncrements" id="fuelIncrements">
-  <option value="1">shot one</option>
-  <option value="5">shot five</option>
-  <option value="10">shot ten</option>
-  <option value="25">shot twenty five</option>
-  <option value="50">shot fifty</option>
-  <option value="75">shot seventy five</option>
-  <option value="100">shot one hundred</option>
-
-
-</select>
-
-
-<br>
-<button id = "submitShotBalls">submit</button>
-<br>
-      <button >jajajjajajajajajaja</button>
-
-    <!-- You can link JavaScript files here -->
-    <script type="module" src="Constants.js"></script>
-    <script type="module" src="DataHandler.js"></script>
-    <script type="module" src="teleop3.js"></script>
+  <!-- You can link JavaScript files here -->
+  <script type="module" src="Constants.js"></script>
+  <script type="module" src="DataHandler.js"></script>
+  <script type="module" src="teleop3.js"></script>
 
 </body>
 </html>
