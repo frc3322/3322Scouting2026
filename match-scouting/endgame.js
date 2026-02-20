@@ -77,6 +77,10 @@ setInterval(() => {
     dataHandler.setBooleanValue(4, document.getElementById("bump").checked);
     dataHandler.setBooleanValue(5, document.getElementById("trench").checked);
     dataHandler.setBooleanValue(6, document.getElementById("defence").checked);
+
+    dataHandler.setBooleanValue(0, document.getElementById("initials").value);
+    dataHandler.setBooleanValue(1, document.getElementById("teamNumber").value);
+    dataHandler.setBooleanValue(2, document.getElementById("matchNumber").value);
     //dataHandler.setBooleanValue(7, stars);
 
     console.log(dataHandler.getBooleanValues());
