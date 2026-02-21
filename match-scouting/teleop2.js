@@ -24,6 +24,7 @@ function increaseNumber(amount) {
     document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel();
     localStorage.setItem("dataHandler", dataHandler.toString());
 }
+
 function increasePassing(amount) {
     
     dataHandler.incrementTele(ActionType.TelePass, amount);
