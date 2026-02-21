@@ -1,18 +1,6 @@
 
 
 body {
-    background-color: #000000;
-    /* font-family: "Barlow", sans-serif;
-    text-align: center; */
-}
-
-.section{
-    background-color: #091728be;
-    box-shadow: 0 10px 16px rgba(12, 135, 61, 0.366);
-}
-
-
-body {
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;

@@ -83,6 +83,10 @@ function setButtons() {
         button.addEventListener("mousedown",()=>{updateRate(buttonid);});
         button.addEventListener("mouseup", ()=>{updateRate(0);});
         button.addEventListener("mouseleave", ()=>{updateRate(0);});
+
+        button.addEventListener("touchstart",()=>{updateRate(buttonid);});
+        button.addEventListener("touchend", ()=>{updateRate(0);});
+        button.addEventListener("touchmove", ()=>{updateRate(0);});
     }
     
 
