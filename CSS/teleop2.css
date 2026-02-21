@@ -16,7 +16,8 @@ input[type="checkbox"] {
 select {
     padding: 18px 18px;
 }
-buttons{
+
+.buttons{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
