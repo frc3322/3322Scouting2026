@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/buttonField.css">
+    
     <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../CSS/buttonField.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/teleop4.css">
+    <!-- <link rel="stylesheet" href="../CSS/teleop4.css"> -->
+    
 </head>
 <body>
+    
 
     <div class="fixedElement">
         <a href = "auton.html">
@@ -42,35 +45,34 @@
 
     <div class = "parent">
         <div class = "buttonField">
-            <div class = "first" >
-                <button class = "left"> </button>
+            <div class = "leftField">
+                <button id = "leftMostButton" class = "left-most-button"> <img src="../images-button-field/ButtonField(left-side).svg" alt=""> </button>
             </div>
 
-            <div class = "second">
-                <button class = "secondToMid"> B</button>
-                <button class = "secondToMid"> B</button>
-                <button class = "secondToMid"> B</button>
-                <button class = "secondToMid"> B</button>
+            <div class = "middleLeftField">
+                <button id="midLeft1" class = "midButton"> <img src="../images-button-field/(mid-left-1).svg"></button>
+                <button id="midLeft2" class = "midButton"> <img src="../images-button-field/(mid-left-2).svg"></button>
+                <div id="midLeft3" class = "midButton"> <img src="../images-button-field/(mid-left-3).svg"></div>
+                <button id="midLeft4" class = "midButton"> <img src="../images-button-field/(mid-left-4)2.svg"></button>
+            </div>
+       
+            <div class = "middleRightField">
+                <button id="midRight1" class = "midButton"> <img src="../images-button-field/(mid-right-1).svg"></button>
+                <button id="midRight2" class = "midButton"> <img src="../images-button-field/(mid-right-2).svg"></button>
+                <div id="midRight3" class = "midButton"> <img src="../images-button-field/(mid-right-3).svg"></div>
+                <button id="midRight4" class = "midButton"> <img src="../images-button-field/(mid-right-4).svg"></button>
             </div>
             
-            <div class = "third" >
-                <button class = "middle"></button>
+            <div  class = "rightField">
+                <button id = "rightMostButton" class = "right-most-button"> <img src="../images-button-field/ButtonField(rightside).svg" alt=""> </button>
             </div>
 
-            <div class = "fourth">
-                <button class = "secondToMid"> <img src="../images/Screenshot 2026-02-07 at 4.13.21 PM"></button>
-                <button class = "secondToMid"> <img src="../images/Screenshot 2026-02-07 at 4.14.24 PM.png" alt=""></button>
-                <div class = "secondToMid"> <img src="../images/Screenshot 2026-02-07 at 4.14.40 PM.png" alt=""></div>
-                <button class = "secondToMid"> <img src="../images/Screenshot 2026-02-07 at 4.15.00 PM.png" alt=""></button>
-                <button class = "secondToMid"> <img src="../images/Screenshot 2026-02-07 at 4.47.56 PM.png" alt=""></button>
-            </div>
             
-            <div class = "fifth" >
-                <button class = "right-button" > <img class = "right-field-image" src="../images/Screenshot 2026-02-07 at 3.29.22 PM.png" alt=""> </button>
-            </div>
-
         </div>
     </div>
     
+    <script src="../match-scouting/buttonField.js"></script>
+
+
 </body>
 </html>
