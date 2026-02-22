@@ -8,6 +8,8 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 var teleFuel = 0;
+var teleFuel2 = 0;
+
 
 var slider = document.getElementById("slider");
 var sliderNumber = document.getElementById("sliderNumber");
@@ -22,7 +24,7 @@ var ball = new Image;
 ball.src = '../images/ball.svg'
 
 var bobot = new Image;
-bobot.src = '../images/bobot.svg'
+bobot.src = '../images/bobot.png'
 bobot.onload = () => {  
         ctx.drawImage(bobot, 0, canvasHeight - 300*s, 300, 300);  
       };
@@ -38,8 +40,6 @@ hub.onload = () => {
 
 const s = canvasWidth/1080;
 
-console.log(canvasHeight, canvasWidth);
-
 var ballList = []
 
 function updateDataHandler(){
@@ -52,25 +52,24 @@ function draw(){
   
     
     for(let i = ballList.length-1; i >= 0; i--){
-        
-        ctx.drawImage(ball, ballList[i][0], ballList[i][1], 50*s, 50*s);
-        ballList[i][0] += 13*s;
+        let vx = ballList[i][2]*s;
+        let vy = ballList[i][3]*s;
+        ctx.drawImage(ball, ballList[i][0], ballList[i][1], 60*s, 60*s);
+        ballList[i][0] += vx*s;
         let t = (ballList[i][0]-140*s)/13
-        ballList[i][1] += t - 30*s;
+        ballList[i][1] += t - vy*s;
         if(ballList[i][1] > canvas.height-200*s && 
             ballList[i][0] > canvas.width-400*s){
             ballList.shift();
-            teleFuel += 1;
+            teleFuel2 += 1;
         }
     }
 
     ctx.drawImage(bobot, 0, canvasHeight - 300*s, 300*s, 300*s);
     ctx.drawImage(hub, canvasWidth-425*s, canvasHeight - 400*s, 400*s, 400*s); 
     
-    var textWidth = ctx.measureText("" + teleFuel ).width;
-
-    ctx.fillText(teleFuel, canvasWidth-(215)*s - textWidth/2, canvasHeight - 100*s);
-    console.log("fwie")
+    
+    setText(Math.round(teleFuel));
 
     
     window.requestAnimationFrame(draw);
@@ -81,7 +80,7 @@ function setButtons() {
 }
 
 function newBall(){
-    ballList.push([140*s,canvasHeight-120*s]);
+    ballList.push([140*s,canvasHeight-120*s, 12+(Math.random())*2, 30+Math.random()*2]);
 }
 
 var shootInterval = setInterval(newBall, 1000);
@@ -93,19 +92,29 @@ function updateRate(){
     if(slider.value != 0){ 
         if(currentSliderValue != slider.value){
             clearInterval(shootInterval);
-            shootInterval = setInterval(newBall, Math.sqrt(100/slider.value)*100);
+            shootInterval = setInterval(newBall, 100000/((slider.value*15)));
             currentSliderValue = slider.value;
         }   
     }
     else{
         clearInterval(shootInterval);
     }
-    sliderNumber.textContent =  Math.sqrt(slider.value).toFixed(2) + " b/s";
+    sliderNumber.textContent =  (slider.value/100*15).toFixed(2) + " b/s";
+}
+
+function countRate(){
+    teleFuel += (slider.value/100*15) * 1/10;
+}
+
+function setText(text){
+    var textWidth = ctx.measureText("" + text ).width;
+    ctx.fillText(text, canvasWidth-(215)*s - textWidth/2, canvasHeight - 100*s);
 }
 
 function init(){
     window.requestAnimationFrame(draw);
-    setInterval(updateRate, 250);
+    setInterval(updateRate, 100);
+    setInterval(countRate, 100);
 }
 
 init();

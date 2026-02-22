@@ -1,162 +1,128 @@
-var slider = document.querySelector(".slider");
-var output = document.getElementById("value");
+import { ActionType } from "./Constants.js";
+import { DataHandler } from "./DataHandler.js";
+
+var dataHandler = new DataHandler();
+dataHandler.loadData(localStorage.getItem("dataHandler"));
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var teleFuel = 0;
+
+
+var slider = document.getElementById("slider");
+var sliderNumber = document.getElementById("sliderNumber");
+
+const canvasHeight = window.innerWidth * (620/1080) * 0.75;
+const canvasWidth = window.innerWidth * 0.75;
+
+ctx.canvas.height  = canvasHeight ;
+ctx.canvas.width = canvasWidth;
+
+var ball = new Image;
+ball.src = '../images/ball.svg'
+
+var bobot = new Image;
+bobot.src = '../images/bobot.png'
+bobot.onload = () => {  
+        ctx.drawImage(bobot, 0, canvasHeight - 300*s, 300, 300);  
+      };
+
+
+var hub = new Image;
+hub.src = '../images/hub.svg'
+hub.onload = () => {  
+        ctx.drawImage(hub, canvasWidth-300, canvasHeight - 300, 300, 300);  
+      };
 
 
 
+const s = canvasWidth/1080;
 
+var ballList = []
 
-slider.oninput = function() 
-{
-  output.innerHTML = this.value + "±" + (inputField.value/2);
+function updateDataHandler(){
+    localStorage.setItem("dataHandler", dataHandler.toString());
 }
 
-const upArrow = document.getElementById("upArrow");
-const downArrow = document.getElementById("downArrow");
-const inputField = document.querySelector("#error");
-const submit = document.getElementById("submit");
-var highValue = document.getElementById("highValue");
-var lowValue = document.getElementById("lowValue");
-let lowestPossible = 0;
-var maxBallCount = document.getElementById("max-ball");
-var maxBallCountTwo = document.getElementById("max-ball-two");
-var maxValue = 20;
+ctx.font = "" + (40 * s) + "px sans-serif";
+function draw(){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+  
+    
+    for(let i = ballList.length-1; i >= 0; i--){
+        let vx = ballList[i][2]*s;
+        let vy = ballList[i][3]*s;
+        ctx.drawImage(ball, ballList[i][0], ballList[i][1], 60*s, 60*s);
+        ballList[i][0] += vx;
+        let t = (ballList[i][0]-140*s)/13
+        ballList[i][1] += t - vy;
+        if(ballList[i][1] > canvas.height-200*s && 
+            ballList[i][0] > canvas.width-400*s){
+            ballList.shift();
+        }
+    }
 
-const lineOne = document.querySelector(".marginLine");
-const lineTwo = document.querySelector(".marginLineTwo");
-const embedSlider = document.querySelector(".embed-container");
-const sliderButton = document.querySelector(".slider::-webkit-slider-thumb");
+    ctx.drawImage(bobot, 0, canvasHeight - 300*s, 300*s, 300*s);
+    ctx.drawImage(hub, canvasWidth-425*s, canvasHeight - 400*s, 400*s, 400*s); 
+    
+    
+    setText(Math.round(teleFuel));
 
-var marginLength = 0;
-let lengthAdjuster = 0;
+    
+    window.requestAnimationFrame(draw);
+}
 
-output.innerHTML = slider.value +"±" + (inputField.value/2); 
+const buttonDenoms = [5,10,15,20,30]
 
-function updateMargins(currentValue, sliderValue) {
-    lineOne.style.width = (100*(currentValue))/(parseInt(slider.max)) + "%";
-    lineTwo.style.width = (100*(currentValue))/(parseInt(slider.max)) + "%";
-    lineOne.style.right = 100*(1-(sliderValue)/(parseInt(slider.max))) + "%";
-    lineTwo.style.left = 100*((sliderValue)/(parseInt(slider.max))) + "%";
+function setButtons() {
+    document.getElementById("canvas").addEventListener("mousedown", newBall);
+
+    for(const buttonid of buttonDenoms){
+        const button = document.getElementById("bps" + buttonid);
+        button.addEventListener("mousedown",()=>{updateRate(buttonid);});
+        button.addEventListener("mouseup", ()=>{updateRate(0);});
+        button.addEventListener("mouseleave", ()=>{updateRate(0);});
+
+        button.addEventListener("touchstart",()=>{updateRate(buttonid);});
+        button.addEventListener("touchend", ()=>{updateRate(0);});
+        button.addEventListener("touchmove", ()=>{updateRate(0);});
+    }
+    
+
+
+}
+
+function newBall(){
+    ballList.push([140*s,canvasHeight-120*s, 15+(Math.random())*2, 30+Math.random()*2]);
+    setTimeout(()=>{teleFuel += 1;},900);
+}
+
+var shootInterval = setInterval(newBall, 1000);
+clearInterval(shootInterval);
+
+
+function updateRate(rate){
+    if(rate != 0){
+        shootInterval = setInterval(newBall, 1000/rate); 
+    }
+    else{
+        clearInterval(shootInterval);
+        console.log("lalala");
+    }
 }
 
 
-maxBallCount.addEventListener("click", () => {
-    maxValue+=5;
-    slider.max = maxValue;
+function setText(text){
+    var textWidth = ctx.measureText("" + text).width;
+    ctx.fillText(text, canvasWidth-(215)*s - textWidth/2, canvasHeight - 100*s);
+}
 
-    // if(100 > parseInt(maxBallCount.value) ){
-    //     slider.max = 100;
-    // }
-    // else if(parseInt(maxBallCount.value) > 400){
-    //     slider.max = 400;
-    // }
-    // else {
-    //     slider.max = parseInt(maxBallCount.value);
-    // }
+function init(){
+    window.requestAnimationFrame(draw);
+}
 
-    updateMargins(parseInt(inputField.value), parseInt(slider.value));
-    
-})
-
-maxBallCountTwo.addEventListener("click", () =>{
-    if(slider.max>0)
-    {
-        maxValue-=5;
-        slider.max = maxValue;
-        output.innerHTML = maxValue + "±" + (inputField.value/2);
-    }
-
-    updateMargins(parseInt(inputField.value), parseInt(slider.value));
-})
+init();
 
 
-
-upArrow.addEventListener("click", () => {
-    let currentValue = parseInt(inputField.value);
-    let sliderValue = parseInt(slider.value);
-
-    // if(currentValue)
-    inputField.value = currentValue + 1;
-    currentValue=inputField.value;
-
-
-    lowestPossible = sliderValue - currentValue;
-    if (lowestPossible < 0) {
-        lowestPossible = 0;
-    }
-    lowValue.innerHTML = lowestPossible;
-
-    let highestPossible = sliderValue + parseInt(inputField.value);
-        if (highestPossible > parseInt(slider.max)) {
-            highestPossible = parseInt(slider.max);
-        }
-    highValue.innerHTML = highestPossible;
-
-    output.innerHTML = slider.value +"±" + (inputField.value/2); 
-
-    updateMargins(parseInt(inputField.value), parseInt(slider.value));  
-
-});
-
-downArrow.addEventListener("click", () => {
-    let currentValue = parseInt(inputField.value);
-    let sliderValue = parseInt(slider.value);
-    
-    if(0<inputField.value){
-        inputField.value = currentValue - 1;
-    }
-    currentValue=inputField.value;
-    
-
-    lowestPossible = sliderValue - currentValue;
-    if (lowestPossible < 0) {
-        lowestPossible = 0;
-    }
-    lowValue.innerHTML = lowestPossible;
-
-    let highestPossible = sliderValue + parseInt(inputField.value);
-        if (highestPossible > parseInt(slider.max)) {
-            highestPossible = parseInt(slider.max);
-        }
-    highValue.innerHTML = highestPossible;
-
-    output.innerHTML = slider.value + "±" + (inputField.value/2);
-
-    updateMargins(parseInt(inputField.value), parseInt(slider.value));
-
-
-});
-
-
-slider.addEventListener("input", () => {
-    let marginOfError = parseInt(inputField.value);
-    let sliderValue = parseInt(slider.value);
-    
-    
-
-    let lowestPossible = sliderValue - marginOfError;
-    if (lowestPossible < 0) {
-        lowestPossible = 0;
-    }
-    
-    lowValue.innerHTML = lowestPossible;
-
-    let highestPossible = sliderValue + marginOfError;
-        if (highestPossible > parseInt(slider.max)) {
-            highestPossible = parseInt(slider.max);
-        }
-    highValue.innerHTML = highestPossible;
-
-    updateMargins(parseInt(inputField.value), parseInt(slider.value));  
-
-    // lineTwo.style.marginLeft = "10px";
-});
-
-inputField.addEventListener("input", () => {
-    updateMargins(parseInt(inputField.value), parseInt(slider.value)); 
-});
-
-submit.addEventListener("click", () => {
-    
-});
-
-
+setButtons();
