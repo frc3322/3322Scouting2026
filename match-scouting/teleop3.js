@@ -90,7 +90,7 @@ function draw(){
 
 
 function setButtons() {
-    document.getElementById("canvas").addEventListener("mousedown", increment);
+    //document.getElementById("canvas").addEventListener("mousedown", increment);
 
     document.getElementById("canvas").addEventListener('touchstart', function (e) {
         for(var touch of e.touches){
