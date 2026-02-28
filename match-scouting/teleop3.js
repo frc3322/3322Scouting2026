@@ -212,6 +212,7 @@ function setMode(m){
             buttonContainers[i].style.display = "flex"
             button = buttonContainers[i].children[0];
             button.textContent = rate.toFixed(2) + " bps";
+            canvas.style = "border:5px solid " + button.style.backgroundColor + ";"
         }
     }
 }
