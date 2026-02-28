@@ -81,7 +81,6 @@ setButtons();
 
 allButtons.forEach(button => {
     button.addEventListener("click", () => {
-        console.log(dataHandler.toString());    
-        localStorage.setItem("dataHandler", dataHandler.toString());
+        window.open("", "_blank");         
     });
 });

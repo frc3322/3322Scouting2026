@@ -14,15 +14,14 @@
 .buttonField {
     display: flex;
     flex-direction: row;
-    width: 1070px;               /* your original fixed width */
-    height: auto;                /* let content (buttons) determine height */
-    gap: 1px;                    /* space between the four columns */
+    width: 1070px;               
+    height: auto;                
+    gap: 1px;                    
 }
 
-/* Columns */
 .leftField,
 .rightField {
-    width: 25%;                  /* sides are narrower */
+    width: 25%;                 
 }
 
 .middleLeftField,
@@ -31,28 +30,27 @@
     flex-direction: column;
     width: 25.5%;
     align-items: center;
-    gap: 2px;                    /* vertical spacing between the 4 middle buttons */
+    gap: 2px;                    
 }
 
 .middleLeftField {
     margin-right: 0.2px;
 }
 
-/* All buttons (sides + middles) */
 .left-most-button,
 .right-most-button,
-.midButton {
+.midButton{
+    position: relative;
     padding: 0;
     border: none;
     background: transparent;
     width: 100%;
-    height: auto;                /* height determined by image ratio */
+    height: auto;               
     line-height: 0;
     font-size: 0;
     overflow: hidden;
 }
 
-/* Images – width fills button, height follows natural ratio */
 .left-most-button img,
 .right-most-button img,
 .midButton img {
@@ -61,12 +59,10 @@
     height: auto;
 }
 
-/* Your existing specific margins */
 #midLeft4 {
     margin: 0.6px;
 }
 
-/* Optional – subtle visual feedback (uncomment if helpful for debugging) */
 /*
 .left-most-button,
 .right-most-button {
@@ -80,7 +76,43 @@
 
 .left-most-button:hover,
 .right-most-button:hover,
-.midButton:hover {
+.midButton:hover{
     filter: brightness(0.8);
     transform: scale(1.05);
 }
+
+
+.Count, .CountEdge, .CountEdgeBottom, .CountMid, .CountMidAdj {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(30px, 5vw, 60px);
+    opacity: 0.1;
+}
+
+.CountEdge{
+    top: 15%;
+    font-size: clamp(20px, 4vw, 40px);
+}
+
+.CountEdgeBottom{
+    top: 7%;
+    font-size: clamp(20px, 4vw, 40px);
+
+}
+
+.CountMid{
+    left: 43%;
+    top: 25%;
+    font-size: clamp(25px, 4.5vw, 50px);
+}
+
+.CountMidAdj{  
+    left: 38%;
+    top: 25%;
+    font-size: clamp(25px, 4.5vw, 50px);
+}   
