@@ -55,10 +55,19 @@ const Matrix = [
 for (let i = 0; i < Matrix.length; i++) {
     const button = Matrix[i][0];
     const count = Matrix[i][1];
+    button.addEventListener("touchstart", () => {
+        buttonHover = true;
+        count.style.opacity = "1";
+        indexHolder = i;
+    });
     button.addEventListener("mouseenter", () => {
         buttonHover = true;
         count.style.opacity = "1";
         indexHolder = i;
+    });
+    button.addEventListener("touchend", () => {
+        buttonHover = false;
+        count.style.opacity = "0.1";
     });
     button.addEventListener("mouseleave", () => {
         buttonHover = false;
