@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scouting Data Encoder</title>
+</head>
+<body>
+    <input type="file" id="csvFile" accept=".csv" />
+    <button id="encodeBtn">Encode to Image</button>
+    <img id="output" style="display: none;" />
+    
+    <script type="module">
+        import init, { encode_csv_to_image } from './wasm/pkg/scouting_data_compression_wasm.js';
+        
+        let wasmInitialized = false;
+        
+        async function initializeWasm() {
+            if (!wasmInitialized) {
+                await init();
+                wasmInitialized = true;
+            }
+        }
+        
+        async function encodeCSV(csvText, schemaJson = null, paletteJson = null) {
+            await initializeWasm();
+            
+            try {
+                const csvBytes = new TextEncoder().encode(csvText);
+                const schemaBytes = schemaJson 
+                    ? new TextEncoder().encode(JSON.stringify(schemaJson)) 
+                    : null;
+                const paletteBytes = paletteJson 
+                    ? new TextEncoder().encode(JSON.stringify(paletteJson)) 
+                    : null;
+                
+            const result = encode_csv_to_image(
+                csvBytes,
+                schemaBytes,
+                paletteBytes
+            );
+
+            // COPY IT
+            const imageBytes = new Uint8Array(result);                
+                return imageBytes;
+            } catch (error) {
+                console.error('Encoding error:', error);
+                throw new Error(`Failed to encode CSV: ${error.message}`);
+            }
+        }
+        
+        document.getElementById('encodeBtn').addEventListener('click', async () => {
+            const fileInput = document.getElementById('csvFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a CSV file');
+                return;
+            }
+            
+            try {
+                const csvText = await file.text();
+                const imageBytes = await encodeCSV(csvText, [
+  {
+    "name": "ScoutName",
+    "kind": "enum",
+    "bits": 2,
+    "values": ["Jude", "Dillon", "", ""]
+  },
+  {
+    "name": "MatchNumber",
+    "kind": "int",
+    "bits": 8,
+    "int_max": 200
+  },
+  {
+    "name": "TeamNumber",
+    "kind": "int",
+    "bits": 14,
+    "int_max": 16383
+  },
+  {
+    "name": "Mobility",
+    "kind": "int",
+    "bits": 1,
+    "int_max": 1
+  },
+  {
+    "name": "AutonL1Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL1Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL2Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL2Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL3Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL3Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL4Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonL4Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "AutonBargeAttempted",
+    "kind": "int",
+    "bits": 0,
+    "int_max": 0
+  },
+  {
+    "name": "AutonBargeScored",
+    "kind": "int",
+    "bits": 0,
+    "int_max": 0
+  },
+  {
+    "name": "AutonProcessorAttempted",
+    "kind": "int",
+    "bits": 0,
+    "int_max": 0
+  },
+  {
+    "name": "AutonProcessorScored",
+    "kind": "int",
+    "bits": 0,
+    "int_max": 0
+  },
+  {
+    "name": "AutonAlgaeRemoved",
+    "kind": "int",
+    "bits": 0,
+    "int_max": 0
+  },
+  {
+    "name": "TeleopL1Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL1Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL2Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL2Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL3Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL3Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL4Attempted",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopL4Scored",
+    "kind": "int",
+    "bits": 4,
+    "int_max": 12
+  },
+  {
+    "name": "TeleopBargeAttempted",
+    "kind": "int",
+    "bits": 3,
+    "int_max": 7
+  },
+  {
+    "name": "TeleopBargeScored",
+    "kind": "int",
+    "bits": 3,
+    "int_max": 7
+  },
+  {
+    "name": "TeleopProcessorAttempted",
+    "kind": "int",
+    "bits": 3,
+    "int_max": 7
+  },
+  {
+    "name": "TeleopProcessorScored",
+    "kind": "int",
+    "bits": 3,
+    "int_max": 7
+  },
+  {
+    "name": "TeleopAlgaeRemoved",
+    "kind": "int",
+    "bits": 3,
+    "int_max": 7
+  },
+  {
+    "name": "ClimbSuccessful",
+    "kind": "int",
+    "bits": 1,
+    "int_max": 1
+  },
+  {
+    "name": "Climb",
+    "kind": "enum",
+    "bits": 2,
+    "values": ["None", "Shallow", "Deep", "Park"]
+  },
+  {
+    "name": "Breakdown",
+    "kind": "enum",
+    "bits": 1,
+    "values": ["False", "True"]
+  },
+  {
+    "name": "DefenseDescription",
+    "kind": "enum",
+    "bits": 0,
+    "values": [""]
+  },
+  {
+    "name": "Notes",
+    "kind": "enum",
+    "bits": 1,
+    "values": ["", "Some note"]
+  }
+]
+
+);
+                
+                const blob = new Blob([imageBytes], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                
+                const img = document.getElementById('output');
+                img.src = url;
+                img.style.display = 'block';
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'encoded.png';
+                a.click();
+                
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+</html>
