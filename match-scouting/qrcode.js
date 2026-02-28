@@ -26,7 +26,7 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
         }
     }
 
-    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," +  dataHandler.getScouterName() + "," +   dataHandler.getTeamNumber() + "," +   dataHandler.getMatchNumber() + "," + condensedList;
+    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," + condensedList;
 
     document.getElementById("data").textContent = data;
 
