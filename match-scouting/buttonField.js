@@ -51,51 +51,62 @@ const Matrix = [
     [midRightButtonFour, midRightButtonFourCount]
 ];
 
-// function updateCounts(){
+// Potential code:
+
+// for (let i = 0; i < Matrix.length; i++) {
+//     const button = Matrix[i][0];
+//     const count = Matrix[i][1];
+//     button.addEventListener("touchstart", () => {
+//         buttonHover = true;
+//         count.style.opacity = "1";
+//         indexHolder = i;
+//     });
+//     button.addEventListener("mousedown", () => {
+//         buttonHover = true;
+//         indexHolder = i;
+//     });
+//     button.addEventListener("mouseenter", () => {
+//         // buttonHover = false;
+//         count.style.opacity = "1";
+//     }); 
+//     button.addEventListener("touchend", () => {
+//         buttonHover = false;
+//         count.style.opacity = "0.1";
+//     });
+//     button.addEventListener("mouseup", () => {
+//         buttonHover = false;
+//         // count.style.opacity = "0.1";
+//     });
+//     button.addEventListener("mouseleave", () => {
+//         count.style.opacity = "0.1";
+//     });
+// }
+// // }
+
+
+
+// const intervalId = setInterval(() => {
+//     if (buttonHover){
+//         const count = Matrix[indexHolder][1];
+//         count.textContent = (parseFloat(count.textContent) + 0.1).toFixed(1);
+//     }
+// }, 100);
+
+
 for (let i = 0; i < Matrix.length; i++) {
     const button = Matrix[i][0];
-    const count = Matrix[i][1];
-    button.addEventListener("touchstart", () => {
-        buttonHover = true;
-        count.style.opacity = "1";
-        indexHolder = i;
+    const count = Matrix[i][1]; 
+    button.addEventListener("click", () =>{
+        count.textContent = parseInt(count.textContent) + 1;
     });
-    button.addEventListener("mousedown", () => {
-        buttonHover = true;
-        indexHolder = i;
-    });
-    button.addEventListener("mouseenter", () => {
-        // buttonHover = false;
+    button.addEventListener("mouseenter", () =>{
+
         count.style.opacity = "1";
-    }); 
-    button.addEventListener("touchend", () => {
-        buttonHover = false;
+    });
+    button.addEventListener("mouseleave", () => {
         count.style.opacity = "0.1";
     });
-    button.addEventListener("mouseup", () => {
-        buttonHover = false;
-    });
 }
-// }
-
-
-
-const intervalId = setInterval(() => {
-    if (buttonHover){
-        const count = Matrix[indexHolder][1];
-        count.textContent = (parseFloat(count.textContent) + 0.1).toFixed(1);
-    }
-}, 100);
-
-
-leftButton.addEventListener("mouseenter", () => {
-    leftButtonCount.style.opacity = "1";
-})
-
-leftButton.addEventListener("mouseleave", () => {
-    leftButtonCount.style.opacity = "0.1";
-})
-
 
 
 
