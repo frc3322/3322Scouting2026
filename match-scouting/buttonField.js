@@ -60,18 +60,20 @@ for (let i = 0; i < Matrix.length; i++) {
         count.style.opacity = "1";
         indexHolder = i;
     });
-    button.addEventListener("mouseenter", () => {
+    button.addEventListener("mousedown", () => {
         buttonHover = true;
-        count.style.opacity = "1";
         indexHolder = i;
     });
+    button.addEventListener("mouseenter", () => {
+        // buttonHover = false;
+        count.style.opacity = "1";
+    }); 
     button.addEventListener("touchend", () => {
         buttonHover = false;
         count.style.opacity = "0.1";
     });
-    button.addEventListener("mouseleave", () => {
+    button.addEventListener("mouseup", () => {
         buttonHover = false;
-        count.style.opacity = "0.1";
     });
 }
 // }
