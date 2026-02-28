@@ -96,14 +96,11 @@ function setButtons() {
 
     document.getElementById("canvas").addEventListener('touchstart', function (e) {
         touches = e.touches.length;
-        console.log(e.touches.length);
         
         clearTimeout(jitterTO);
         if (!jitterClick) {
-            console.log(jitterTO);
             jitterTO = setTimeout(() => {
                 jitterClick = true;
-                console.log("jitter");
             }, 100);
         }
         else{
@@ -129,7 +126,6 @@ function setButtons() {
             if(!jitterEnd){
                 jitterTO = setInterval(() =>{
                     jitterEnd = true;
-                    console.log("jitterEnd");
                 }, 1000)
                 for (let i = 0; i < touches; i++) {
                     increment();
@@ -156,6 +152,7 @@ function setButtons() {
     ];
 
     for (const button of buttons) {
+        
         button.addEventListener("mousedown", () => { updateRate(rate); });
         button.addEventListener("mouseup", () => { updateRate(0); });
         button.addEventListener("mouseleave", () => { updateRate(0); });
@@ -220,10 +217,13 @@ clearInterval(shootInterval);
 
 function updateRate(rate) {
     if (rate != 0) {
+        clearInterval(shootInterval);
         shootInterval = setInterval(increment, 1000 / rate);
+        console.log("start")
     }
     else {
         clearInterval(shootInterval);
+        console.log(shootInterval);
     }
 }
 

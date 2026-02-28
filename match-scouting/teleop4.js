@@ -104,6 +104,7 @@ clearInterval(shootInterval);
 
 function updateRate(rate){
     if(rate != 0){
+        clearInterval(shootInterval);
         shootInterval = setInterval(newBall, 1000/rate); 
     }
     else{
