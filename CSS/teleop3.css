@@ -34,11 +34,14 @@ select {
     padding: 18px 18px;
 }
 
-buttons{
+.buttons{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -82,9 +85,9 @@ buttons{
 
 button{
     margin-top: 7px;
-    width: 24vw;
+    width: 80%;
     border-radius: 20px;
-    height: 16vw;
+    height: 10vw;
     font-size: 4vw;
     padding: 10px;
     border-width: 0px;
