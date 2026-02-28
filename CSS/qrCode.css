@@ -1,0 +1,22 @@
+.qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.animated-gradient-background {
+    position: fixed; /* Make the background fixed to the viewport */
+    inset: 0;
+    background: repeating-radial-gradient(circle at center, red 0px, orange 40px, yellow 80px, green 120px, blue 160px, indigo 200px, violet 240px);
+
+background-position: center;
+background-repeat: no-repeat;    /* Define the initial gradient. Make the background size larger than the element. */
+animation: zoom 5s linear infinite;}
+
+@keyframes zoom {
+    from {
+        background-size: 100% 100%;
+    }
+    to {
+        background-size: 200% 200%;
+    }
+}

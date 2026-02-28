@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Title</title>
-    <link rel="stylesheet" href="../CSS/qrCode.css">
-
 </head>
 <body>
-<div class="animated-gradient-background">
-
     <!-- Visible content goes here -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
-  <div style="height: 300px;" id="qrcode"></div>
+  <div id="qrcode"></div>
   <br><br><br>
   <div id="qrcode2"></div>
-  <p id = "data"></p>;
+  <p id = "data" style="overflow-wrap: break-word"></p>;
 
+  
 
-    <!-- Your content goes here -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <!-- Your QR code module (imports the other modules itself) -->
-  <script type="module" src="qrcode.js"></script>
+  <script type="module">
+    import { DataHandler } from "/match-scouting/DataHandler.js";
+
+    var dataHandler = new DataHandler;
+    dataHandler.loadData(localStorage.getItem("dataHandler"));
+
+    document.getElementById("data").textContent = localStorage.getItem("QRCodes");
+
+
+  </script>
 
 
   <br><br><br>
 
     <a href="../index.html" class="button">Home Page</a>
-
-</div>
 
 </body>
 </html>

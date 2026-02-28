@@ -34,8 +34,10 @@ export class DataHandler {
     
     booleanValues;
 
+    comments;
+
     constructor() {
-        this.booleanValues = [false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
+        this.booleanValues = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
         
 
         this.autoFuel = 0;
@@ -158,6 +160,10 @@ export class DataHandler {
     setTeleFuelTime(val) {
         this.teleFuelTime = val;
     }
+    
+    setComment(val) {
+        this.comments = val;
+    }
 
     setTelePassTime(val) {
         this.telePassTime = val;
@@ -207,6 +213,9 @@ export class DataHandler {
         Getters
     */
 
+    getComment() {
+        return this.comments;
+    }
     getBooleanValues() {
         return this.booleanValues;
     }

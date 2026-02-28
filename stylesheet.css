@@ -55,7 +55,20 @@ select {
 
 }
 
+#submitButton {
+    background-color: lightblue;
+    scale: 2;
+}
+#submitButton:hover {
+    background-color: blue;
+    scale: 2.30;
 
+}
+#submitButton:active {
+    background-color: purple;
+    scale: 2.30;
+
+}
 .section{
     margin: auto;
     width: 80%;

@@ -29,3 +29,15 @@
     transform: scale(1.05);
     transition: transform 0.3s;
 }
+
+p{
+    font-weight: bold;
+    line-height: 0.9;
+}
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    font-size: 50px;
+}

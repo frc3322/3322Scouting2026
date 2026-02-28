@@ -81,6 +81,9 @@ setInterval(() => {
     dataHandler.setBooleanValue(0, document.getElementById("initials").value);
     dataHandler.setBooleanValue(1, document.getElementById("teamNumber").value);
     dataHandler.setBooleanValue(2, document.getElementById("matchNumber").value);
+
+
+    dataHandler.setComment(document.getElementById("comments").value);
     //dataHandler.setBooleanValue(7, stars);
 
     console.log(dataHandler.getBooleanValues());

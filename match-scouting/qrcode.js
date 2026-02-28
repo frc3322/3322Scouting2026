@@ -26,7 +26,7 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
         }
     }
 
-    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," +  dataHandler.getScouterName() + "," +   dataHandler.getTeamNumber() + "," +   dataHandler.getMatchNumber() + "," + condensedList;
+    const data = "" + dataHandler.getAutoFuelFailed() + "," +  dataHandler.getAutoFuel() + "," +  dataHandler.getTeleFuel() + "," +  dataHandler.getAutoPass() + "," +  dataHandler.getTelePass() + "," +  dataHandler.getAutoFuelAccuracy() + "," +  dataHandler.getTeleFuelAccuracy() + "," +  dataHandler.getTeleFuelTime() + "," +  dataHandler.getTelePassTime() + "," +  dataHandler.getTeleCycleCounter() + "," + condensedList + ",";
 
     document.getElementById("data").textContent = data;
 
@@ -38,9 +38,15 @@ dataHandler.loadData(localStorage.getItem("dataHandler"));
     if(data) {
       new QRCode(document.getElementById("qrcode"), {
         text: data,
-        width: 200,
-        height: 200
+        width: 500,
+        height: 500
       });
+      new QRCode(document.getElementById("qrcode2"), {
+        text: dataHandler.getComment(),
+        width: 500,
+        height: 500
+      });
+      localStorage.setItem("QRCodes", localStorage.getItem("QRCodes") + [data]);
     } else {
       document.getElementById("qrcode").textContent = "No data provided in URL.";
     }
