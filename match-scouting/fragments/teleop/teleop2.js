@@ -1,5 +1,5 @@
-import { ActionType } from "./Constants.js";
-import { DataHandler } from "./DataHandler.js";
+import { ActionType } from "../../Constants.js";
+import { DataHandler } from "../../DataHandler.js";
 
 var dataHandler = new DataHandler;
 dataHandler.loadData(localStorage.getItem("dataHandler"));

@@ -1,4 +1,4 @@
-import { ActionType } from "./Constants.js"
+import { ActionType } from "../Constants.js"
 
 export class DataHandler {
     

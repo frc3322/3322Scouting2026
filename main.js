@@ -1,10 +1,14 @@
-import { ActionType } from "./match-scouting/Constants.js";
-import { DataHandler } from "./match-scouting/DataHandler.js";
+import { DataContainer } from "./data/dataContainer.js";
+import { DataHandler } from "./data/dataHandler.js";
+import { ActionType } from "./Constants.js";
 
 
+var dataContainer = new DataContainer();
+var dataHandler = new DataHandler(dataContainer);
 
-var dataHandler = new DataHandler;
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+console.log(dataContainer.scouterInitials);
+
+//dataHandler.loadData(localStorage.getItem("dataHandler"));
 
 
 
@@ -13,14 +17,12 @@ function setButtons() {
 
         document.getElementById("logo").addEventListener("click", () => {
         alert("Welcome to the 3322 scouting system! Click OK to start scouting.");
-        dataHandler.setScouterName(prompt("What are your initals? (Ex. DG)"));
-        dataHandler.setTeamNumber(prompt("What team are WE scouting? (Ex. 10656)"));
-        dataHandler.setMatchNumber(prompt("What match number is this? (Ex. 14)"));
+        //dataHandler.setScouterName(prompt("What are your initals? (Ex. DG)"));
+        //dataHandler.setTeamNumber(prompt("What team are WE scouting? (Ex. 10656)"));
+        //dataHandler.setMatchNumber(prompt("What match number is this? (Ex. 14)"));
 
-        window.location.href = "./match-scouting/auton.html";
-        localStorage.setItem("dataHandler", dataHandler.toString());
-
-
+        window.location.href = "./match-scouting/match-scouting.html";
+        //localStorage.setItem("dataHandler", dataHandler.toString());
     });
 
 }

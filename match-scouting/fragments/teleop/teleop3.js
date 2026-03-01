@@ -1,5 +1,5 @@
-import { ActionType } from "./Constants.js";
-import { DataHandler } from "./DataHandler.js";
+import { ActionType } from "../../../Constants.js";
+import { DataHandler } from "../../DataHandler.js";
 
 var dataHandler = new DataHandler();
 dataHandler.loadData(localStorage.getItem("dataHandler"));
@@ -20,7 +20,7 @@ ctx.canvas.height = canvasHeight;
 ctx.canvas.width = canvasWidth;
 
 var ball = new Image;
-ball.src = '../images/ball.svg'
+ball.src = '/images/ball.svg'
 
 var rate = 0;
 var mode = 0;
@@ -37,14 +37,14 @@ const toggles = document.getElementById("toggles").children
 var button;
 
 var bobot = new Image;
-bobot.src = '../images/bobot.png'
+bobot.src = '/images/bobot.png'
 bobot.onload = () => {
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300, 300);
 };
 
 
 var hub = new Image;
-hub.src = '../images/hub.svg'
+hub.src = '/images/hub.svg'
 hub.onload = () => {
     ctx.drawImage(hub, canvasWidth - 300, canvasHeight - 300, 300, 300);
 };
@@ -60,17 +60,24 @@ function updateDataHandler() {
 }
 
 ctx.font = "" + (40 * s) + "px sans-serif";
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+let previousFrame;
+
+function draw(timeStamp) {
+    if(previousFrame == null){
+        previousFrame = timeStamp;
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = ballList.length - 1; i >= 0; i--) {
         let vx = ballList[i][2] * s;
         let vy = ballList[i][3] * s;
+        let speed = (timeStamp - previousFrame) * 0.07;
         ctx.drawImage(ball, ballList[i][0], ballList[i][1], 60 * s, 60 * s);
-        ballList[i][0] += vx;
-        let t = (ballList[i][0] - 140 * s) / 13
-        ballList[i][1] += t - vy;
+        ballList[i][0] += vx*speed;
+        let t = (ballList[i][0] - 140 * s)* s / vx
+        ballList[i][1] += (t-vy)*speed;
         if (ballList[i][1] > canvas.height - 200 * s &&
             ballList[i][0] > canvas.width - 400 * s) {
             ballList.shift();
@@ -82,8 +89,8 @@ function draw() {
 
 
     setText(Math.round(teleFuel));
-
-
+    
+    previousFrame = timeStamp;
     window.requestAnimationFrame(draw);
 }
 
@@ -176,7 +183,7 @@ function setButtons() {
 }
 
 function newBall() {
-    ballList.push([140 * s, canvasHeight - 120 * s, 15 + (Math.random()) * 2, 30 + Math.random() * 2]);
+    ballList.push([140 * s, canvasHeight - 120 * s, (12 + (Math.random())), (30 + Math.random() * 2) ]);
 }
 
 function increment() {

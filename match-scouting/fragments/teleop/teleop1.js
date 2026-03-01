@@ -1,4 +1,4 @@
-import { DataHandler } from "./DataHandler.js";
+import { DataHandler } from "../../DataHandler.js";
 
 var timerInterval = null;
 var ScoringStartTime = 0;
