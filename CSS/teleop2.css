@@ -76,11 +76,23 @@ button{
     margin-left: 5px;
 }
 
-.slider{
-    width: 80%;
-    background-color: rgba(25, 97, 184, 0.673);
-    margin-top: 0px;
-    border-radius: 20px;
+.slider {
+  appearance: none;
+  width: 80%; 
+  height: 20px; 
+  background: rgba(194, 123, 23, 0.673); 
+  border-radius: 25px;
+  padding:0px;
+  margin-bottom: 50px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 30px; 
+  height: 30px; 
+  background: hsl(16, 87%, 44%); 
+  cursor: pointer; 
+  border-radius: 25px;
 }
 
 .undo-button{

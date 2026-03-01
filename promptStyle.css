@@ -1,0 +1,50 @@
+body{
+    position: relative;
+    /* height: 2000px; */
+}
+
+
+.firstPrompt, .secondPrompt, .thirdPrompt {
+    position: absolute;
+    top: 20%;
+    left: 30%;                
+    background-color: #141414; 
+    height: 20%;
+    width: clamp(40vw, 40vw, 500px);
+    /* width: 40%; */
+    z-index: 10;                  
+    border-radius: 25px;
+    opacity: 0;
+    
+    /* background-color: ; */
+}
+
+.secondPrompt{
+    z-index: 9;
+}
+
+.thirdPrompt{
+    z-index: 8;
+}
+
+.promptOneInput, .promptTwoInput, .promptThreeInput{
+    margin-top: 5%;
+    width: clamp(100px, 20vw, 400px);
+    border-radius: 20px;
+    border: 0;
+    text-align: center;
+    font-size: 30px;
+    
+}
+
+
+input::placeholder {
+    color: transparent;
+}
+
+input:focus{
+    outline: none;
+    /* border: 0; */
+    
+    box-shadow: 0 0 0 3px rgba(233, 169, 6, 0.755);
+}
