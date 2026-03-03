@@ -1,13 +1,15 @@
-import { ActionType } from "../../../Constants.js";
-import { DataHandler } from "../../DataHandler.js";
+import { DataHandler } from "../data/DataHandler.js";
 
-var dataHandler = new DataHandler();
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+
+var dataHandler = new DataHandler;
+
+dataHandler = window.parent.dataHandler;
+console.log(dataHandler);
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-var teleFuel = dataHandler.getTeleFuel();
+var teleFuel = 0;
 var telePass = 0;
 var teleTest = 3322;
 
@@ -54,10 +56,6 @@ hub.onload = () => {
 const s = canvasWidth / 1080;
 
 var ballList = []
-
-function updateDataHandler() {
-    localStorage.setItem("dataHandler", dataHandler.toString());
-}
 
 ctx.font = "" + (40 * s) + "px sans-serif";
 
@@ -189,7 +187,6 @@ function newBall() {
 function increment() {
     if (mode == 0) {
         setTimeout(() => { teleFuel += 1; }, 900);
-        dataHandler.incrementTele(ActionType.TeleFuel);
     }
     if (mode == 1) {
         //setTimeout(()=>{ += 1;},900);
@@ -226,11 +223,9 @@ function updateRate(rate) {
     if (rate != 0) {
         clearInterval(shootInterval);
         shootInterval = setInterval(increment, 1000 / rate);
-        console.log("start")
     }
     else {
         clearInterval(shootInterval);
-        console.log(shootInterval);
     }
 }
 

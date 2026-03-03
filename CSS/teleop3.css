@@ -1,19 +1,4 @@
-.circle {
-  height: 50vh;
-  width: 50vh;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
 
-.dot {
-  height: 40px;
-  width: 40px;
-  background-color: #bbb;
-  position: absolute;
-  border-radius: 50%;
-  display: inline-block;
-}
 
 body {
     background-color: #1b1b1b;
@@ -41,7 +26,7 @@ select {
     width: 100%;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 
@@ -85,7 +70,7 @@ select {
 
 button{
     margin-top: 7px;
-    width: 80%;
+    width: 30%;
     border-radius: 20px;
     height: 10vw;
     font-size: 4vw;

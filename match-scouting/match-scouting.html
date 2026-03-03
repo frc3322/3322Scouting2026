@@ -10,7 +10,9 @@
 </head>
 <body>
     
-    <iframe src="/match-scouting/fragments/teleop/teleop3.html" ></iframe>
+    <iframe id = "iframe" src="/match-scouting/teleop3.html" ></iframe>
+
+    <div style="height: 300px;" id="qrcode"></div>
 
     <div class="navbar" id="nav">
         <img id ="nav-auton" src="../images/Auto-Button.png">
@@ -20,5 +22,14 @@
         <img id ="nav-teleop4" src="../images/Tele-button.png">
         <img id ="nav-endgame" src="../images/Endgame-Button.png">
     </div>
+
+
 </body>
+
+
+<!-- You can link JavaScript files here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="/scripts/data/DataContainer.js"></script>
+<script type="module" src="/scripts/data/DataHandler.js"></script>
+<script type="module" src="/scripts/match-scouting.js"></script>
 </html>
