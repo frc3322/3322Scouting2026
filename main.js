@@ -4,7 +4,7 @@ import { DataHandler } from "./match-scouting/DataHandler.js";
 
 
 var dataHandler = new DataHandler;
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+localStorage.setItem("dataHandler", dataHandler.toString());
 
 
 
