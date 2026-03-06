@@ -1,25 +1,29 @@
+import { DataContainer } from "../data/DataContainer.js";
 import { DataHandler } from "../data/DataHandler.js";
 
 
-var dataHandler = new DataHandler;
-
+var dataContainer = new DataContainer();
+var dataHandler = new DataHandler();
 dataHandler = window.parent.dataHandler;
-console.log(dataHandler);
+dataContainer = dataHandler.getDataContainer();
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-var teleFuel = 0;
-var telePass = 0;
+var scored = dataContainer.teleScored;
+var passed = dataContainer.telePassed;
 var teleTest = 3322;
 
 var slider = document.getElementById("slider")
 
-const canvasHeight = window.innerWidth * (620 / 1080) * 0.75;
-const canvasWidth = window.innerWidth * 0.75;
+const rect = canvas.getBoundingClientRect();
+
+var canvasHeight = rect.height;
+var canvasWidth = rect.width;
 
 ctx.canvas.height = canvasHeight;
 ctx.canvas.width = canvasWidth;
+
 
 var ball = new Image;
 ball.src = '/images/ball.svg'
@@ -62,7 +66,7 @@ ctx.font = "" + (40 * s) + "px sans-serif";
 let previousFrame;
 
 function draw(timeStamp) {
-    if(previousFrame == null){
+    if (previousFrame == null) {
         previousFrame = timeStamp;
     }
 
@@ -73,9 +77,9 @@ function draw(timeStamp) {
         let vy = ballList[i][3] * s;
         let speed = (timeStamp - previousFrame) * 0.07;
         ctx.drawImage(ball, ballList[i][0], ballList[i][1], 60 * s, 60 * s);
-        ballList[i][0] += vx*speed;
-        let t = (ballList[i][0] - 140 * s)* s / vx
-        ballList[i][1] += (t-vy)*speed;
+        ballList[i][0] += vx * speed;
+        let t = (ballList[i][0] - 140 * s) * s / vx
+        ballList[i][1] += (t - vy) * speed;
         if (ballList[i][1] > canvas.height - 200 * s &&
             ballList[i][0] > canvas.width - 400 * s) {
             ballList.shift();
@@ -86,64 +90,45 @@ function draw(timeStamp) {
     ctx.drawImage(hub, canvasWidth - 425 * s, canvasHeight - 400 * s, 400 * s, 400 * s);
 
 
-    setText(Math.round(teleFuel));
-    
+    setText()
+
     previousFrame = timeStamp;
     window.requestAnimationFrame(draw);
 }
 
-var touches = 0;
-var jitterClick = false;
-var jitterTO;
-var jitterEnd = false;
+
+
+var multitap = false;
+var multitapTimer = null;
+
 function setButtons() {
     //document.getElementById("canvas").addEventListener("mousedown", increment);
 
     document.getElementById("canvas").addEventListener('touchstart', function (e) {
-        touches = e.touches.length;
-        
-        clearTimeout(jitterTO);
-        if (!jitterClick) {
-            jitterTO = setTimeout(() => {
-                jitterClick = true;
-            }, 100);
-        }
-        else{
-            jitterEnd = false;
+        clearTimeout(multitapTimer);
+        multitapTimer = setTimeout(()=>{
+            multitap = true;
+            console.log(multitap);
+        }, 200);
+        if(multitap){
+            for(let i = 0; i < e.touches.length; i++){
+                increment();
+            }
         }
     });
 
     document.getElementById("canvas").addEventListener('touchend', function (e) {
-        if (!jitterClick) {
-            if (e.touches.length == 0) {
-                for (let i = 0; i < touches; i++) {
-                    increment();
-                }
-                clearTimeout(jitterTO);
+        
+        if(multitap){
+            if(e.touches.length == 0){
+                multitap = false;
             }
-            else {
-                setTimeout(() => {
-                    touches = e.touches.length;
-                }, 100);
-            }
+            console.log(multitap);
         }
         else{
-            if(!jitterEnd){
-                jitterTO = setInterval(() =>{
-                    jitterEnd = true;
-                }, 1000)
-                for (let i = 0; i < touches; i++) {
-                    increment();
-                }
-            }
-            
-            if (e.touches.length == 0) {
-                jitterClick = false;
-            }
+            clearTimeout(multitapTimer);
+            increment();
         }
-
-
-
     });
 
     for (let i = 0; i < toggles.length; i++) {
@@ -157,7 +142,7 @@ function setButtons() {
     ];
 
     for (const button of buttons) {
-        
+
         button.addEventListener("mousedown", () => { updateRate(rate); });
         button.addEventListener("mouseup", () => { updateRate(0); });
         button.addEventListener("mouseleave", () => { updateRate(0); });
@@ -169,27 +154,43 @@ function setButtons() {
 
 
     rateButton.addEventListener("mousedown", () => {
-        startRate()
-        teleTest = 0;
+        if (!measuringRate) {
+            startRate()
+            teleTest = 0;
+        }
+        else {
+            endRate()
+            teleTest = 3322;
+        }
     });
 
     slider.addEventListener("input", () => {
-        rate = slider.value / 5
-        button.textContent = rate.toFixed(2) + " bps";
+        updateButtonText()
     })
 
 }
 
+function updateButtonText() {
+    rate = slider.value / 5
+    button.textContent = rate.toFixed(2) + " bps";
+}
+
 function newBall() {
-    ballList.push([140 * s, canvasHeight - 120 * s, (12 + (Math.random())), (30 + Math.random() * 2) ]);
+    ballList.push([140 * s, canvasHeight - 120 * s, (12 + (Math.random())), (30 + Math.random() * 2)]);
 }
 
 function increment() {
     if (mode == 0) {
-        setTimeout(() => { teleFuel += 1; }, 900);
+        setTimeout(() => {
+            scored += 1;
+            dataHandler.incTeleScored(1);
+        }, 900);
     }
     if (mode == 1) {
-        //setTimeout(()=>{ += 1;},900);
+        setTimeout(() => {
+            passed += 1;
+            dataHandler.incTeleScored(1);
+        }, 900);
     }
     if (mode == 2) {
         if (teleTest == 0) {
@@ -200,7 +201,10 @@ function increment() {
     newBall();
 }
 
+var measuringRate = false;
+
 function startRate() {
+    measuringRate = true;
     rateButton.style.backgroundColor = "rgb(161, 27, 27)";
     rateButton.textContent = "Quit";
     rateButton.style.color = "#E1E1E1";
@@ -208,6 +212,8 @@ function startRate() {
 }
 
 function endRate() {
+    measuringRate = false;
+    updateButtonText()
     rateButton.style.backgroundColor = "rgb(187, 187, 187)";
     rateButton.style.color = "#000000";
     rateButton.textContent = "Measure Rate";
@@ -267,7 +273,19 @@ function setMode(m) {
 }
 
 
-function setText(text) {
+function setText() {
+    var text = ""
+    if (mode == 0) {
+        text = scored;
+    }
+    else if (mode == 1) {
+        text = passed;
+    }
+    else {
+        text = 0;
+    }
+
+
     var textWidth = ctx.measureText("" + text).width;
     ctx.fillText(text, canvasWidth - (215) * s - textWidth / 2, canvasHeight - 100 * s);
 }
@@ -281,4 +299,4 @@ init();
 
 
 setButtons();
-setMode(2);
+setMode(0);

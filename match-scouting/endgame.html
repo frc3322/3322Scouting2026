@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- You can link CSS files here -->
+    <link rel="stylesheet" href="../CSS/endgame.css">
+</head>
+
+<body>
+    <!-- This is the visible content of the page -->
+
+    <h1>Endgame</h1>
+
+    <div class="section">
+        
+        <div>
+        <label for="Climb">Climb</label>
+        <select id="Climb">
+            <option value=0>None</option>
+            <option value=1>L1 Climb</option>
+            <option value=2>L2 Climb</option>
+            <option value=3>L3 Climb</option>
+        </select>
+        </div>
+
+        <p>Rating:</p>
+        <div class="stars">
+            <p id="rate1" class="star" ></p>
+            <p id="rate2" class="star" ></p>
+            <p id="rate3" class="star" ></p>
+            <p id="rate4" class="star" ></p>
+            <p id="rate5" class="star" ></p>
+
+        </div>
+
+        <div style="display:flex; justify-content: center; flex-direction: row;">
+        <input class = "inputText" id="initials" placeholder="scouter initials"> <br>
+        <input class = "inputText"  id="teamNumber" placeholder="team number"> <br>
+        <input class = "inputText"  id="matchNumber" placeholder="match number"> <br>
+
+</div>
+        <p>Comments:</p>
+        <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
+
+        <button id="submit"> Submit</button>
+
+        <div style="display:flex; justify-content: center; flex-direction: row;">
+            <div class="qr" id="dataQR"></div>
+            <div class="qr"id="commentQR"></div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- You can link JavaScript files here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script type="module" src="/scripts/data/DataContainer.js"></script>
+    <script type="module" src="/scripts/data/DataHandler.js"></script>
+    <script type="module" src="/scripts/match-scouting/endgame.js"></script>
+
+</body>
+
+</html>

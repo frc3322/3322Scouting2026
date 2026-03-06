@@ -29,23 +29,11 @@ select {
     flex-direction: row;
 }
 
-
-.fixedElement {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-
-    top:0;
-    height:auto; 
-    max-width: 10vh;
-    left: 0px;
-    padding: 0px; 
-    z-index: 1000;
-
-    top:50%;
-    transform: translate(0, -50%);
-    
+canvas{
+    width:75vw;
+    height: 43vw;
 }
+
 .fixedElement a {
     flex: 1;
     margin:0;
@@ -73,7 +61,7 @@ button{
     width: 30%;
     border-radius: 20px;
     height: 10vw;
-    font-size: 4vw;
+    font-size: 3vw;
     padding: 10px;
     border-width: 0px;
     font-family: 'Inter', sans-serif;

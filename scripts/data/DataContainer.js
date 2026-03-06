@@ -4,9 +4,10 @@ export class DataContainer {
     teamNumber;
     scouterInitials;
 
-    autoCycles;
+    autoScored
     autoAccuracy;
     autoClimb;
+    mobility;
 
     teleScored;
     telePassed;
@@ -24,15 +25,17 @@ export class DataContainer {
     endClimb;
     downTime;
     comment;
+    rating;
 
     constructor() {
         this.matchNumber = 0;
         this.teamNumber = 0;
-        this.scouterInitials = "SCJ";
+        this.scouterInitials = "";
 
-        this.autoCycles = 0;
+        this.autoScored = 0;
         this.autoAccuracy = 0;
         this.autoClimb = 0;
+        this.mobility = 0;
 
         this.teleScored = 0;
         this.telePassed = 0;
@@ -49,7 +52,8 @@ export class DataContainer {
 
         this.endClimb = 0;
         this.downTime = 0;
-        this.comment = "abcdefghijklmnopqrstuvwxyz";
+        this.rating = 0;
+        this.comment = "";
     }
 
     exportData(){

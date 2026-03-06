@@ -1,17 +1,20 @@
-import { ActionType } from "../../Constants.js";
-import { DataHandler } from "../../DataHandler.js";
 
-var dataHandler = new DataHandler;
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+import { DataContainer } from "../data/DataContainer.js";
+import { DataHandler } from "../data/DataHandler.js";
 
 
 
-console.log(dataHandler.toString());
+var dataContainer = new DataContainer();
+var dataHandler = new DataHandler();
+dataHandler = window.parent.dataHandler;
+dataContainer = dataHandler.getDataContainer();
+
+
 
 
 function updateFields(){
-    document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel()
-    document.getElementById("passingCounter").textContent = dataHandler.getTelePass()
+    document.getElementById("fuelCounter").textContent = dataContainer.teleScored
+    document.getElementById("passingCounter").textContent = dataContainer.telePassed
 }
 
 updateFields()
@@ -19,17 +22,17 @@ updateFields()
 
 function increaseNumber(amount) {
     
-    dataHandler.incrementTele(ActionType.TeleFuel, amount);
+    
     console.log(dataHandler.toString());
-    document.getElementById("fuelCounter").textContent = dataHandler.getTeleFuel();
+    document.getElementById("fuelCounter").textContent = dataContainer.teleScored;
     localStorage.setItem("dataHandler", dataHandler.toString());
 }
 
 function increasePassing(amount) {
     
-    dataHandler.incrementTele(ActionType.TelePass, amount);
-    console.log(dataHandler.getTelePass());
-    document.getElementById("passingCounter").textContent = dataHandler.getTelePass();
+    
+    console.log(dataContainer.telePassed);
+    document.getElementById("passingCounter").textContent = dataContainer.telePassed;
     localStorage.setItem("dataHandler", dataHandler.toString());
 }
 

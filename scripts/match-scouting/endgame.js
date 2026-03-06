@@ -1,105 +1,102 @@
-import { ActionType } from "../../Constants.js";
-import { DataHandler } from "../../DataHandler.js";
-
-var dataHandler = new DataHandler;
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+import { DataContainer } from "../data/DataContainer.js";
+import { DataHandler } from "../data/DataHandler.js";
 
 
+var dataContainer = new DataContainer();
+var dataHandler = new DataHandler();
+dataHandler = window.parent.dataHandler;
+dataContainer = dataHandler.getDataContainer();
 
-let stars = -1;
+const star1 = document.getElementById("rate1");
+const star2 = document.getElementById("rate2");
+const star3 = document.getElementById("rate3");
+const star4 = document.getElementById("rate4");
+const star5 = document.getElementById("rate5");
+const starArray = [
+    star1,
+    star2,
+    star3,
+    star4,
+    star5
+];
 
+var dataQR;
+var commentQR;
 
 function updateStars(stars) {
-    dataHandler.setBooleanValue(7, stars);
-
-    if(stars >= 1) {
-        document.getElementById("rate1").innerHTML = "&#9733";
-    } else {
-        document.getElementById("rate1").innerHTML = "&#9734";
-    }
-    if(stars >= 2) {
-        document.getElementById("rate2").innerHTML = "&#9733";
-    } else {
-        document.getElementById("rate2").innerHTML = "&#9734";
-    }
-    if(stars >= 3) {
-        document.getElementById("rate3").innerHTML = "&#9733";
-    } else {
-        document.getElementById("rate3").innerHTML = "&#9734";
-    }
-    if(stars >= 4) {
-        document.getElementById("rate4").innerHTML = "&#9733";
-    } else {
-        document.getElementById("rate4").innerHTML = "&#9734";
-    }
-    if(stars >= 5) {
-        document.getElementById("rate5").innerHTML = "&#9733";
-    } else {
-        document.getElementById("rate5").innerHTML = "&#9734";
-    }
-    if(stars == 0) {
-        document.getElementById("rate1").innerHTML = "&nbsp;";
-        document.getElementById("rate2").innerHTML = "&nbsp;";
-        document.getElementById("rate3").innerHTML = "&nbsp;";
-        document.getElementById("rate4").innerHTML = "&nbsp;";
-        document.getElementById("rate5").innerHTML = "&nbsp;";
+    dataHandler.setRating(stars)
+    for (let i = 0; i < 5; i++) {
+        if (i < stars) {
+            starArray[i].innerHTML = "&#9733;";
+        }
+        else {
+            starArray[i].innerHTML = "&#9734";
+        }
     }
 }
 
 function setButtons() {
-    
-    document.getElementById("rate1").addEventListener("click", () => {
+
+    star1.addEventListener("click", () => {
         updateStars(1);
     });
-    document.getElementById("rate2").addEventListener("click", () => {
+    star2.addEventListener("click", () => {
         updateStars(2);
     });
-    document.getElementById("rate3").addEventListener("click", () => {
+    star3.addEventListener("click", () => {
         updateStars(3);
     });
-    document.getElementById("rate4").addEventListener("click", () => {
+    star4.addEventListener("click", () => {
         updateStars(4);
     });
-    document.getElementById("rate5").addEventListener("click", () => {
+    star5.addEventListener("click", () => {
         updateStars(5);
     });
-    document.getElementById("defence").addEventListener("click", () => {
-        if(document.getElementById("defence").checked) {
-            updateStars(5);
-        } else {
-        updateStars(0);
-        }
+
+    document.getElementById("submit").addEventListener("click", () => {
+        dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
+        dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
+        dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
+        dataHandler.setComment(document.getElementById("comments").value);
+
+        generateQRCodes();
     });
+
 
 }
 
-setInterval(() => {
-    dataHandler.setBooleanValue(4, document.getElementById("bump").checked);
-    dataHandler.setBooleanValue(5, document.getElementById("trench").checked);
-    dataHandler.setBooleanValue(6, document.getElementById("defence").checked);
 
-    dataHandler.setBooleanValue(0, document.getElementById("initials").value);
-    dataHandler.setBooleanValue(1, document.getElementById("teamNumber").value);
-    dataHandler.setBooleanValue(2, document.getElementById("matchNumber").value);
+document.getElementById("initials").value = dataContainer.scouterInitials;
+if (dataContainer.teamNumber != 0) {
+    document.getElementById("teamNumber").value = dataContainer.teamNumber;
+}
+if (dataContainer.matchNumber != 0) {
+    document.getElementById("matchNumber").value = dataContainer.matchNumber;
+}
+
+function generateQRCodes() {
+    document.getElementById("dataQR").innerHTML = ""
+    document.getElementById("commentQR").innerHTML = ""
+
+    var size = document.getElementById("dataQR").clientWidth;
+    var data = dataContainer.exportData()
+    
+    dataQR = new QRCode(document.getElementById("dataQR"), {
+        text: data[1],
+        height: size,
+        width: size
+    });
+
+    if (dataContainer.comment != "") {
+        commentQR = new QRCode(document.getElementById("commentQR"), {
+            text: data[2],
+            height: size,
+            width: size
+        });
+    }
+}
 
 
-    dataHandler.setComment(document.getElementById("comments").value);
-    //dataHandler.setBooleanValue(7, stars);
-
-    console.log(dataHandler.getBooleanValues());
-    localStorage.setItem("dataHandler", dataHandler.toString());
-
-    console.log("stored");
-
-}, 1000);
-
-
-document.getElementById("initials").value = dataHandler.getScouterName();
-document.getElementById("teamNumber").value = dataHandler.getTeamNumber();
-document.getElementById("matchNumber").value = dataHandler.getMatchNumber();
-
-
-
-
+updateStars(5);
 setButtons();
 

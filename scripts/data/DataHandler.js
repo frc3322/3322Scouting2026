@@ -73,8 +73,8 @@ export class DataHandler {
         this.dataContainer.scouterInitials = scouterInitials;
     }
 
-    incAutoCycles(val) {
-        this.dataContainer.autoCycles += val;
+    incAutoScored(val) {
+        this.dataContainer.autoScored += val;
     }
 
     setAutoAccuracy(autoAccuracy) {
@@ -84,6 +84,11 @@ export class DataHandler {
     setAutoClimb(autoClimb) {
         this.dataContainer.autoClimb = autoClimb;
     }
+
+    setMobility(mobility) {
+        this.dataContainer.mobility = mobility;
+    }
+
 
     incTeleScored(val) {
         this.dataContainer.teleScored += val;
@@ -111,6 +116,9 @@ export class DataHandler {
 
     setComment(comment) {
         this.dataContainer.comment = comment;
+    }
+    setRating(rating) {
+        this.dataContainer.rating = rating;
     }
 
 
