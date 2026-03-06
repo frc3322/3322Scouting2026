@@ -34,7 +34,7 @@
 }
 
 .middle-zone{
-    width: 40%;
+    width: 44%;
 }
 
 .middleLeftField {
@@ -58,7 +58,8 @@
 
 .left-most-button img,
 .right-most-button img,
-.midButton img {
+.midButton img,
+.midZoneButton img {
     display: block;
     width: 100%;
     height: auto;
