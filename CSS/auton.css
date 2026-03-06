@@ -2,6 +2,7 @@ body {
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;
+    
 }
 
 input {
@@ -16,12 +17,7 @@ input[type="checkbox"] {
 select {
     padding: 18px 18px;
 }
-buttons{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
-}
+
 
 
 .fixedElement {
@@ -60,6 +56,7 @@ buttons{
     border-radius: 50px;
     padding: 10px;
     background-color: #101010;
+    
 }
 
 button{
@@ -112,4 +109,21 @@ p{
 
 label{
     color: #e9fbff;
+    margin: 20px;
+}
+
+.checkSet{
+    margin-top: 40px;
+}
+
+
+.checkOne, .checkTwo, .checkThree{
+    margin: 20px;
+}
+
+.checkBoxes{
+
+    height: 12px;
+    width: 25px;
+    background-color: #2a0a0a;
 }

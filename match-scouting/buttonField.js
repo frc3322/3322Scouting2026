@@ -35,13 +35,12 @@ function setButtons() {
     
     document.getElementById("leftMostButton").addEventListener("click", () => {
         console.log("Left button clicked");
-        dataHandler.setBooleanValue(8, true);
+        dataHandler.setBooleanValue(8, true); 
     });
     document.getElementById("rightMostButton").addEventListener("click", () => {
         console.log("Right button clicked");
         dataHandler.setBooleanValue(9, true);
     });
-
     document.getElementById("mdLeft1").addEventListener("click", () => {
         console.log("Mid left button 1 clicked");
         dataHandler.setBooleanValue(10, true);

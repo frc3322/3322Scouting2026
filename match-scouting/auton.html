@@ -48,20 +48,33 @@
 
     </div>
 
-    <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
-    <output style="color:#e9fbff;">90%</output>
+    <div class = "Scoring-sys">
+      <input type="range" min="0" max="100" value="90" class="slider" step="1" oninput="this.nextElementSibling.value = this.value + '%'">
+      <output style="color:#e9fbff;">90%</output>
+    </div>
+
     <button class="undo-button" id="undo">Undo</button>
-    <br><br><br><br><br>
     
+    <div class="checkSet">
+      <div class = "checkOne">
+        <label for="neutralZone">Did they use Neutral Zone?</label>
+        <input class="checkBoxes" type="checkbox" id="neutralZone"><br>
+      </div>
+      
+      <div class = "checkTwo">
+        <label for="Depot">Did they use Depot?</label>
+        <input class="checkBoxes" type="checkbox" id="depot"><br>
+      </div>
+     
+      <div class = "checkThree">
+        <label for="Outpost">Did they use Outpost?</label>
+        <input class="checkBoxes" type="checkbox" id="outpost"><br>
+      </div>
+     
 
-      <label for="neutralZone">Did they use Neutral Zone?</label>
-      <input type="checkbox" id="neutralZone"><br>
 
-      <label for="Depot">Did they use Depot?</label>
-      <input type="checkbox" id="depot"><br>
-
-      <label for="Outpost">Did they use Outpost?</label>
-      <input type="checkbox" id="outpost"><br>
+    </div>
+    
 
     <select  id="Climb">
       <option value=L1>L1 Climb</option>

@@ -36,12 +36,13 @@ select {
 
 .buttons{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: 100%;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+    
 }
 
 
