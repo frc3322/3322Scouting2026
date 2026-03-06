@@ -1,58 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scouting App</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="CSS/extraStyling.css">
+    <link rel="stylesheet" href="promptStyle.css">
+      
+  </head>
+  <body style="background-color:rgb(70, 129, 145);">
+      <!-- This is the visible content of the page -->
 
-</head>
-<body style="background-color:rgb(70, 129, 145);">
-    <!-- This is the visible content of the page -->
+    <div class = "wrapper-duller">
 
-    <img src="images/Screenshot 2026-02-28 at 12.27.47 PM.png" style="width: 25%; height: auto;">
+      <img src="images/Screenshot 2026-02-28 at 12.27.47 PM.png" style="width: 200px; height: auto;">
+      <h1 style="color:#fa4318;">Eagle Evolution Rebuilt Scouting!!!!!!!!! </h1>
+      <div style="height: 10px;"></div>
+      <p>(Stone Cold Joe is always watching)</p>
+      <p>Click on the eagle logo to start scouting!</p>
+      <p>Take a moment to apreciate douglass</p>
+      <img class = "logo" id="logo" src="https://avatars.githubusercontent.com/u/1799921?s=280&v=4">
 
-    <h1>Eagle Evolution Rebuilt Scouting!!!!!!!!! </h1>
-    <div style="height: 10px;"></div>
-    <p>(Stone Cold Joe is always watching)</p>
-    <p>Click on the eagle logo to start scouting!</p>
-    <p>Take a moment to apreciate douglass</p>
+    </div>
+    
     
 
-    <img class = "logo" id="logo"src="https://avatars.githubusercontent.com/u/1799921?s=280&v=4">
-    <!-- You can link JavaScript files here -->
-    <script type="module" src="./match-scouting/Constants.js"></script>
-    <script type="module" src="./match-scouting/DataHandler.js"></script>
-    <script type="module" src="scripts.js"></script>
-    <script type="module" src="main.js"></script>
-    <br><br><br><br><br>
-    <image src="images/DouglassRemovedBackground.png" id="Douglass" style="width: 10%; height: auto;">
+
+    <div class="firstPrompt">
+      <h2 id="promptTitle">What are your initals? (Ex. JE)</h2>
+      <input class = "promptOneInput" type="text" id="promptInput" placeholder="Type here..."/>
+    </div>
+
+    <div class="secondPrompt">
+      <h2 id="promptTitle">What team are WE scouting? (Ex. 3322)</h2>
+      <input class = "promptTwoInput" type="text" id="promptInput"/>
+    </div>
+
+    <div class="thirdPrompt">
+      <h2 id="promptTitle"> What match number is this? (Ex. 67) </h2>
+      <input class = "promptThreeInput" type="text" id="promptInput" autofocus />
+    </div>
+
+    <!-- <div class="firstPrompt">
+      <h2 id="promptTitle">What are your initals? (Ex. JE)</h2>
+      <input class = "prompt" type="text" id="promptInput" placeholder="Type here..." autofocus />
+    </div>
     
-      <script>
+     -->
+  
 
-        x = 0;
-        setInterval(() => {
+  </body>
 
-        x += 2.5;
-          console.log(x);
-        if (x > window.innerWidth / 2) {
-          x = - window.innerWidth / 2;
-        }
-        angle = Math.sin(x/25) * 20;
+  <!-- You can link JavaScript files here -->
+  <script type="module" src="./match-scouting/Constants.js"></script>
+  <script type="module" src="./match-scouting/DataHandler.js"></script>
+  <script type="module" src="scripts.js"></script>
+  <script type="module" src="main.js"></script>
+  <script type="module" src="prompt.js"></script>
+  <br><br><br><br><br>
+  <image src="images/DouglassRemovedBackground.png" id="Douglass" style="width: 10%; height: auto;">
 
-          document.getElementById("Douglass").style.transform =
-            `translateX(${x}px) rotate(${angle}deg)`;
+  <script>
+
+    x = 0;
+    setInterval(() => {
+
+    x += 2.5;
+      // console.log(x);
+    if (x > window.innerWidth / 2) {
+      x = - window.innerWidth / 2;
+    }
+    angle = Math.sin(x/25) * 20;
+
+      document.getElementById("Douglass").style.transform =
+        `translateX(${x}px) rotate(${angle}deg)`;
 
 
 
-        }, 10);
+    }, 10);
+
+    
 
 
+  </script>
 
 
-      </script>
-
-</body>
 </html>
