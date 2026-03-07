@@ -21,88 +21,93 @@ const rightHubButton = document.querySelector("#midRightHub");
 
 
 const allButtons = [
-leftButton,
-rightButton,
-midLeftButtonOne,
-midLeftButtonTwo,
-midLeftButtonThree,
-midLeftButtonFour,
-midRightButtonOne,
-midRightButtonTwo,
-midRightButtonThree,
-midRightButtonFour,
-midZoneButton,
-leftHubButton,
-rightHubButton
+
+    leftButton,
+    midLeftButtonOne,
+    midLeftButtonTwo,
+    leftHubButton,
+    midLeftButtonThree,
+    midLeftButtonFour,
+
+    midZoneButton,
+    
+    midRightButtonOne,
+    midRightButtonTwo,
+    rightHubButton,
+    midRightButtonThree,
+    midRightButtonFour,
+    rightButton
+
 ];
 
 allButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-        let value = parseInt(button.children[1].textContent);
-        console.log(value)
-        button.children[1].textContent = value + 1;
-    });
-});
+        let buttonValue = parseInt(button.children[1].textContent);
+        button.children[1].textContent = buttonValue + 1;
+        // console.log(buttonValue+1);
+        dataHandler.setBooleanValue(index, true);
+        dataHandler.setButtonValue(index, buttonValue + 1);
 
-allButtons.forEach(button => {
+    });
+
     button.addEventListener("mouseenter", () => {
         button.children[1].style.opacity = "1";
     });
+     
     button.addEventListener("mouseleave", () => {
         button.children[1].style.opacity = "0.3";
     });
 });
 
 
-
-function setButtons() {
+// function setButtons() {
 
 
     
-    document.getElementById("leftMostButton").addEventListener("click", () => {
-        console.log("Left button clicked");
-        dataHandler.setBooleanValue(8, true); 
-    });
-    document.getElementById("rightMostButton").addEventListener("click", () => {
-        console.log("Right button clicked");
-        dataHandler.setBooleanValue(9, true);
-    });
-    document.getElementById("midLeft1").addEventListener("click", () => {
-        console.log("Mid left button 1 clicked");
-        dataHandler.setBooleanValue(10, true);
-    }); 
-    document.getElementById("midLeft2").addEventListener("click", () => {
-        console.log("Mid left button 2 clicked");
-        dataHandler.setBooleanValue(11, true);
-    });
-    document.getElementById("midLeft3").addEventListener("click", () => {
-        console.log("Mid left button 3 clicked");
-        dataHandler.setBooleanValue(12, true);
-    });
-    document.getElementById("midLeft4").addEventListener("click", () => {
-        console.log("Mid left button 4 clicked");
-        dataHandler.setBooleanValue(13, true);
-    });
+//     document.getElementById("leftMostButton").addEventListener("click", () => {
+//         console.log("Left button clicked");
+//         dataHandler.setBooleanValue(8, true); 
+//     });
+//     document.getElementById("rightMostButton").addEventListener("click", () => {
+//         console.log("Right button clicked");
+//         dataHandler.setBooleanValue(9, true);
+//     });
+//     document.getElementById("midLeft1").addEventListener("click", () => {
+//         console.log("Mid left button 1 clicked");
+//         dataHandler.setBooleanValue(10, true);
+//     }); 
+//     document.getElementById("midLeft2").addEventListener("click", () => {
+//         console.log("Mid left button 2 clicked");
+//         dataHandler.setBooleanValue(11, true);
+//     });
+//     document.getElementById("midLeft3").addEventListener("click", () => {
+//         console.log("Mid left button 3 clicked");
+//         dataHandler.setBooleanValue(12, true);
+//     });
+//     document.getElementById("midLeft4").addEventListener("click", () => {
+//         console.log("Mid left button 4 clicked");
+//         dataHandler.setBooleanValue(13, true);
+//     });
 
-    document.getElementById("midRight1").addEventListener("click", () => {
-        console.log("Mid right button 1 clicked");
-        dataHandler.setBooleanValue(14, true);
-    });
-    document.getElementById("midRight2").addEventListener("click", () => {
-        console.log("Mid right button 2 clicked");
-        dataHandler.setBooleanValue(15, true);
-    });
-    document.getElementById("midRight3").addEventListener("click", () => {
-        console.log("Mid right button 3 clicked");
-        dataHandler.setBooleanValue(16, true);
-    });
-    document.getElementById("midRight4").addEventListener("click", () => {
-        console.log("Mid right button 4 clicked");
-        dataHandler.setBooleanValue(17, true);
-    });
-}
+//     document.getElementById("midRight1").addEventListener("click", () => {
+//         console.log("Mid right button 1 clicked");
+//         dataHandler.setBooleanValue(14, true);
+//     });
+//     document.getElementById("midRight2").addEventListener("click", () => {
+//         console.log("Mid right button 2 clicked");
+//         dataHandler.setBooleanValue(15, true);
+//     });
+//     document.getElementById("midRight3").addEventListener("click", () => {
+//         console.log("Mid right button 3 clicked");
+//         dataHandler.setBooleanValue(16, true);
+//     });
+//     document.getElementById("midRight4").addEventListener("click", () => {
+//         console.log("Mid right button 4 clicked");
+//         dataHandler.setBooleanValue(17, true);
+//     });
+// }
 
-setButtons();
+// setButtons();
 
 
 

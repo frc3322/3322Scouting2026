@@ -34,14 +34,15 @@ export class DataHandler {
     
     booleanValues;
 
-    buttonFieldAscribedValues;
+    buttonFieldValues;
 
     comments;
 
     constructor() {
         this.booleanValues = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
         
-        this.buttonFieldAscribedValues = new Array(13);
+        this.buttonFieldValues = new Array(13).fill(0);
+
 
         this.autoFuel = 0;
         this.teleFuel = 0;
@@ -209,9 +210,13 @@ export class DataHandler {
     }
     setBooleanValue(index, value) {
         this.booleanValues[index] = value;
+        // console.log(value);
     }
     setButtonValue(index, value){
-        this.buttonValue[index] = value;
+        this.buttonFieldValues[index] = value;
+        // console.log(value);
+        console.log(this.buttonFieldValues[index]);
+
     }
 
     /*
