@@ -41,14 +41,14 @@ const toggles = document.getElementById("toggles").children
 var button;
 
 var bobot = new Image;
-bobot.src = '/images/bobot.png'
+bobot.src = '../images/bobot.png'
 bobot.onload = () => {
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300, 300);
 };
 
 
 var hub = new Image;
-hub.src = '/images/hub.svg'
+hub.src = '../images/hub.svg'
 hub.onload = () => {
     ctx.drawImage(hub, canvasWidth - 300, canvasHeight - 300, 300, 300);
 };
@@ -88,7 +88,9 @@ function draw(timeStamp) {
     ctx.drawImage(hub, canvasWidth - 425 * s, canvasHeight - 400 * s, 400 * s, 400 * s);
 
 
-    setText()
+    if(window.parent.activeFrame == 0){
+        setText()
+    }
 
     previousFrame = timeStamp;
     window.requestAnimationFrame(draw);
@@ -279,11 +281,13 @@ function setText() {
 
 function init() {
     window.requestAnimationFrame(draw);
-
+    window.parent.framesLoaded = 1;
 }
 
+
+
 init();
-
-
 setButtons();
 setMode(0);
+
+window.parent.postMessage("loaded")
