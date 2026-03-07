@@ -32,7 +32,7 @@ midRightButtonFour,
 midZoneButton
 ];
 
-allButtons.forEach(button => {
+allButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         let value = parseInt(button.children[1].textContent);
         console.log(value)
@@ -52,6 +52,8 @@ allButtons.forEach(button => {
 
 
 function setButtons() {
+
+
     
     document.getElementById("leftMostButton").addEventListener("click", () => {
         console.log("Left button clicked");
