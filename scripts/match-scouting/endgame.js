@@ -62,6 +62,10 @@ function setButtons() {
         generateQRCodes();
     });
 
+    document.getElementById("exit").addEventListener("click", () => {
+        window.top.location.href = "/index.html"
+    });
+
 
 }
 

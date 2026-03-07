@@ -166,6 +166,15 @@ function setButtons() {
         updateButtonText()
     })
 
+    document.getElementById("climb").addEventListener("click", () =>{
+        dataHandler.setAutoClimb(0);
+    });
+    document.getElementById("mobility").addEventListener("click", () =>{
+        dataHandler.setMobility(0);
+    });
+
+    
+
 }
 
 function updateButtonText() {
