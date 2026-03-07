@@ -95,8 +95,6 @@ function draw(timeStamp) {
     previousFrame = timeStamp;
     
     window.requestAnimationFrame(draw);
-
-    console.log(window.framesLoaded);
 }
 
 

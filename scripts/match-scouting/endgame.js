@@ -81,14 +81,14 @@ function generateQRCodes() {
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
     
-    dataQR = new QRCode(document.getElementById("dataQR"), {
+    dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
         width: size
     });
 
     if (dataContainer.comment != "") {
-        commentQR = new QRCode(document.getElementById("commentQR"), {
+        commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,
             width: size
