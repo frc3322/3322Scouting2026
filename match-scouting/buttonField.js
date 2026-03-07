@@ -14,7 +14,9 @@ const midRightButtonOne = document.querySelector("#midRight1");
 const midRightButtonTwo = document.querySelector("#midRight2");
 const midRightButtonThree = document.querySelector("#midRight3");
 const midRightButtonFour = document.querySelector("#midRight4");
-const midZoneButton = document.querySelector("#midZone")
+const midZoneButton = document.querySelector("#midZone");
+const leftHubButton = document.querySelector("#midLeftHub");
+const rightHubButton = document.querySelector("#midRightHub");
 
 
 
@@ -29,7 +31,9 @@ midRightButtonOne,
 midRightButtonTwo,
 midRightButtonThree,
 midRightButtonFour,
-midZoneButton
+midZoneButton,
+leftHubButton,
+rightHubButton
 ];
 
 allButtons.forEach((button, index) => {
@@ -45,7 +49,7 @@ allButtons.forEach(button => {
         button.children[1].style.opacity = "1";
     });
     button.addEventListener("mouseleave", () => {
-        button.children[1].style.opacity = "0.1";
+        button.children[1].style.opacity = "0.3";
     });
 });
 
