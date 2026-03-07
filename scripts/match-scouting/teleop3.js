@@ -89,11 +89,14 @@ function draw(timeStamp) {
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300 * s, 300 * s);
     ctx.drawImage(hub, canvasWidth - 425 * s, canvasHeight - 400 * s, 400 * s, 400 * s);
 
-
-    setText()
-
+    if(window.parent.activeFrame == 2){
+        setText()
+    }
     previousFrame = timeStamp;
+    
     window.requestAnimationFrame(draw);
+
+    console.log(window.framesLoaded);
 }
 
 
@@ -285,18 +288,18 @@ function setText() {
         text = 0;
     }
 
-
     var textWidth = ctx.measureText("" + text).width;
     ctx.fillText(text, canvasWidth - (215) * s - textWidth / 2, canvasHeight - 100 * s);
 }
 
 function init() {
     window.requestAnimationFrame(draw);
-
+    window.parent.framesLoaded = 1;
 }
 
 init();
 
-
 setButtons();
 setMode(0);
+
+window.parent.postMessage("loaded")
