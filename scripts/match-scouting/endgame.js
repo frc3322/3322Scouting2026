@@ -1,5 +1,6 @@
 import { DataContainer } from "../data/DataContainer.js";
 import { DataHandler } from "../data/DataHandler.js";
+import { saveScoutedMatch } from "../data/scoutedMatches.js";
 
 
 var dataContainer = new DataContainer();
@@ -58,6 +59,7 @@ function setButtons() {
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
         dataHandler.setComment(document.getElementById("comments").value);
+        saveScoutedMatch(dataContainer);
 
         generateQRCodes();
     });
@@ -99,4 +101,3 @@ function generateQRCodes() {
 
 updateStars(5);
 setButtons();
-

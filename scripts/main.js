@@ -1,3 +1,5 @@
+import { buildScoutedMatchesCsv } from "./data/scoutedMatches.js";
+import { showDataTagPopup } from "./dataTagPopup.js";
 
 
 //dataHandler.loadData(localStorage.getItem("dataHandler"));
@@ -15,6 +17,10 @@ function setButtons() {
 
         window.location.href = "./match-scouting/match-scouting.html";
         //localStorage.setItem("dataHandler", dataHandler.toString());
+    });
+
+    document.getElementById("show-data-tag").addEventListener("click", () => {
+        showDataTagPopup(buildScoutedMatchesCsv());
     });
 
 }
