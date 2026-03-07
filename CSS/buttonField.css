@@ -97,6 +97,11 @@
     transform: scale(1.05);
 }
 
+#midLeftHub, #midRightHub{
+    transform: scale(1);
+    filter: brightness(1);
+
+}
 
 .Count, .CountEdge, .CountEdgeBottom, .CountMid, .CountMidAdj, .midZoneLine, .rightHubP, .leftHubP{
     position: absolute;

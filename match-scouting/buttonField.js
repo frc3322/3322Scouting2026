@@ -25,7 +25,7 @@ const allButtons = [
     leftButton,
     midLeftButtonOne,
     midLeftButtonTwo,
-    leftHubButton,
+    // leftHubButton,
     midLeftButtonThree,
     midLeftButtonFour,
 
@@ -33,7 +33,7 @@ const allButtons = [
     
     midRightButtonOne,
     midRightButtonTwo,
-    rightHubButton,
+    // rightHubButton,
     midRightButtonThree,
     midRightButtonFour,
     rightButton
