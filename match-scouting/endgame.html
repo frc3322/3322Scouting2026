@@ -96,5 +96,42 @@
     <script type="module" src="DataHandler.js"></script>
     <script type="module" src="endgame.js"></script>
 
+
+    <label for="breakdown">Breakdown:</label>
+    <br>
+    <button id="breakdown" style="height: 100px; width: 200px;">0.00</button>
+    <script>
+          let breakdownTotal = 0;
+    let breakdownInterval;
+    let isBroken = false;
+    let starting = 0;
+
+    function breakdownToggle() {
+      if (isBroken == false) {
+        starting = Date.now(); // Use global variable
+        isBroken = true;
+        document.getElementById("breakdown").style.backgroundColor = "yellow";
+
+
+        breakdownInterval = setInterval(() => {
+          document.getElementById("breakdown").textContent = (((Date.now() - starting)+ breakdownTotal) / 1000 ).toFixed(2);
+        }, 100);
+      }
+      else {
+        document.getElementById("breakdown").style.backgroundColor = "LightGray";
+        isBroken = false;
+        //alert(Date.now() - starting);
+        clearInterval(breakdownInterval);
+        let elapsed = ((Date.now() - starting));
+        breakdownTotal += elapsed;
+        document.getElementById("breakdown").textContent = (breakdownTotal/1000).toFixed(2);
+
+
+
+      }
+    }
+    document.getElementById("breakdown").addEventListener("click", breakdownToggle);
+    </script>
+
 </body>
 </html>
