@@ -14,6 +14,8 @@ const midRightButtonOne = document.querySelector("#midRight1");
 const midRightButtonTwo = document.querySelector("#midRight2");
 const midRightButtonThree = document.querySelector("#midRight3");
 const midRightButtonFour = document.querySelector("#midRight4");
+const midZoneButton = document.querySelector("#midZone")
+
 
 
 const allButtons = [
@@ -26,8 +28,26 @@ midLeftButtonFour,
 midRightButtonOne,
 midRightButtonTwo,
 midRightButtonThree,
-midRightButtonFour
+midRightButtonFour,
+midZoneButton
 ];
+
+allButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        let value = parseInt(button.children[1].textContent);
+        console.log(value)
+        button.children[1].textContent = value + 1;
+    });
+});
+
+allButtons.forEach(button => {
+    button.addEventListener("mouseenter", () => {
+        button.children[1].style.opacity = "1";
+    });
+    button.addEventListener("mouseleave", () => {
+        button.children[1].style.opacity = "0.1";
+    });
+});
 
 
 
@@ -41,7 +61,7 @@ function setButtons() {
         console.log("Right button clicked");
         dataHandler.setBooleanValue(9, true);
     });
-    document.getElementById("mdLeft1").addEventListener("click", () => {
+    document.getElementById("midLeft1").addEventListener("click", () => {
         console.log("Mid left button 1 clicked");
         dataHandler.setBooleanValue(10, true);
     }); 
@@ -78,8 +98,8 @@ function setButtons() {
 
 setButtons();
 
-allButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        window.open("", "_blank");         
-    });
-});
+
+
+
+
+

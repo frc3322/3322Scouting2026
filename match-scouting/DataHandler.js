@@ -34,11 +34,14 @@ export class DataHandler {
     
     booleanValues;
 
+    buttonFieldAscribedValues;
+
     comments;
 
     constructor() {
         this.booleanValues = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]; //Okay so right now it goes Nutural Zone, Depot, Outpost, 
         
+        this.buttonFieldAscribedValues = Array.from({ length: 13 }, () => new Array(2).fill(0));
 
         this.autoFuel = 0;
         this.teleFuel = 0;
