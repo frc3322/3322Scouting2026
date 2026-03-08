@@ -1,3 +1,5 @@
+
+
 body {
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
@@ -22,25 +24,16 @@ select {
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
-
-.fixedElement {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-
-    top:0;
-    height:auto; 
-    max-width: 10vh;
-    left: 0px;
-    padding: 0px; 
-    z-index: 1000;
-
-    top:50%;
-    transform: translate(0, -50%);
-    
+canvas{
+    width:75vw;
+    height: 43vw;
 }
+
 .fixedElement a {
     flex: 1;
     margin:0;
@@ -67,13 +60,21 @@ button{
     margin-top: 7px;
     width: 30%;
     border-radius: 20px;
-    height: 170px;
-    font-size: 35px;
+    height: 10vw;
+    font-size: 3vw;
     padding: 10px;
     border-width: 0px;
     font-family: 'Inter', sans-serif;
     margin-right: 5px;
     margin-left: 5px;
+    user-select: none;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .slider{

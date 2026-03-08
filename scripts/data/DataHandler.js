@@ -98,6 +98,14 @@ export class DataHandler {
         this.dataContainer.telePassed += val;
     }
 
+    setTeleScored(val) {
+        this.dataContainer.teleScored = val;
+    }
+
+    setTelePassed(val) {
+        this.dataContainer.telePassed = val;
+    }
+
     setTeleAccuracy(teleAccuracy) {
         this.dataContainer.teleAccuracy = teleAccuracy;
     }

@@ -134,11 +134,6 @@ function setButtons() {
         toggles[i].addEventListener("mousedown", () => { setMode(i); })
     }
 
-    var buttons = [
-        document.getElementById("fuel-button"),
-        document.getElementById("test-button"),
-    ];
-
     for (const button of buttons) {
 
         button.addEventListener("mousedown", () => { updateRate(rate); });
@@ -243,7 +238,7 @@ function measureRate() {
     var rateStartTime = Date.now();
     var rateInterval = setInterval(() => {
         buttons[2].textContent = time.toFixed(2);
-        time = 5 + (rateStartTime - Date.now()) / 1000;
+        time = 3 + (rateStartTime - Date.now()) / 1000;
         if (time <= 0) {
             clearInterval(rateInterval);
             rate = (autoTest / 5);
@@ -253,9 +248,6 @@ function measureRate() {
         }
     }, 10);
 
-    setTimeout(() => {
-
-    }, 5000);
 }
 
 function setMode(m) {
