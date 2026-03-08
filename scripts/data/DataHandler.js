@@ -73,8 +73,11 @@ export class DataHandler {
         this.dataContainer.scouterInitials = scouterInitials;
     }
 
-    incAutoScored(val) {
-        this.dataContainer.autoScored += val;
+    setAutoScored(val) {
+        this.dataContainer.autoScored = val;
+    }
+    setAutoPassed(val) {
+        this.dataContainer.autoPassed = val;
     }
 
     setAutoAccuracy(autoAccuracy) {

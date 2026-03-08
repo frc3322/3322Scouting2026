@@ -4,10 +4,11 @@ import { DataHandler } from "../data/DataHandler.js";
 
 var dataContainer = new DataContainer();
 var dataHandler = new DataHandler(dataContainer);
-if(dataHandler == null){
+try{
     dataHandler = window.parent.dataHandler;
     dataContainer = dataHandler.getDataContainer();
 }
+catch{}
 
 
 

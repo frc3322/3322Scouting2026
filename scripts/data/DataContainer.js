@@ -4,7 +4,8 @@ export class DataContainer {
     teamNumber;
     scouterInitials;
 
-    autoScored
+    autoScored;
+    autoPassed;
     autoAccuracy;
     autoClimb;
     mobility;
@@ -33,6 +34,7 @@ export class DataContainer {
         this.scouterInitials = "";
 
         this.autoScored = 0;
+        this.autoPassed = 0;
         this.autoAccuracy = 0;
         this.autoClimb = 0;
         this.mobility = 0;
@@ -64,18 +66,18 @@ export class DataContainer {
         for (const [key, value] of Object.entries(this)) {
             keyString += key + ",";
             if(key == "matchNumber" || key == "teamNumber" ){
-                dataString += "" + value + ",";
-                commentString += "" + value + ",";
+                dataString += "" + value + ";";
+                commentString += "" + value + ";";
 
             }
             else{
             if(key == "comment"){
-                dataString += ",";
-                commentString += "" + value + ",";
+                dataString += ";";
+                commentString += "" + value + ";";
             }
             else{
-                dataString += "" + value + ",";
-                commentString += ",";
+                dataString += "" + value + ";";
+                commentString += ";";
             }
         }
             
