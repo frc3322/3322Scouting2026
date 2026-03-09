@@ -4,39 +4,47 @@ import { DataHandler } from "./DataHandler.js";
 var dataHandler = new DataHandler();
 dataHandler.loadData(localStorage.getItem("dataHandler"));
 
-const leftButton = document.querySelector("#leftMostButton");
-const rightButton = document.querySelector("#rightMostButton");
-const midLeftButtonOne = document.querySelector("#midLeft1");
-const midLeftButtonTwo = document.querySelector("#midLeft2");
-const midLeftButtonThree = document.querySelector("#midLeft3");
-const midLeftButtonFour = document.querySelector("#midLeft4");
-const midRightButtonOne = document.querySelector("#midRight1");
-const midRightButtonTwo = document.querySelector("#midRight2");
-const midRightButtonThree = document.querySelector("#midRight3");
-const midRightButtonFour = document.querySelector("#midRight4");
-const midZoneButton = document.querySelector("#midZone");
-const leftHubButton = document.querySelector("#midLeftHub");
-const rightHubButton = document.querySelector("#midRightHub");
+const redZone = document.querySelector("#leftMostButton");
+
+const redTrenchTop = document.querySelector("#midLeft1");
+const redBumpTop = document.querySelector("#midLeft2");
+const redBumpBottom = document.querySelector("#midLeft3");
+const redTrenchBottom = document.querySelector("#midLeft4");
+
+const blueZone = document.querySelector("#rightMostButton");
+
+const blueTrenchTop = document.querySelector("#midRight1");
+const blueBumpTop = document.querySelector("#midRight2");
+const blueBumpBottom = document.querySelector("#midRight3");
+const blueTrenchBottom = document.querySelector("#midRight4");
+
+const neutralZone = document.querySelector("#midZone");
+// const leftHubButton = document.querySelector("#midLeftHub");
+// const rightHubButton = document.querySelector("#midRightHub");
 
 
 
 const allButtons = [
 
-    leftButton,
-    midLeftButtonOne,
-    midLeftButtonTwo,
-    // leftHubButton,
-    midLeftButtonThree,
-    midLeftButtonFour,
+    redZone,
 
-    midZoneButton,
+    redTrenchTop,
+    redBumpTop,
+    redBumpBottom,
+    redTrenchBottom,
+
+
+
+    neutralZone,
     
-    midRightButtonOne,
-    midRightButtonTwo,
+    blueTrenchTop,
+    blueBumpTop,
     // rightHubButton,
-    midRightButtonThree,
-    midRightButtonFour,
-    rightButton
+    blueBumpBottom,
+    blueTrenchBottom,
+
+    blueZone,
+
 
 ];
 
