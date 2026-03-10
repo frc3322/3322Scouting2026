@@ -3,9 +3,14 @@ import { DataHandler } from "../data/DataHandler.js";
 
 
 var dataContainer = new DataContainer();
-var dataHandler = new DataHandler();
-dataHandler = window.parent.dataHandler;
-dataContainer = dataHandler.getDataContainer();
+var dataHandler = new DataHandler(dataContainer);
+
+try{
+    dataHandler = window.parent.dataHandler;
+    dataContainer = dataHandler.getDataContainer();
+}
+catch{}
+
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -25,7 +30,7 @@ ctx.canvas.width = canvasWidth;
 
 
 var ball = new Image;
-ball.src = '/images/ball.svg'
+ball.src = '../images/ball.svg'
 
 var rate = 0;
 var mode = 0;
