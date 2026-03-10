@@ -39,7 +39,7 @@ const buttonContainers = document.getElementById("buttons").children;
 const buttons = [
     document.getElementById("fuel-button"),
     document.getElementById("pass-button"),
-    document.getElementById("test-button"),
+    document.getElementById("test-button")
 ];
 const rateButton = document.getElementById("rate-button");
 const toggles = document.getElementById("toggles").children
@@ -99,8 +99,6 @@ function draw(timeStamp) {
     previousFrame = timeStamp;
     
     window.requestAnimationFrame(draw);
-
-    console.log(window.framesLoaded);
 }
 
 

@@ -73,8 +73,11 @@ export class DataHandler {
         this.dataContainer.scouterInitials = scouterInitials;
     }
 
-    incAutoScored(val) {
-        this.dataContainer.autoScored += val;
+    setAutoScored(val) {
+        this.dataContainer.autoScored = val;
+    }
+    setAutoPassed(val) {
+        this.dataContainer.autoPassed = val;
     }
 
     setAutoAccuracy(autoAccuracy) {
@@ -96,6 +99,14 @@ export class DataHandler {
 
     incTelePassed(val) {
         this.dataContainer.telePassed += val;
+    }
+
+    setTeleScored(val) {
+        this.dataContainer.teleScored = val;
+    }
+
+    setTelePassed(val) {
+        this.dataContainer.telePassed = val;
     }
 
     setTeleAccuracy(teleAccuracy) {

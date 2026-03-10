@@ -6,10 +6,19 @@ body {
     text-align: center;
 }
 
-button {
-    padding: 10px 10px;
-    white-space: pre-wrap;
-
+button{
+    margin-top: 7px;
+    width: 30%;
+    border-radius: 20px;
+    height: 10vw;
+    font-size: 3vw;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 5px;
+    margin-left: 5px;
+    user-select: none;
+    
 }
 .stars{
     display:flex;
@@ -49,8 +58,8 @@ select {
     border-color: #e9fbff;
     border-width: 0.5vw;
     margin:1vw;
-    width: 35vw;
-    height: 35vw;
+    width: 70vw;
+    height: 70vw;
 }
 
 .section{

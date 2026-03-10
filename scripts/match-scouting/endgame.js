@@ -69,6 +69,13 @@ function setButtons() {
         generateQRCodes();
     });
 
+    document.getElementById("exit").addEventListener("click", () => {
+        window.top.location.href = "/index.html"
+    });
+
+    
+    document.getElementById("breakdown").addEventListener("click", breakdownToggle);
+
 
 }
 
@@ -88,14 +95,14 @@ function generateQRCodes() {
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
     
-    dataQR = new QRCode(document.getElementById("dataQR"), {
+    dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
         width: size
     });
 
     if (dataContainer.comment != "") {
-        commentQR = new QRCode(document.getElementById("commentQR"), {
+        commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,
             width: size
@@ -103,6 +110,32 @@ function generateQRCodes() {
     }
 }
 
+let breakdownTotal = 0;
+let breakdownInterval;
+let isBroken = false;
+let starting = 0;
+
+function breakdownToggle() {
+  if (isBroken == false) {
+    starting = Date.now(); // Use global variable
+    isBroken = true;
+    document.getElementById("breakdown").style.backgroundColor = "yellow";
+
+    
+    breakdownInterval = setInterval(() => {
+      document.getElementById("breakdown").textContent = (((Date.now() - starting)+ breakdownTotal) / 1000 ).toFixed(1);
+    }, 100);
+}
+  else{
+    document.getElementById("breakdown").style.backgroundColor = "LightGray";
+    isBroken = false;
+    //alert(Date.now() - starting);
+    clearInterval(breakdownInterval);
+    let elapsed = ((Date.now() - starting));
+    breakdownTotal += elapsed;
+    document.getElementById("breakdown").textContent = (breakdownTotal/1000).toFixed(1);
+    dataHandler.setDownTime((breakdownTotal/1000).toFixed(1));
+  }}
 
 updateStars(5);
 setButtons();
