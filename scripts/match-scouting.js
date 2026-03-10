@@ -3,6 +3,7 @@ import { DataHandler } from "./data/DataHandler.js";
 
 const dataContainer = new DataContainer();
 const dataHandler = new DataHandler(dataContainer);
+window.dataHandler = dataHandler;
 
 const autonFrame = document.getElementById("iframe-auton");
 const teleop2Frame = document.getElementById("iframe-teleop2");
@@ -19,7 +20,6 @@ frames = [
     endgameFrame
 ]
 
-window.dataHandler = dataHandler;
 
 function setButtons(){
     document.getElementById("nav-auton").addEventListener("click", ()=>{

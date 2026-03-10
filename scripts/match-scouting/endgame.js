@@ -4,9 +4,14 @@ import { saveScoutedMatch } from "../data/scoutedMatches.js";
 
 
 var dataContainer = new DataContainer();
-var dataHandler = new DataHandler();
-dataHandler = window.parent.dataHandler;
-dataContainer = dataHandler.getDataContainer();
+var dataHandler = new DataHandler(dataContainer);
+
+try{
+    dataHandler = window.parent.dataHandler;
+    dataContainer = dataHandler.getDataContainer();
+}
+catch{}
+
 
 const star1 = document.getElementById("rate1");
 const star2 = document.getElementById("rate2");
