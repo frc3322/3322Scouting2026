@@ -5,6 +5,7 @@ const dataContainer = new DataContainer();
 const dataHandler = new DataHandler(dataContainer);
 window.dataHandler = dataHandler;
 
+
 const frame = document.getElementById("iframe");
 
 
@@ -32,7 +33,22 @@ function setButtons(){
 }
 
 
+function initialData(){
+    if(window.localStorage.getItem("scouterInitials") != ""){
+        dataHandler.setScouterInitials(window.localStorage.getItem("scouterInitials"));
+    }
+    if(window.localStorage.getItem("teamNumber") != ""){
+        dataHandler.setTeamNumber(window.localStorage.getItem("teamNumber"));
+    }
+    if(window.localStorage.getItem("matchNumber") != ""){
+        dataHandler.setMatchNumber(window.localStorage.getItem("matchNumber"));
+    }
+    
+}
+
+
 
 
 
 setButtons()
+initialData()

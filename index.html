@@ -7,6 +7,7 @@
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="CSS/stylesheet.css">
     <link rel="stylesheet" href="CSS/extraStyling.css">
+    <link rel="stylesheet" href="CSS/prompt.css">
 
 </head>
 <body style="background-color:rgb(70, 129, 145);">
@@ -23,6 +24,21 @@
 
     <img class = "logo" id="logo"src="images/DouglassRemovedBackground.png">
     <button id="show-data-tag" class="scout-button"><p>Show Data Tag</p></button>
+
+    <div class="prompt">
+
+      <h2 id="promptTitle">What are your initals? (Ex. SCJ)</h2>
+      <input class = "promptOneInput" type="text" id="promptInput" placeholder="Type here..."/>
+      
+      <h2 id="promptTitle">What team are WE scouting? (Ex. 3322)</h2>
+      <input class = "promptTwoInput" type="text" id="promptInput"/>
+      
+      <h2 id="promptTitle"> What match number is this? (Ex. 42) </h2>
+      <input class = "promptThreeInput" type="text" id="promptInput" autofocus />
+
+      <button class = "startScouting"> GET TO SCOUTING!!! </button>
+
+    </div>
     <!-- You can link JavaScript files here -->
     <script type="module" src="./scripts/data/DataContainer.js"></script>
     <script type="module" src="./scripts/data/DataHandler.js"></script>
@@ -47,9 +63,6 @@
 
 
         }, 10);
-
-
-
 
       </script>
 

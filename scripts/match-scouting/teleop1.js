@@ -11,13 +11,6 @@ var mouseDown = false;
 
 
 
-var dataHandler = new DataHandler();
-dataHandler.loadData(localStorage.getItem("dataHandler"));
-
-
-function updateDataHandler(){
-    localStorage.setItem("dataHandler", dataHandler.toString());
-}
 
 ScoringTotal = dataHandler.getTeleFuelTime();
 PassingTotal = dataHandler.getTelePassTime();
