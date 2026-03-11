@@ -60,6 +60,8 @@ setInterval(() => {
 
     console.log("stored");
 
+    console.log(dataHandler.getScouterName());    
+
 }, 1000);
 
 

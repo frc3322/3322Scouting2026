@@ -79,13 +79,16 @@ select {
 }
 
 .star-Raiting {
+    width: 100px;
     display: flex;
     justify-content: center;
     gap: 6px;        /* space between stars */
+    color: azure;
 }
 
 .star-Raiting p {
     margin: 0;
+    width: 25%;
     cursor: pointer;
     font-size: 28px; /* make stars bigger if you want */
 }
@@ -106,3 +109,5 @@ p{
 label{
     color: #e9fbff;
 }
+
+

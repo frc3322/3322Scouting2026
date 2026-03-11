@@ -1,0 +1,102 @@
+.Rating{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bumpWrap, .trenchWrap, .defenceWrap{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    background-color: rgb(55, 90, 100);
+    width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.bumpWrap p, .trenchWrap p, .defenceWrap p{
+    justify-content: center;
+    width: 70%;
+}
+
+#bump, #trench, #defence{
+    width: 20px;
+    outline: none;
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none; */
+}
+
+#Climb{
+    border-radius: 10px;
+    background-color: #4caf50;
+    outline: none;
+    width: 20%;
+    padding: 20px;
+    display: inline;
+    align-items: center;
+}
+
+#Climb option{
+    background-color: #5ec561;
+    border-radius: 20px;
+}
+
+
+#Climb:active{
+    background-color: #255427;
+}
+
+
+
+#bump:checked{
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.toggleButton{
+    margin-top: 20px;
+    width: 50%;
+}
+.redZone, .blueZone
+{
+    position: relative;
+    border: 0;
+    margin: -2.2px;
+    width: 25%;
+    color: aliceblue;
+    font-size: 16px;
+    padding: 15px;
+
+}
+
+/* .redZone p, .blueZone p
+{
+    background-color: aliceblue;
+} */
+
+.redZone{
+    background-color: rgb(181, 35, 15);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.blueZone{
+    background-color: rgb(35, 49, 151);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.activated{
+    transform: scale(1.1);
+    border-radius: 12px;
+    z-index: 5;
+    box-shadow: 0 0 5px 1px white;
+    opacity: 1;
+}
+
+.de-activated{
+    /* transform: 0.8; */
+    opacity: 0.7;
+    /* z-index: 1; */
+}

@@ -33,8 +33,9 @@ export class DataHandler {
     scouterName
     
     booleanValues;
-
     buttonFieldValues;
+
+    teamColor;
 
     comments;
 
@@ -73,6 +74,7 @@ export class DataHandler {
         this.scouterName = "";
         this.teamNumber = "";
         this.matchNumber = "";
+        this.teamColor = "";
 
     }
 
@@ -216,7 +218,9 @@ export class DataHandler {
         this.buttonFieldValues[index] = value;
         // console.log(value);
         console.log(this.buttonFieldValues[index]);
-
+    }
+    setTeamColor(color){
+        this.teamColor = Color;
     }
 
     /*
@@ -277,6 +281,9 @@ export class DataHandler {
     }
     getMatchNumber() {
         return this.matchNumber;
+    }
+    getTeamColor(){
+        return this.teamColor;
     }
 
 

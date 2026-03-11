@@ -4,9 +4,42 @@ import { DataHandler } from "./DataHandler.js";
 var dataHandler = new DataHandler;
 dataHandler.loadData(localStorage.getItem("dataHandler"));
 
-
+const redZone = document.querySelector(".redZone");
+const blueZone = document.querySelector(".blueZone");
+let isRedTeam = false;
 
 let stars = -1;
+
+redZone.addEventListener("click", () => {
+    // console.log("e")
+    redZone.classList.remove("de-activated");
+    redZone.classList.add("activated");
+    blueZone.classList.remove("activated");
+    blueZone.classList.add("de-activated");
+    isRedTeam = true;
+    updateTeamStatus(isRedTeam);
+})
+
+blueZone.addEventListener("click", () => {
+    // console.log("e")
+    blueZone.classList.remove("de-activated");
+    blueZone.classList.add("activated");
+    redZone.classList.remove("activated");
+    redZone.classList.add("de-activated");
+    isRedTeam = false;
+    updateTeamStatus(isRedTeam);
+})
+
+
+function updateTeamStatus(teamStatus){
+    if(teamStatus == true)
+    {
+        setTeamColor("Red");
+    }
+    else{
+        setTeamColor("Blue");
+    }
+}
 
 
 function updateStars(stars) {
@@ -94,9 +127,9 @@ setInterval(() => {
 }, 1000);
 
 
-document.getElementById("initials").value = dataHandler.getScouterName();
-document.getElementById("teamNumber").value = dataHandler.getTeamNumber();
-document.getElementById("matchNumber").value = dataHandler.getMatchNumber();
+// document.getElementById("initials").value = dataHandler.getScouterName();
+// document.getElementById("teamNumber").value = dataHandler.getTeamNumber();
+// document.getElementById("matchNumber").value = dataHandler.getMatchNumber();
 
 
 
