@@ -10,14 +10,11 @@ try{
 }
 catch{}
 
-
-
 const values = [
     dataContainer.teleScored,
     dataContainer.telePassed,
     0
 ];
-
 
 var rate = 0;
 
@@ -64,20 +61,15 @@ function updateRate(i){
 function increment(){
     newBall()
     let currentMode = mode;
-    setTimeout(() => {
-        values[currentMode]++;
-    }, 900);
+    values[currentMode]++;
     updateDataHandler();
 }
 
 function updateDataHandler(){
     dataHandler.setTeleScored(values[0]);
     dataHandler.setTelePassed(values[1]);
+    console.log(dataContainer.teleScored);
 }
-
-
-
-
 
 
 
