@@ -6,6 +6,8 @@
     <title>Document</title>
     
     <link rel="stylesheet" href="../CSS/buttonField.css">
+  <link rel="stylesheet" href="../CSS/shuttling.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -45,7 +47,62 @@
         </div>
     </div>
     
+
+    <br><br><br>
+    <!-- Below is where the shuttling stuff goes -->
+  <div class="section">
+
+    <div id="fuelbuttons">
+    <div id="buttons">
+      <button style="background-color: rgb(161, 196, 218);" id="up1" class="incButton">+1</button>
+
+      <div id="counterText">
+  <h1>Shuttling Cycles: </h1>
+  <h1 id="CyclesCounter">0</h1>
+  </div>
+
+
+      <button style="background-color: rgb(117, 171, 205);" id="down1" class="incButton">-1</button>
+    </div>
+    </div>
+   
+
+  </div>
+
+
     <script type="module" src="scripts/match-scouting/defense.js"></script>
+    <script type="module" src="../../scripts/data/DataHandler.js"></script>
+
+
+      <script>
+    let downwardsCounter = 0;
+
+    function changeCount(amount) {
+      const counter = document.getElementById('CyclesCounter');
+      let count = parseInt(counter.textContent);
+      count += amount;
+      if(count < 0)
+      {
+        count = 0;
+        downwardsCounter++;
+      }
+      counter.textContent = count;
+      if(downwardsCounter == 10)
+      {
+        alert("What are we doing gang? The counter only goes down to 0.");
+        downwardsCounter += 1;
+      }
+      if(downwardsCounter == 20)
+      {
+        alert("I'm genuinly gonna report you to Stone Cold Joe. Get better at scouting little bro.");
+        downwardsCounter += 1;
+      }
+      }
+    
+document.getElementById("up1").addEventListener('click', () => changeCount(1));
+document.getElementById("down1").addEventListener('click', () => changeCount(-1));
+  </script>
+
 
 
 </body>

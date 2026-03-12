@@ -1,6 +1,7 @@
 import { DefenseType } from "../Constants.js";
 
 
+
 export class DataHandler {
     dataContainer;
     defStack;
