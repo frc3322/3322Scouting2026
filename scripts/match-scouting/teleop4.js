@@ -1,8 +1,7 @@
 import { ActionType } from "../../Constants.js";
 import { DataHandler } from "../../DataHandler.js";
 
-var dataHandler = new DataHandler();
-dataHandler.loadData(localStorage.getItem("dataHandler"));
+
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -41,9 +40,7 @@ const s = canvasWidth/1080;
 
 var ballList = []
 
-function updateDataHandler(){
-    localStorage.setItem("dataHandler", dataHandler.toString());
-}
+
 
 ctx.font = "" + (40 * s) + "px sans-serif";
 function draw(){
@@ -104,6 +101,7 @@ clearInterval(shootInterval);
 
 function updateRate(rate){
     if(rate != 0){
+        newBall();
         clearInterval(shootInterval);
         shootInterval = setInterval(newBall, 1000/rate); 
     }

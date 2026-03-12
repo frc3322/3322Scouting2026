@@ -30,7 +30,7 @@ var dataQR;
 var commentQR;
 
 function updateStars(stars) {
-    dataHandler.setRating(stars)
+    
     for (let i = 0; i < 5; i++) {
         if (i < stars) {
             starArray[i].innerHTML = "&#9733;";
@@ -70,6 +70,7 @@ function setButtons() {
     });
 
     document.getElementById("exit").addEventListener("click", () => {
+        window.localStorage.clear
         window.top.location.href = "/index.html"
     });
 
