@@ -11,7 +11,7 @@ iframe {
     border: none; 
     width: 100vw;      
     height: 90%;
-    top:90%;      
+    top:100%;      
     display: block;    
 }
 
@@ -33,7 +33,3 @@ iframe {
     object-fit: contain;
 
 }
-h1,h2,h3,p,label{
-    color:#e9fbff;
-}
-
