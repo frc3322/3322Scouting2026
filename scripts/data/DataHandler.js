@@ -15,9 +15,9 @@ export class DataHandler {
         return this.dataContainer;
     }
 
-
+/*
     updateDef(val) {
-        switch (defenseType) {
+        switch (val) {
             case (DefenseType.defABump):
                 this.dataContainer.defABump += val;
                 break;
@@ -53,11 +53,52 @@ export class DataHandler {
     undoDef() {
         if (this.defStack.length > 0) {
             var action = this.stackAuto.pop()
-            this.changeFuel(action[0], -action[1])
+            this.updateDef(action[0], -action[1])
         }
     }
 
+*/
 
+    updateDef(type, val) {
+        switch (type) {
+            case (DefenseType.defABump):
+                this.dataContainer.defABump += val
+                return this.dataContainer.defABump;
+            case (DefenseType.defATrench):
+                 this.dataContainer.defATrench += val;
+                return this.dataContainer.defATrench;
+            case (DefenseType.defAZone):
+                 this.dataContainer.defAZone += val;
+                return this.dataContainer.defAZone;
+            case (DefenseType.defNZone):
+                 this.dataContainer.defNZone += val;
+                return this.dataContainer.defNZone;
+            case (DefenseType.defOZone):
+                 this.dataContainer.defOZone += val;
+                return this.dataContainer.defOZone;
+            case (DefenseType.defOBump):
+                 this.dataContainer.defOBump += val;
+                return this.dataContainer.defOBump;
+            case (DefenseType.defOTrench):
+                this.dataContainer.defOTrench += val;
+                return this.dataContainer.defOTrench;
+            default:
+                return -9999;
+
+        }
+    }
+
+    incDef(defenseType, val) {
+        this.defStack.push([defenseType, val]);
+        return this.updateDef(defenseType, val);
+    }
+
+    undoDef() {
+        if (this.defStack.length > 0) {
+            var action = this.stackAuto.pop()
+            this.updateDef(action[0], -action[1])
+        }
+    }
     /*◇─◇──◇─◇
     ✨Setters✨
     ◇─◇──◇─◇*/
@@ -114,6 +155,10 @@ export class DataHandler {
         this.dataContainer.teleAccuracy = teleAccuracy;
     }
 
+    incFuelStolen(val) {
+        this.dataContainer.fuelStolen += val;
+    }
+
     setDefRating(defRating) {
         this.dataContainer.defRating = defRating;
     }
@@ -129,11 +174,5 @@ export class DataHandler {
     setComment(comment) {
         this.dataContainer.comment = comment;
     }
-    setRating(rating) {
-        this.dataContainer.rating = rating;
-    }
-
-
-
 
 }

@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="../CSS/buttonField.css">
-  <link rel="stylesheet" href="../CSS/shuttling.css">
+    <link rel="stylesheet" href="../CSS/defense.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <!-- <link rel="stylesheet" href="../CSS/teleop4.css"> -->
-    
+
 </head>
+
 <body>
-    
-      <h1>Defense</h1>
-    </div>  
 
-    <div class = "parent">
-        <div class = "buttonField">
-            <div class = "leftField">
-                <button id = "blue-AZone" class = "left-most-button"> <img src="../images-button-field/ButtonField(left-side).svg" alt=""> <p class = "Count" id = "leftButtonCount"> 0 </p>  </button>
-            </div>
+    <h1>Defense</h1>
 
-            <div class = "middleLeftField">
-                <button id="blue-Trench" class = "midButton"> <img src="../images-button-field/(mid-left-1).svg">  <p class = "CountEdge" id = "midLeft1Count"> 0 </p>  </button>
-                <button id="blue-" class = "midButton"> <img src="../images-button-field/(mid-left-2).svg"> <p class = "CountMidAdj" id = "midLeft2Count"> 0 </p>  </button>
-                <div id="midLeft3" class = "midButton"> <img src="../images-button-field/(mid-left-3).svg"> <p class = "CountMid" id = "midLeft3Count"> 0 </p>  </div>
-                <button id="midLeft4" class = "midButton"> <img src="../images-button-field/(mid-left-4)2.svg"> <p class = "CountEdgeBottom" id = "midLeft4Count"> 0 </p>  </button>
-            </div>
-       
-            <div class = "middleRightField">
-                <button id="midRight1" class = "midButton"> <img src="../images-button-field/(mid-right-1).svg"> <p class = "CountEdge" id = "midRight1Count"> 0 </p></button>
-                <button id="midRight2" class = "midButton"> <img src="../images-button-field/(mid-right-2).svg"> <p class = "CountMidAdj" id = "midRight2Count"> 0 </p></button>
-                <div id="midRight3" class = "midButton"> <img src="../images-button-field/(mid-right-3).svg"> <p class = "CountMid" id = "midRight3Count"> 0 </p> </div>
-                <button id="midRight4" class = "midButton"> <img src="../images-button-field/(mid-right-4).svg"> <p class = "CountEdgeBottom" id = "midRight4Count"> 0 </p></button>
-            </div>
-            
-            <div  class = "rightField">
-                <button id = "rightMostButton" class = "right-most-button"> <img src="../images-button-field/ButtonField(rightside).svg" alt=""> <p class = "Count" id = "rightButtonCount"> 0 </p></button>
+    <div class="section">
+        <div class="buttonField">
+
+            <div class="leftField">
+                <button id="leftMostButton" class="left-most-button">
+                    <img src="../images-button-field/ButtonField(left-side).svg" alt="">
+                    <p class="Count" id="leftButtonCount"> 0 </p>
+                </button>
             </div>
 
-            
+            <div class="middleLeftField">
+                <button id="midLeft1" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-1).svg">
+                    <p class="CountEdge" id="midLeft1Count"> 0 </p>
+                </button>
+                <button id="midLeft2" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-2).svg">
+                </button>
+
+                <button id="midLeftHub" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-hub).svg" alt="">
+                </button>
+
+                <div id="midLeft3" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-3).svg">
+                    <p class="CountMid" id="midLeft3Count"> 0 </p>
+                </div>
+                <button id="midLeft4" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-4).svg">
+                </button>
+            </div>
+
+            <div class="middle-zone">
+                <button id="midZone" class="midZoneButton">
+                    <img src="../images-button-field/rebuilt-(mid-zone).svg" alt="">
+                    <p class="midZoneLine" id="midZoneCount"> 0</p>
+                </button>
+            </div>
+
+            <div class="middleRightField">
+                <button id="midRight1" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-right-1).svg">
+                    <p class="CountEdge" id="midRight1Count"> 0 </p>
+                </button>
+                <button id="midRight2" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-right-2).svg">
+                </button>
+
+                <button id="midRightHub" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-left-hub).svg" alt="">
+                </button>
+
+                <div id="midRight3" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-right-3).svg">
+                    <p class="CountMid" id="midRight3Count"> 0 </p>
+                </div>
+                <button id="midRight4" class="midButton">
+                    <img src="../images-button-field/rebuilt-(mid-right-4).svg">
+                </button>
+            </div>
+
+            <div class="rightField">
+                <button id="rightMostButton" class="right-most-button">
+                    <img src="../images-button-field/ButtonField(rightside).svg" alt="">
+                    <p class="Count" id="rightButtonCount"> 0 </p>
+                </button>
+            </div>
+        </div>
+
+
+        <div id="fuelbuttons">
+            <div id="buttons" class="button-container" style="margin:2.5vh">
+
+                <button style="background-color: rgb(117, 171, 205);" id="down1" class="button">-1</button>
+                <div id="counterText">
+                    <h1>Steal Cycles: </h1>
+                    <h1 id="CyclesCounter">0</h1>
+                </div>
+                <button style="background-color: rgb(161, 196, 218);" id="up1" class="button">+1</button>
+
+
+            </div>
         </div>
     </div>
-    
-
-    <br><br><br>
-    <!-- Below is where the shuttling stuff goes -->
-  <div class="section">
-
-    <div id="fuelbuttons">
-    <div id="buttons">
-      <button style="background-color: rgb(161, 196, 218);" id="up1" class="incButton">+1</button>
-
-      <div id="counterText">
-  <h1>Shuttling Cycles: </h1>
-  <h1 id="CyclesCounter">0</h1>
-  </div>
 
 
-      <button style="background-color: rgb(117, 171, 205);" id="down1" class="incButton">-1</button>
-    </div>
-    </div>
-   
+    <script type="module" src="../scripts/data/DataHandler.js"></script>
+    <script type="module" src="../scripts/match-scouting/defense.js"></script>
 
-  </div>
-
-
-    <script type="module" src="scripts/match-scouting/defense.js"></script>
-    <script type="module" src="../../scripts/data/DataHandler.js"></script>
-
-
-      <script>
-    let downwardsCounter = 0;
-
-    function changeCount(amount) {
-      const counter = document.getElementById('CyclesCounter');
-      let count = parseInt(counter.textContent);
-      count += amount;
-      if(count < 0)
-      {
-        count = 0;
-        downwardsCounter++;
-      }
-      counter.textContent = count;
-      if(downwardsCounter == 10)
-      {
-        alert("What are we doing gang? The counter only goes down to 0.");
-        downwardsCounter += 1;
-      }
-      if(downwardsCounter == 20)
-      {
-        alert("I'm genuinly gonna report you to Stone Cold Joe. Get better at scouting little bro.");
-        downwardsCounter += 1;
-      }
-      }
-    
-document.getElementById("up1").addEventListener('click', () => changeCount(1));
-document.getElementById("down1").addEventListener('click', () => changeCount(-1));
-  </script>
 
 
 
 </body>
+
 </html>

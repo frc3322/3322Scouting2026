@@ -22,6 +22,8 @@ export class DataContainer {
     defOBump;
     defOTrench;
     defRating;
+    defComments;
+    fuelStolen;
 
     endClimb;
     downTime;
@@ -51,11 +53,13 @@ export class DataContainer {
         this.defOBump = 0;
         this.defOTrench = 0;
         this.defRating = 0;
+        this.defComments = "";
+        this.fuelStolen = 0;
 
         this.endClimb = 0;
         this.downTime = 0;
         this.rating = 0;
-        this.comment = "";
+        this.comments = "";
     }
 
     exportData(){
@@ -71,7 +75,7 @@ export class DataContainer {
 
             }
             else{
-            if(key == "comment"){
+            if(key == "comments" || key == "defComments"){
                 dataString += ";";
                 commentString += "" + value + ";";
             }

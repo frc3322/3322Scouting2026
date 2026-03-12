@@ -24,10 +24,10 @@ export const SCOUTING_SCHEMA = [
     { name: "defOZone", kind: "int", int_max: 255 },
     { name: "defOBump", kind: "int", int_max: 255 },
     { name: "defOTrench", kind: "int", int_max: 255 },
-    { name: "defRating", kind: "int", int_max: 255 },
+    { name: "fuelStolen", kind: "int", int_max: 255 },
+    { name: "defRating", kind: "int", int_max: 5 },
     { name: "endClimb", kind: "int", int_max: 3 },
     { name: "downTime", kind: "int", int_max: 255 },
-    { name: "rating", kind: "int", int_max: 5 },
 ];
 
 const CSV_COLUMNS = SCOUTING_SCHEMA.map(({ name }) => name);
@@ -77,10 +77,10 @@ function normalizeScoutedMatch(match) {
         defOZone: parseNonNegativeInteger(match?.defOZone),
         defOBump: parseNonNegativeInteger(match?.defOBump),
         defOTrench: parseNonNegativeInteger(match?.defOTrench),
+        fuelStolen: parseNonNegativeInteger(match?.fuelStolen),
         defRating: parseNonNegativeInteger(match?.defRating),
         endClimb: parseNonNegativeInteger(match?.endClimb),
         downTime: parseNonNegativeInteger(match?.downTime),
-        rating: parseNonNegativeInteger(match?.rating),
         scouterInitials: String(match?.scouterInitials ?? "").toLowerCase(),
         comment: String(match?.comment ?? ""),
     };
