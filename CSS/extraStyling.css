@@ -1,3 +1,6 @@
+body {
+    cursor: url('../images/pixelatedGoat.png'), auto;
+}
 .scout-button{
     margin: 35px;
     border-radius: 20%;

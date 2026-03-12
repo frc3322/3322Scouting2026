@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scouting App</title>
+  <!-- You can link CSS files here -->
+  <link rel="stylesheet" href="../CSS/shuttling.css">
+
+</head>
+
+<body>
+  <!-- This is the visible content of the page -->
+
+  <h1>Shuttling / Stealing</h1>
+  <p>3322 Rebuilt Scouting</p>
+  <br>
+  <div class="section">
+
+    <div id="fuelbuttons">
+    <div id="buttons">
+      <button style="background-color: rgb(161, 196, 218);" id="up1" class="incButton">+1</button>
+
+      <div id="counterText">
+  <h1>Shuttling Cycles: </h1>
+  <h1 id="CyclesCounter">0</h1>
+  </div>
+
+
+      <button style="background-color: rgb(117, 171, 205);" id="down1" class="incButton">-1</button>
+    </div>
+    </div>
+   
+
+  </div>
+
+  <!-- You can link JavaScript files here -->
+<script type="module" src="../scripts/data/DataContainer.js"></script>
+<script type="module" src="../scripts/data/DataHandler.js"></script>
+  <script>
+    let downwardsCounter = 0;
+
+    function changeCount(amount) {
+      const counter = document.getElementById('CyclesCounter');
+      let count = parseInt(counter.textContent);
+      count += amount;
+      if(count < 0)
+      {
+        count = 0;
+        downwardsCounter++;
+      }
+      counter.textContent = count;
+      if(downwardsCounter == 10)
+      {
+        alert("What are we doing gang? The counter only goes down to 0.");
+        downwardsCounter += 1;
+      }
+      if(downwardsCounter == 20)
+      {
+        alert("I'm genuinly gonna report you to Stone Cold Joe. Get better at scouting little bro.");
+      }
+      }
+    
+document.getElementById("up1").addEventListener('click', () => changeCount(1));
+document.getElementById("down1").addEventListener('click', () => changeCount(-1));
+  </script>
+
+</body>
+
+</html>

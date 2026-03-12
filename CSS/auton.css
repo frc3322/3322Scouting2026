@@ -1,6 +1,7 @@
 
 
 body {
+    cursor: url('../images/pixelatedGoat.png'), auto;
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;
