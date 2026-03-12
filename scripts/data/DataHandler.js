@@ -15,50 +15,6 @@ export class DataHandler {
         return this.dataContainer;
     }
 
-/*
-    updateDef(val) {
-        switch (val) {
-            case (DefenseType.defABump):
-                this.dataContainer.defABump += val;
-                break;
-            case (DefenseType.defATrench):
-                this.dataContainer.defATrench += val;
-                break;
-            case (DefenseType.defAZone):
-                this.dataContainer.defAZone += val;
-                break;
-            case (DefenseType.defNZone):
-                this.dataContainer.defNZone += val;
-                break;
-            case (DefenseType.defOZone):
-                this.dataContainer.defOZone += val;
-                break;
-            case (DefenseType.defOBump):
-                this.dataContainer.defOBump += val;
-                break;
-            case (DefenseType.defOTrench):
-                this.dataContainer.defOTrench += val;
-                break;
-            default:
-                break;
-
-        }
-    }
-
-    incDef(defenseType, val) {
-        this.defStack.push([defenseType, val]);
-        this.updateDef(defenseType, val)
-    }
-
-    undoDef() {
-        if (this.defStack.length > 0) {
-            var action = this.stackAuto.pop()
-            this.updateDef(action[0], -action[1])
-        }
-    }
-
-*/
-
     updateDef(type, val) {
         switch (type) {
             case (DefenseType.defABump):
@@ -175,7 +131,7 @@ export class DataHandler {
     }
 
     setComment(comment) {
-        this.dataContainer.comment = comment;
+        this.dataContainer.comments = comment;
     }
 
 }

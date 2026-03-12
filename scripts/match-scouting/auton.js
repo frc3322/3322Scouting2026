@@ -37,6 +37,9 @@ const buttons = [
     document.getElementById("test-button"),
 ];
 
+
+const accuracySlider = document.getElementById("accuracy-slider");
+
 function setMode(val){
     mode = val;
     ballList = [];
@@ -53,7 +56,6 @@ function setMode(val){
 var shootInterval = null;
 
 function updateRate(i){
-
     clearInterval(shootInterval);
     if(i != 0){
         shootInterval = setInterval(increment , 1000/i)
@@ -206,7 +208,7 @@ function setButtons() {
 
     
     slider.addEventListener("input", () => {
-        rate = slider.value / 5;
+        rate = slider.value * (.3);
         for(let button of buttons){
             button.textContent = rate.toFixed(1) + " bps"
         }
@@ -243,6 +245,10 @@ function setButtons() {
         updateDataHandler();
     });
     
+    accuracySlider.addEventListener('input', ()=>{
+        dataHandler.setTeleAccuracy(accuracySlider.value);
+    });
+
     
     // Passed buttons
     document.getElementById("pass-del-1").addEventListener("click", function () {

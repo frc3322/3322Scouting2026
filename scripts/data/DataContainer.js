@@ -28,7 +28,7 @@ export class DataContainer {
     endClimb;
     downTime;
     rating;
-    comment;
+    comments;
 
     constructor() {
         this.matchNumber = 0;
@@ -37,13 +37,13 @@ export class DataContainer {
 
         this.autoScored = 0;
         this.autoPassed = 0;
-        this.autoAccuracy = 0;
+        this.autoAccuracy = 100;
         this.autoClimb = 0;
         this.mobility = 0;
 
         this.teleScored = 0;
         this.telePassed = 0;
-        this.teleAccuracy = 0;
+        this.teleAccuracy = 100;
 
         this.defAZone = 0;
         this.defABump = 0;

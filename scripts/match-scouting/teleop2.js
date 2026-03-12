@@ -26,6 +26,8 @@ const modes = {
 };
 var mode = modes.shoot;
 
+const accuracySlider = document.getElementById("accuracy-slider");
+
 const toggles = document.getElementById("toggles").children
 const buttonContainers = document.getElementById("buttons").children
 
@@ -199,11 +201,15 @@ function setButtons() {
 
     
     slider.addEventListener("input", () => {
-        rate = slider.value / 5;
+        rate = slider.value * (.3);
         for(let button of buttons){
             button.textContent = rate.toFixed(1) + " bps"
         }
     })
+
+    accuracySlider.addEventListener('input', ()=>{
+        dataHandler.setTeleAccuracy(accuracySlider.value);
+    });
 
     for(let button of buttons){
             button.addEventListener("mousedown", () => { updateRate(rate); });

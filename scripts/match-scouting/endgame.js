@@ -59,7 +59,7 @@ function generateQRCodes() {
 
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
-    
+    console.log(data[0])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,

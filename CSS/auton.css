@@ -20,6 +20,14 @@ select {
     padding: 18px 18px;
 }
 
+
+.vertical-slider{
+    writing-mode:vertical-lr;
+    direction: rtl;
+
+    height:40vw;
+}
+
 .buttons{
     display: flex;
     align-items: center;
