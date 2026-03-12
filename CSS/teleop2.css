@@ -1,5 +1,3 @@
-
-
 body {
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
@@ -10,16 +8,18 @@ input {
     padding: 18px 18px;
     margin: 6px;
 }
+
 input[type="checkbox"] {
     transform: scale(2.5);
     margin: 10px;
     cursor: pointer;
-  }
+}
+
 select {
     padding: 18px 18px;
 }
 
-.buttons{
+.buttons {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -29,17 +29,18 @@ select {
     flex-direction: row;
 }
 
-canvas{
-    width:75vw;
+canvas {
+    width: 70vw;
     height: 43vw;
 }
 
 .fixedElement a {
     flex: 1;
-    margin:0;
+    margin: 0;
 }
+
 .fixedElement img {
-    display:block;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -47,16 +48,16 @@ canvas{
 }
 
 
-.section{
+.section {
     margin: auto;
-    width: 80%;
+    width: fit-content;
     /* border: 1px solid black; */
     border-radius: 50px;
     padding: 10px;
     background-color: #101010;
 }
 
-button{
+button {
     margin-top: 7px;
     width: 30%;
     border-radius: 20px;
@@ -70,21 +71,32 @@ button{
     user-select: none;
 }
 
-.button-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.slider{
+.slider {
     width: 80%;
     background-color: rgba(25, 97, 184, 0.673);
     margin-top: 0px;
     border-radius: 20px;
 }
 
-.undo-button{
+
+.vertical-slider{
+    writing-mode:vertical-lr;
+    direction: rtl;
+
+    height:40vw;
+}
+
+
+
+
+.undo-button {
     margin-top: 7px;
     width: 25%;
     border-radius: 20px;
@@ -94,24 +106,24 @@ button{
     border-width: 0px;
     font-family: 'Inter', sans-serif;
     margin-right: 10px;
-    margin-left:10px;
+    margin-left: 10px;
 
-    background-color:#991d1d;
-    color:#e9fbff
+    background-color: #991d1d;
+    color: #e9fbff
 }
 
-h1{
-    color:#e9fbff;
+h1 {
+    color: #e9fbff;
 }
 
-h2{
-    color:#e9fbff;
+h2 {
+    color: #e9fbff;
 }
 
-p{
-    color:#e9fbff;
+p {
+    color: #e9fbff;
 }
 
-label{
+label {
     color: #e9fbff;
 }

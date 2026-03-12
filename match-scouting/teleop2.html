@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,57 +9,63 @@
     <link rel="stylesheet" href="../CSS/teleop2.css">
 
 </head>
+
 <body>
     <h1>Teleop</h1>
     <div class="section">
-        <div id="toggles" class = "buttons">
-          <button id="fuel-toggle" style="background-color: rgb(126, 224, 123);">Shoot</button>
-          <button id="pass-toggle" style="background-color: rgb(123, 173, 224);">Pass</button>
-          <button id="test-toggle" style="background-color: rgb(187, 187, 187);">Test</button>
-          <button id="delete-toggle" style="background-color: rgb(239, 115, 115);">Delete</button>
+        <div id="toggles" class="buttons">
+            <button id="fuel-toggle" style="background-color: rgb(126, 224, 123);">Shoot</button>
+            <button id="pass-toggle" style="background-color: rgb(123, 173, 224);">Pass</button>
+            <button id="test-toggle" style="background-color: rgb(187, 187, 187);">Test</button>
+            <button id="delete-toggle" style="background-color: rgb(239, 115, 115);">Delete</button>
         </div>
-        <canvas canvas id="canvas" height="500" width="500" style="border:5px solid #d3d3d3;"></canvas>
+        <div style="display: flex; flex-direction: row;">
+            <canvas canvas id="canvas" height="500" width="500" style="border:5px solid #d3d3d3;"></canvas>
+            <div class="slider-container">
+                <input id="accuracy-slider" type="range" min="0" max="100" value="100" class="vertical-slider" step="1">
+            </div>
+        </div>
         <input id="slider" type="range" min="0" max="100" value="0" class="slider" step="1">
         <div id="buttons">
-          <div class="button-container" id="fuel">
-            <button id="fuel-button" style="background-color: rgb(126, 224, 123);">
-              0.0 bps
-            </button>
-          </div>
-    
-          <div class="button-container" id="pass">
-            <button id="pass-button" style="background-color: rgb(123, 173, 224);">
-              0.0 bps
-            </button>
-          </div>
-    
-          <div class="button-container" id="test">
-            <button id="test-button" style="background-color: rgb(187, 187, 187);">
-              0.0 bps
-            </button>
-          </div>
+            <div class="button-container" id="fuel">
+                <button id="fuel-button" style="background-color: rgb(126, 224, 123);">
+                    0.0 bps
+                </button>
+            </div>
 
-          <div class="button-container" id="delete">
-            <h2 style="margin-bottom:0;">Shot</h2>
-            <div id="fuel-del" style = "width: 100%;">
-                <button id="fuel-del-1" style="background-color: rgb(239, 65, 65); color:#d3d3d3">-1</button>
-                <button id="fuel-del-5" style="background-color:  rgb(209, 51, 51); color:#d3d3d3">-10</button>
-                <button id="fuel-del-all" style="background-color:  rgb(179, 42, 42); color:#d3d3d3"> clear</button>
+            <div class="button-container" id="pass">
+                <button id="pass-button" style="background-color: rgb(123, 173, 224);">
+                    0.0 bps
+                </button>
             </div>
-            <h2 style="margin-bottom:0;">Passed</h2>
-            <div id="pass-del" style = "width: 100%;">
-                <button id="pass-del-1" style="background-color:  rgb(239, 65, 65); color:#d3d3d3">-1</button>
-                <button id="pass-del-5" style="background-color:  rgb(209, 51, 51); color:#d3d3d3">-10</button>
-                <button id="pass-del-all" style="background-color:  rgb(179, 42, 42); color:#d3d3d3"> clear</button>
+
+            <div class="button-container" id="test">
+                <button id="test-button" style="background-color: rgb(187, 187, 187);">
+                    0.0 bps
+                </button>
             </div>
-            
-          </div>
+
+            <div class="button-container" id="delete">
+                <h2 style="margin-bottom:0;">Shot</h2>
+                <div id="fuel-del" style="width: 100%;">
+                    <button id="fuel-del-1" style="background-color: rgb(239, 65, 65); color:#d3d3d3">-1</button>
+                    <button id="fuel-del-5" style="background-color:  rgb(209, 51, 51); color:#d3d3d3">-10</button>
+                    <button id="fuel-del-all" style="background-color:  rgb(179, 42, 42); color:#d3d3d3"> clear</button>
+                </div>
+                <h2 style="margin-bottom:0;">Passed</h2>
+                <div id="pass-del" style="width: 100%;">
+                    <button id="pass-del-1" style="background-color:  rgb(239, 65, 65); color:#d3d3d3">-1</button>
+                    <button id="pass-del-5" style="background-color:  rgb(209, 51, 51); color:#d3d3d3">-10</button>
+                    <button id="pass-del-all" style="background-color:  rgb(179, 42, 42); color:#d3d3d3"> clear</button>
+                </div>
+
+            </div>
         </div>
-      </div>
-    
-        <!-- You can link JavaScript files here -->
+    </div>
+
+    <!-- You can link JavaScript files here -->
     <script type="module" src="../scripts/data/DataHandler.js"></script>
     <script type="module" src="../scripts/match-scouting/teleop2.js"></script>
 </body>
-</html>
 
+</html>
