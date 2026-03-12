@@ -31,6 +31,22 @@ const blueZone = document.querySelector("#rightMostButton");
 const counter = document.getElementById('CyclesCounter');
 var count = 0;
 
+const star1 = document.getElementById("rate1");
+const star2 = document.getElementById("rate2");
+const star3 = document.getElementById("rate3");
+const star4 = document.getElementById("rate4");
+const star5 = document.getElementById("rate5");
+const starArray = [
+    star1,
+    star2,
+    star3,
+    star4,
+    star5
+];
+
+const comments = document.getElementById("comments");
+comments.textContent = dataContainer.defComments;
+
 var bindings = [
     [redZone, document.getElementById('leftButtonCount'), DefenseType.defAZone],
 
@@ -49,7 +65,43 @@ var bindings = [
     [blueZone, document.getElementById('rightButtonCount'), DefenseType.defOZone]
 ];
 
+
+function updateStars(stars) {
+    dataHandler.setDefRating(stars);
+    for (let i = 0; i < 5; i++) {
+        if (i < stars) {
+            starArray[i].innerHTML = "&#9733;";
+        }
+        else {
+            starArray[i].innerHTML = "&#9734";
+        }
+    }
+}
+
+
+
 function setButtons() {
+
+    star1.addEventListener("click", () => {
+        updateStars(1);
+    });
+    star2.addEventListener("click", () => {
+        updateStars(2);
+    });
+    star3.addEventListener("click", () => {
+        updateStars(3);
+    });
+    star4.addEventListener("click", () => {
+        updateStars(4);
+    });
+    star5.addEventListener("click", () => {
+        updateStars(5);
+    });
+
+    comments.addEventListener("input", ()=>{
+        dataHandler.setDefComment(comments.value);
+    })
+
     for (let binding of bindings) {
         binding[1].textContent = dataHandler.incDef(binding[2], 0);
         binding[0].addEventListener('click', () => {
@@ -84,4 +136,5 @@ function changeCount(amount) {
     dataHandler.incFuelStolen(amount);
 }
 
+updateStars(dataContainer.defRating);
 setButtons()

@@ -6,10 +6,11 @@
 .buttonField {
     display: flex;
     flex-direction: row;
-    width: 90vh;               
+    width: 85vw;               
     height: auto;                
-    gap: 1px;    
-    margin:10vh;                
+    gap: 1px;
+    margin-top:5vh;   
+    margin-bottom:5vh;                
 }
 
 .leftField,

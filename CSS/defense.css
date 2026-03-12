@@ -59,6 +59,25 @@ select {
     flex-direction: row;
 }
 
+.stars{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px;
+}
+.star{
+    cursor:pointer;
+    font-size: 4vh;
+    margin:0;  
+    margin-top: -2vh;
+}
+
+input {
+    padding: 8px 8px;
+    margin: 1vw;
+    width:15vw;
+}
+
 h1 {
     color: #e9fbff;
 }

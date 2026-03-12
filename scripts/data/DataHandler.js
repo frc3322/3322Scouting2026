@@ -159,6 +159,9 @@ export class DataHandler {
         this.dataContainer.fuelStolen += val;
     }
 
+    setDefComment(comment) {
+        this.dataContainer.defComments = comment;
+    }
     setDefRating(defRating) {
         this.dataContainer.defRating = defRating;
     }
