@@ -65,9 +65,7 @@ function updateRate(i){
 function increment(){
     newBall()
     let currentMode = mode;
-    setTimeout(() => {
-        values[currentMode]++;
-    }, 900);
+    values[currentMode]++;
     updateDataHandler();
 }
 
