@@ -10,14 +10,11 @@ try{
 }
 catch{}
 
-
-
 const values = [
     dataContainer.teleScored,
     dataContainer.telePassed,
     0
 ];
-
 
 var rate = 0;
 
@@ -28,6 +25,8 @@ const modes = {
     delete : 3
 };
 var mode = modes.shoot;
+
+const accuracySlider = document.getElementById("accuracy-slider");
 
 const toggles = document.getElementById("toggles").children
 const buttonContainers = document.getElementById("buttons").children
@@ -64,20 +63,15 @@ function updateRate(i){
 function increment(){
     newBall()
     let currentMode = mode;
-    setTimeout(() => {
-        values[currentMode]++;
-    }, 900);
+    values[currentMode]++;
     updateDataHandler();
 }
 
 function updateDataHandler(){
     dataHandler.setTeleScored(values[0]);
     dataHandler.setTelePassed(values[1]);
+    console.log(dataContainer.teleScored);
 }
-
-
-
-
 
 
 
@@ -207,11 +201,15 @@ function setButtons() {
 
     
     slider.addEventListener("input", () => {
-        rate = slider.value / 5;
+        rate = slider.value * (.3);
         for(let button of buttons){
             button.textContent = rate.toFixed(1) + " bps"
         }
     })
+
+    accuracySlider.addEventListener('input', ()=>{
+        dataHandler.setTeleAccuracy(accuracySlider.value);
+    });
 
     for(let button of buttons){
             button.addEventListener("mousedown", () => { updateRate(rate); });

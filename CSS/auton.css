@@ -1,7 +1,6 @@
 
 
 body {
-    cursor: url('../images/pixelatedGoat.png'), auto;
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;
@@ -19,6 +18,14 @@ input[type="checkbox"] {
 }
 select {
     padding: 18px 18px;
+}
+
+
+.vertical-slider{
+    writing-mode:vertical-lr;
+    direction: rtl;
+
+    height:40vw;
 }
 
 .buttons{

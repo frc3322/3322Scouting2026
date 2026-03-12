@@ -13,52 +13,16 @@ try{
 catch{}
 
 
-const star1 = document.getElementById("rate1");
-const star2 = document.getElementById("rate2");
-const star3 = document.getElementById("rate3");
-const star4 = document.getElementById("rate4");
-const star5 = document.getElementById("rate5");
-const starArray = [
-    star1,
-    star2,
-    star3,
-    star4,
-    star5
-];
+
 
 var dataQR;
 var commentQR;
 
-function updateStars(stars) {
-    
-    for (let i = 0; i < 5; i++) {
-        if (i < stars) {
-            starArray[i].innerHTML = "&#9733;";
-        }
-        else {
-            starArray[i].innerHTML = "&#9734";
-        }
-    }
-}
+
 
 function setButtons() {
 
-    star1.addEventListener("click", () => {
-        updateStars(1);
-    });
-    star2.addEventListener("click", () => {
-        updateStars(2);
-    });
-    star3.addEventListener("click", () => {
-        updateStars(3);
-    });
-    star4.addEventListener("click", () => {
-        updateStars(4);
-    });
-    star5.addEventListener("click", () => {
-        updateStars(5);
-    });
-
+ 
     document.getElementById("submit").addEventListener("click", () => {
         dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
@@ -95,14 +59,14 @@ function generateQRCodes() {
 
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
-    
+    console.log(data[0])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
         width: size
     });
 
-    if (dataContainer.comment != "") {
+    if (dataContainer.comment != "" || dataContainer.defComments != "") {
         commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,
@@ -138,5 +102,4 @@ function breakdownToggle() {
     dataHandler.setDownTime((breakdownTotal/1000).toFixed(1));
   }}
 
-updateStars(5);
 setButtons();

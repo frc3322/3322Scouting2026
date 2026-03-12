@@ -22,11 +22,13 @@ export class DataContainer {
     defOBump;
     defOTrench;
     defRating;
+    defComments;
+    fuelStolen;
 
     endClimb;
     downTime;
     rating;
-    comment;
+    comments;
 
     constructor() {
         this.matchNumber = 0;
@@ -35,13 +37,13 @@ export class DataContainer {
 
         this.autoScored = 0;
         this.autoPassed = 0;
-        this.autoAccuracy = 0;
+        this.autoAccuracy = 100;
         this.autoClimb = 0;
         this.mobility = 0;
 
         this.teleScored = 0;
         this.telePassed = 0;
-        this.teleAccuracy = 0;
+        this.teleAccuracy = 100;
 
         this.defAZone = 0;
         this.defABump = 0;
@@ -51,11 +53,13 @@ export class DataContainer {
         this.defOBump = 0;
         this.defOTrench = 0;
         this.defRating = 0;
+        this.defComments = "";
+        this.fuelStolen = 0;
 
         this.endClimb = 0;
         this.downTime = 0;
         this.rating = 0;
-        this.comment = "";
+        this.comments = "";
     }
 
     exportData(){
@@ -71,7 +75,7 @@ export class DataContainer {
 
             }
             else{
-            if(key == "comment"){
+            if(key == "comments" || key == "defComments"){
                 dataString += ";";
                 commentString += "" + value + ";";
             }

@@ -1,8 +1,6 @@
 
 
 body {
-    cursor: url('../images/pixelatedGoat.png'), auto;
-
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;
@@ -76,18 +74,6 @@ select {
 
 
 
-h1{
+h1,h2,h3,p,label{
     color:#e9fbff;
-}
-
-h2{
-    color:#e9fbff;
-}
-
-p{
-    color:#e9fbff;
-}
-
-label{
-    color: #e9fbff;
 }

@@ -1,3 +1,4 @@
+import { DefenseType } from "../Constants.js";
 import { DataContainer } from "../data/DataContainer.js";
 import { DataHandler } from "../data/DataHandler.js";
 
@@ -30,7 +31,7 @@ import { DataHandler } from "../data/DataHandler.js";
 var dataContainer = new DataContainer();
 var dataHandler = new DataHandler(dataContainer);
 
-try{
+try {
     dataHandler = window.parent.dataHandler;
     dataContainer = dataHandler.getDataContainer();
 }
@@ -38,9 +39,7 @@ catch{}
 
 
 function setButtons(){
-document.getElementById("up1").addEventListener('click', () => changeCount(1));
-document.getElementById("down1").addEventListener('click', () => changeCount(-1));
-
+    
 }
 
 
