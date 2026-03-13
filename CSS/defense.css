@@ -78,18 +78,6 @@ input {
     width:15vw;
 }
 
-h1 {
-    color: #e9fbff;
-}
-
-h2 {
-    color: #e9fbff;
-}
-
-p {
-    color: #e9fbff;
-}
-
-label {
+h1,h2,h3,p,label {
     color: #e9fbff;
 }

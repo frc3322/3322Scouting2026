@@ -265,10 +265,20 @@ function setButtons() {
     });
 
     document.getElementById("climb").addEventListener("click", () =>{
-        dataHandler.setAutoClimb(0);
+        if(document.getElementById("climb").value == "on"){
+            dataHandler.setAutoClimb(1);
+        }
+        else{
+            dataHandler.setAutoClimb(0);
+        }
     });
     document.getElementById("mobility").addEventListener("click", () =>{
-        dataHandler.setMobility(0);
+        if(document.getElementById("mobility").value == "on"){
+            dataHandler.setMobility(1);
+        }
+        else{
+            dataHandler.setMobility(0);
+        }
     });
 
 }

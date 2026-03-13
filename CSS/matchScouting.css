@@ -33,3 +33,8 @@ iframe {
     object-fit: contain;
 
 }
+
+
+h1,h2,h3,p,label{
+    color:#e9fbff;
+}

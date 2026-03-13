@@ -59,14 +59,13 @@ function generateQRCodes() {
 
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
-    console.log(data[0])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
         width: size
     });
 
-    if (dataContainer.comment != "" || dataContainer.defComments != "") {
+    if (dataContainer.comments != "" || dataContainer.defComments != "") {
         commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,

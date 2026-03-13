@@ -14,8 +14,6 @@ const match = document.querySelector(".promptThreeInput")
 
 
 function setButtons() {
-    
-
      document.getElementById("logo").addEventListener("click", () => {
     console.log("hi")
     prompt.style.visibility = "visible"
