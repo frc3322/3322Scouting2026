@@ -47,6 +47,24 @@ const starArray = [
 const comments = document.getElementById("comments");
 comments.textContent = dataContainer.defComments;
 
+const bindingsTemplate = [
+    [redZone, document.getElementById('leftButtonCount'), DefenseType.defAZone],
+
+    [redTrenchTop, document.getElementById('midLeft1Count'), DefenseType.defATrench],
+    [redTrenchBottom, document.getElementById('midLeft1Count'), DefenseType.defATrench],
+    [redBumpTop, document.getElementById('midLeft3Count'), DefenseType.defABump],
+    [redBumpBottom, document.getElementById('midLeft3Count'), DefenseType.defABump],
+
+    [neutralZone, document.getElementById('midZoneCount'), DefenseType.defNZone],
+
+    [blueBumpBottom, document.getElementById('midRight3Count'), DefenseType.defOBump],
+    [blueBumpTop, document.getElementById('midRight3Count'), DefenseType.defOBump],
+    [blueTrenchBottom, document.getElementById('midRight1Count'), DefenseType.defOTrench],
+    [blueTrenchTop, document.getElementById('midRight1Count'), DefenseType.defOTrench],
+
+    [blueZone, document.getElementById('rightButtonCount'), DefenseType.defOZone]
+];
+
 var bindings = [
     [redZone, document.getElementById('leftButtonCount'), DefenseType.defAZone],
 
@@ -117,6 +135,23 @@ function setButtons() {
     document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
 }
 
+function flipField(flipped){
+    if(flipped){
+
+    document.getElementById("buttonField").style.transform = "rotate(0deg)"
+    for(let binding of bindings){
+        binding[1].style.transform = "rotate(0deg)"
+    }
+    }
+    else{
+
+    document.getElementById("buttonField").style.transform = "rotate(180deg)"
+    for(let binding of bindings){
+        binding[1].style.transform = "rotate(180deg)"
+    }
+    }
+}
+
 function changeCount(amount) {
     var downwardsCounter = 0;
     count += amount;
@@ -135,6 +170,20 @@ function changeCount(amount) {
     }
     dataHandler.incFuelStolen(amount);
 }
+
+function setBindings(reverse){
+    if(reverse){
+        for(let [i, val] of bindingsTemplate.entries()){
+            bindings[bindingsTemplate.length - i - 1][2] = val[2]
+        }
+    }
+    console.log(bindings);
+    console.log(bindingsTemplate);
+
+}
+
+setBindings(true)
+
 
 updateStars(dataContainer.defRating);
 setButtons()
