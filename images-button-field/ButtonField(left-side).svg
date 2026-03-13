@@ -7,30 +7,8 @@
    viewBox="0 0 264.31304 532.16846"
    version="1.1"
    id="svg1"
-   sodipodi:docname="ButtonField(left-side).svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm">
-    <inkscape:page
-       x="0"
-       y="0"
-       width="264.31305"
-       height="532.16846"
-       id="page2"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
   <defs
      id="defs1" />
   <g
@@ -45,13 +23,10 @@
        y="-321.9585"
        ry="1.0606602"
        transform="scale(-1)" />
-    <rect
-       style="display:inline;fill:#4d4d4d;stroke-width:1.00087"
+    <path
        id="rect5-4"
-       width="252.87906"
-       height="506.99557"
-       x="-263.41855"
-       y="-521.36267"
+       style="display:inline;fill:#4d4d4d;stroke-width:1.00087"
+       d="M -10.540014 -14.366342 L -10.540014 -521.36246 L -263.41893 -521.36246 L -263.41893 -329.50307 L -243.8408 -329.50307 L -243.8408 -197.67299 L -263.41893 -197.67299 L -263.41893 -14.366342 L -10.540014 -14.366342 z "
        transform="scale(-1)" />
     <path
        id="rect2-8"

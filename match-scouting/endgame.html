@@ -11,41 +11,29 @@
 
 <body>
     <!-- This is the visible content of the page -->
-
-    <h1>Endgame</h1>
-
     <div class="section">
-        
+
         <div>
-        <label for="Climb">Climb</label>
-        <select id="Climb">
-            <option value=0>None</option>
-            <option value=1>L1 Climb</option>
-            <option value=2>L2 Climb</option>
-            <option value=3>L3 Climb</option>
-        </select>
+            <label for="Climb">Climb</label>
+            <select id="Climb">
+                <option value=0>None</option>
+                <option value=1>L1 Climb</option>
+                <option value=2>L2 Climb</option>
+                <option value=3>L3 Climb</option>
+            </select>
         </div>
 
-        <p>Rating:</p>
-        <div class="stars">
-            <p id="rate1" class="star" ></p>
-            <p id="rate2" class="star" ></p>
-            <p id="rate3" class="star" ></p>
-            <p id="rate4" class="star" ></p>
-            <p id="rate5" class="star" ></p>
-
-        </div>
-
+        
         <label for="breakdown">Breakdown:</label>
         <br>
         <button id="breakdown" style="height: 100px; width: 200px;">0.00</button>
 
         <div style="display:flex; justify-content: center; flex-direction: row;">
-        <input class = "inputText" id="initials" placeholder="scouter initials"> <br>
-        <input class = "inputText"  id="teamNumber" placeholder="team number"> <br>
-        <input class = "inputText"  id="matchNumber" placeholder="match number"> <br>
+            <input class="inputText" id="initials" placeholder="scouter initials"> <br>
+            <input class="inputText" id="teamNumber" placeholder="team number"> <br>
+            <input class="inputText" id="matchNumber" placeholder="match number"> <br>
 
-</div>
+        </div>
         <p>Comments:</p>
         <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
 
@@ -54,17 +42,18 @@
     <div class="section" style="margin-top: 2vh">
         <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
             <div class="qr" id="dataQR"></div>
-            <div class="qr"id="commentQR"></div>
+            <div class="qr" id="commentQR"></div>
         </div>
 
 
-        
-       <button id="exit"> Exit</button>
+    
+
+
+        <button id="exit"> Exit</button>
 
 
     </div>
 
-</div>
 
 
 

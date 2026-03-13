@@ -37,6 +37,9 @@ const buttons = [
     document.getElementById("test-button"),
 ];
 
+
+const accuracySlider = document.getElementById("accuracy-slider");
+
 function setMode(val){
     mode = val;
     ballList = [];
@@ -53,7 +56,6 @@ function setMode(val){
 var shootInterval = null;
 
 function updateRate(i){
-
     clearInterval(shootInterval);
     if(i != 0){
         shootInterval = setInterval(increment , 1000/i)
@@ -63,9 +65,7 @@ function updateRate(i){
 function increment(){
     newBall()
     let currentMode = mode;
-    setTimeout(() => {
-        values[currentMode]++;
-    }, 900);
+    values[currentMode]++;
     updateDataHandler();
 }
 
@@ -133,6 +133,8 @@ function draw(timeStamp) {
         ballList[i][0] += vx * speed;
         let t = (ballList[i][0] - 140 * s) * s / vx
         ballList[i][1] += (t - vy) * speed;
+        if (ballList[i][1] > canvas.height - 100 * s &&
+            ballList[i][0] > canvas.width - 375 * s) {
         if (ballList[i][1] > canvas.height - 100 * s &&
             ballList[i][0] > canvas.width - 375 * s) {
             ballList.shift();
@@ -206,7 +208,7 @@ function setButtons() {
 
     
     slider.addEventListener("input", () => {
-        rate = slider.value / 5;
+        rate = slider.value * (.3);
         for(let button of buttons){
             button.textContent = rate.toFixed(1) + " bps"
         }
@@ -243,6 +245,10 @@ function setButtons() {
         updateDataHandler();
     });
     
+    accuracySlider.addEventListener('input', ()=>{
+        dataHandler.setTeleAccuracy(accuracySlider.value);
+    });
+
     
     // Passed buttons
     document.getElementById("pass-del-1").addEventListener("click", function () {
@@ -261,10 +267,20 @@ function setButtons() {
     });
 
     document.getElementById("climb").addEventListener("click", () =>{
-        dataHandler.setAutoClimb(0);
+        if(document.getElementById("climb").value == "on"){
+            dataHandler.setAutoClimb(1);
+        }
+        else{
+            dataHandler.setAutoClimb(0);
+        }
     });
     document.getElementById("mobility").addEventListener("click", () =>{
-        dataHandler.setMobility(0);
+        if(document.getElementById("mobility").value == "on"){
+            dataHandler.setMobility(1);
+        }
+        else{
+            dataHandler.setMobility(0);
+        }
     });
 
 }

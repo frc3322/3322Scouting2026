@@ -1,6 +1,7 @@
 import { DefenseType } from "../Constants.js";
 
 
+
 export class DataHandler {
     dataContainer;
     defStack;
@@ -14,49 +15,46 @@ export class DataHandler {
         return this.dataContainer;
     }
 
-
-    updateDef(val) {
-        switch (defenseType) {
+    updateDef(type, val) {
+        switch (type) {
             case (DefenseType.defABump):
-                this.dataContainer.defABump += val;
-                break;
+                this.dataContainer.defABump += val
+                return this.dataContainer.defABump;
             case (DefenseType.defATrench):
-                this.dataContainer.defATrench += val;
-                break;
+                 this.dataContainer.defATrench += val;
+                return this.dataContainer.defATrench;
             case (DefenseType.defAZone):
-                this.dataContainer.defAZone += val;
-                break;
+                 this.dataContainer.defAZone += val;
+                return this.dataContainer.defAZone;
             case (DefenseType.defNZone):
-                this.dataContainer.defNZone += val;
-                break;
+                 this.dataContainer.defNZone += val;
+                return this.dataContainer.defNZone;
             case (DefenseType.defOZone):
-                this.dataContainer.defOZone += val;
-                break;
+                 this.dataContainer.defOZone += val;
+                return this.dataContainer.defOZone;
             case (DefenseType.defOBump):
-                this.dataContainer.defOBump += val;
-                break;
+                 this.dataContainer.defOBump += val;
+                return this.dataContainer.defOBump;
             case (DefenseType.defOTrench):
                 this.dataContainer.defOTrench += val;
-                break;
+                return this.dataContainer.defOTrench;
             default:
-                break;
+                return -9999;
 
         }
     }
 
     incDef(defenseType, val) {
         this.defStack.push([defenseType, val]);
-        this.updateDef(defenseType, val)
+        return this.updateDef(defenseType, val);
     }
 
     undoDef() {
         if (this.defStack.length > 0) {
             var action = this.stackAuto.pop()
-            this.changeFuel(action[0], -action[1])
+            this.updateDef(action[0], -action[1])
         }
     }
-
-
     /*◇─◇──◇─◇
     ✨Setters✨
     ◇─◇──◇─◇*/
@@ -113,6 +111,13 @@ export class DataHandler {
         this.dataContainer.teleAccuracy = teleAccuracy;
     }
 
+    incFuelStolen(val) {
+        this.dataContainer.fuelStolen += val;
+    }
+
+    setDefComment(comment) {
+        this.dataContainer.defComments = comment;
+    }
     setDefRating(defRating) {
         this.dataContainer.defRating = defRating;
     }
@@ -126,13 +131,7 @@ export class DataHandler {
     }
 
     setComment(comment) {
-        this.dataContainer.comment = comment;
+        this.dataContainer.comments = comment;
     }
-    setRating(rating) {
-        this.dataContainer.rating = rating;
-    }
-
-
-
 
 }

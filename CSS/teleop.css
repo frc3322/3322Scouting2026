@@ -10,13 +10,22 @@ input {
     padding: 18px 18px;
     margin: 6px;
 }
+
 input[type="checkbox"] {
     transform: scale(2.5);
-    margin: 10px;
+    margin: 10px ;
     cursor: pointer;
-  }
+}
 select {
     padding: 18px 18px;
+}
+
+
+.vertical-slider{
+    writing-mode:vertical-lr;
+    direction: rtl;
+
+    height:40vw;
 }
 
 .buttons{
@@ -32,18 +41,6 @@ select {
 canvas{
     width:75vw;
     height: 43vw;
-}
-
-.fixedElement a {
-    flex: 1;
-    margin:0;
-}
-.fixedElement img {
-    display:block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-
 }
 
 
