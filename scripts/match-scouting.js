@@ -39,11 +39,12 @@ function setButtons() {
 
 
 function initialData(shootingRate) {
-
-    if (window.localStorage.getItem("scouterInitials") != "") {
+    let matchData = JSON.parse(localStorage.getItem('matchData'))
+    console.log(matchData)
+    if (matchData.scouterInitials != "") {
         dataHandler.setScouterInitials(window.localStorage.getItem("scouterInitials"));
     }
-    if (window.localStorage.getItem("teamNumber") != "") {
+    if (matchData.scouterInitials != "") {
         dataHandler.setTeamNumber(window.localStorage.getItem("teamNumber"));
         teamNumber.textContent = window.localStorage.getItem("teamNumber");
         console.log(shootingRate)
@@ -51,7 +52,7 @@ function initialData(shootingRate) {
             teamNumber.textContent += " - " + shootingRate + " bps"
         }
     }
-    if (window.localStorage.getItem("matchNumber") != "") {
+    if (matchData.scouterInitials != "") {
         dataHandler.setMatchNumber(window.localStorage.getItem("matchNumber"));
     }
 

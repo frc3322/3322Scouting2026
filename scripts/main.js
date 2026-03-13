@@ -14,18 +14,25 @@ const match = document.querySelector(".promptThreeInput")
 
 
 function setButtons() {
-     document.getElementById("logo").addEventListener("click", () => {
-    console.log("hi")
-    prompt.style.visibility = "visible"
-});
-startScouting.addEventListener("click", () => {
-    window.localStorage.setItem("scouterInitials", initials.value);
-    window.localStorage.setItem("teamNumber", team.value);
-    window.localStorage.setItem("matchNumber", match.value);
-    window.location.href = "./match-scouting/match-scouting.html";
-})
-// }
+    document.getElementById("logo").addEventListener("click", () => {
+        prompt.style.visibility = "visible"
+    });
+    startScouting.addEventListener("click", () => {
+        let matchData = {
+            "scouterInitials": initials.value,
+            "teamNumber": team.value,
+            "matchNumber": match.value
+        }
+        window.localStorage.setItem("matchData",JSON.stringify(matchData));
+        window.location.href = "./match-scouting/match-scouting.html";
+    })
+    document.getElementById("settings").addEventListener("click", () => {
+        window.location.href = "./settings.html";
+    })
 
 }
 
+if(window.localStorage.getItem("teamColor") == null){
+    window.localStorage.setItem("teamColor", "red")
+}
 setButtons();

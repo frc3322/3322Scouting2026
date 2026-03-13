@@ -129,9 +129,12 @@ function setButtons() {
             catch {
             }
         })
+        
     }
 
-    document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
+    document.getElementById("up1").addEventListener('click', () => { changeCount(1)
+        console.log(dataContainer.defAZone);
+     });
     document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
 }
 
@@ -177,12 +180,16 @@ function setBindings(reverse){
             bindings[bindingsTemplate.length - i - 1][2] = val[2]
         }
     }
-    console.log(bindings);
-    console.log(bindingsTemplate);
 
 }
-
-setBindings(true)
+if(window.localStorage.getItem("teamColor") == "blue"){
+    setBindings(true)
+    flipField(true)
+}
+else{
+    setBindings(false)
+    flipField(false)
+}
 
 
 updateStars(dataContainer.defRating);

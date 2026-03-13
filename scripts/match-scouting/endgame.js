@@ -34,7 +34,6 @@ function setButtons() {
     });
 
     document.getElementById("exit").addEventListener("click", () => {
-        window.localStorage.clear
         window.top.location.href = "/index.html"
     });
 
