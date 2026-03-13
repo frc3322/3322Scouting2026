@@ -21,7 +21,7 @@ var rate = 0;
 const modes = {
     shoot : 0,
     pass : 1,
-    test : 2,
+    shuttle : 2,
     delete : 3
 };
 var mode = modes.shoot;
@@ -31,10 +31,12 @@ const accuracySlider = document.getElementById("accuracy-slider");
 const toggles = document.getElementById("toggles").children
 const buttonContainers = document.getElementById("buttons").children
 
+
+const counter = document.getElementById('CyclesCounter');
+
 const buttons = [
     document.getElementById("fuel-button"),
-    document.getElementById("pass-button"),
-    document.getElementById("test-button"),
+    document.getElementById("pass-button")
 ];
 
 function setMode(val){
@@ -259,6 +261,18 @@ function setButtons() {
         updateDataHandler();
     });
 
+    
+    document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
+    document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
+
+}
+
+function changeCount(amount) {
+    if(counter.textContent != 0 || amount >= 0){
+        dataHandler.incTeleShuttled(amount);
+        counter.textContent = dataContainer.teleShuttled;
+    }
+    
 }
 
 function newBall() {
@@ -269,6 +283,7 @@ function newBall() {
 function init() {
     window.requestAnimationFrame(draw);
     window.parent.framesLoaded = 1;
+    changeCount(0);
 }
 
 setMode(modes.shoot);

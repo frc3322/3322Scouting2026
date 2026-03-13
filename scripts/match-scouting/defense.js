@@ -132,9 +132,7 @@ function setButtons() {
         
     }
 
-    document.getElementById("up1").addEventListener('click', () => { changeCount(1)
-        console.log(dataContainer.defAZone);
-     });
+    document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
     document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
 }
 
