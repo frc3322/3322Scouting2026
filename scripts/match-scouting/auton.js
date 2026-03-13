@@ -5,11 +5,11 @@ import { DataHandler } from "../data/DataHandler.js";
 var dataContainer = new DataContainer();
 var dataHandler = new DataHandler(dataContainer);
 
-try{
+try {
     dataHandler = window.parent.dataHandler;
     dataContainer = dataHandler.getDataContainer();
 }
-catch{}
+catch { }
 
 const values = [
     dataContainer.autoScored,
@@ -21,10 +21,10 @@ const values = [
 var rate = 0;
 
 const modes = {
-    shoot : 0,
-    pass : 1,
-    test : 2,
-    delete : 3
+    shoot: 0,
+    pass: 1,
+    test: 2,
+    delete: 3
 };
 var mode = modes.shoot;
 
@@ -40,14 +40,14 @@ const buttons = [
 
 const accuracySlider = document.getElementById("accuracy-slider");
 
-function setMode(val){
+function setMode(val) {
     mode = val;
     ballList = [];
-    for(let i = 0; i < buttonContainers.length; i++){
-        if(i == val){
+    for (let i = 0; i < buttonContainers.length; i++) {
+        if (i == val) {
             buttonContainers[i].style.display = "flex";
         }
-        else{
+        else {
             buttonContainers[i].style.display = "none";
         }
     }
@@ -55,21 +55,21 @@ function setMode(val){
 
 var shootInterval = null;
 
-function updateRate(i){
+function updateRate(i) {
     clearInterval(shootInterval);
-    if(i != 0){
-        shootInterval = setInterval(increment , 1000/i)
+    if (i != 0) {
+        shootInterval = setInterval(increment, 1000 / i)
     }
 }
 
-function increment(){
+function increment() {
     newBall()
     let currentMode = mode;
     values[currentMode]++;
     updateDataHandler();
 }
 
-function updateDataHandler(){
+function updateDataHandler() {
     dataHandler.setAutoScored(values[0]);
     dataHandler.setAutoPassed(values[1]);
 }
@@ -135,8 +135,6 @@ function draw(timeStamp) {
         ballList[i][1] += (t - vy) * speed;
         if (ballList[i][1] > canvas.height - 100 * s &&
             ballList[i][0] > canvas.width - 375 * s) {
-        if (ballList[i][1] > canvas.height - 100 * s &&
-            ballList[i][0] > canvas.width - 375 * s) {
             ballList.shift();
         }
     }
@@ -182,11 +180,11 @@ function setButtons() {
     document.getElementById("canvas").addEventListener('mousedown', function (e) {
         e.preventDefault()
         clearTimeout(multitapTimer);
-        multitapTimer = setTimeout(()=>{
+        multitapTimer = setTimeout(() => {
             multitap = true;
         }, 200);
-        if(multitap){
-            for(let i = 0; i < e.touches.length; i++){
+        if (multitap) {
+            for (let i = 0; i < e.touches.length; i++) {
                 increment();
             }
         }
@@ -194,38 +192,38 @@ function setButtons() {
 
     document.getElementById("canvas").addEventListener('mouseup', function (e) {
         e.preventDefault()
-        
-        if(multitap){
-            if(e.touches.length == 0){
+
+        if (multitap) {
+            if (e.touches.length == 0) {
                 multitap = false;
             }
         }
-        else{
+        else {
             clearTimeout(multitapTimer);
             increment();
         }
     });
 
-    
+
     slider.addEventListener("input", () => {
         rate = slider.value * (.3);
-        for(let button of buttons){
+        for (let button of buttons) {
             button.textContent = rate.toFixed(1) + " bps"
         }
     })
 
-    for(let button of buttons){
-            button.addEventListener("mousedown", () => { updateRate(rate); });
-            button.addEventListener("mouseup", () => { updateRate(0); });
-            button.addEventListener("mouseleave", () => { updateRate(0); });
+    for (let button of buttons) {
+        button.addEventListener("mousedown", () => { updateRate(rate); });
+        button.addEventListener("mouseup", () => { updateRate(0); });
+        button.addEventListener("mouseleave", () => { updateRate(0); });
 
-            button.addEventListener("touchstart", () => { updateRate(rate); });
-            button.addEventListener("touchend", () => { updateRate(0); });
-            button.addEventListener("touchmove", () => { updateRate(0); });
-        
+        button.addEventListener("touchstart", () => { updateRate(rate); });
+        button.addEventListener("touchend", () => { updateRate(0); });
+        button.addEventListener("touchmove", () => { updateRate(0); });
+
     }
 
-    for(let i = 0; i < toggles.length; i++){
+    for (let i = 0; i < toggles.length; i++) {
         toggles[i].addEventListener('mousedown', () => {
             setMode(i);
         })
@@ -234,51 +232,51 @@ function setButtons() {
         values[0] = Math.max(values[0] - 1, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("fuel-del-5").addEventListener("click", function () {
         values[0] = Math.max(values[0] - 5, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("fuel-del-all").addEventListener("click", function () {
         values[0] = 0;
         updateDataHandler();
     });
-    
-    accuracySlider.addEventListener('input', ()=>{
+
+    accuracySlider.addEventListener('input', () => {
         dataHandler.setTeleAccuracy(accuracySlider.value);
     });
 
-    
+
     // Passed buttons
     document.getElementById("pass-del-1").addEventListener("click", function () {
         values[1] = Math.max(values[1] - 1, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("pass-del-5").addEventListener("click", function () {
         values[1] = Math.max(values[1] - 5, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("pass-del-all").addEventListener("click", function () {
         values[1] = 0;
         updateDataHandler();
     });
 
-    document.getElementById("climb").addEventListener("click", () =>{
-        if(document.getElementById("climb").value == "on"){
+    document.getElementById("climb").addEventListener("click", () => {
+        if (document.getElementById("climb").value == "on") {
             dataHandler.setAutoClimb(1);
         }
-        else{
+        else {
             dataHandler.setAutoClimb(0);
         }
     });
-    document.getElementById("mobility").addEventListener("click", () =>{
-        if(document.getElementById("mobility").value == "on"){
+    document.getElementById("mobility").addEventListener("click", () => {
+        if (document.getElementById("mobility").value == "on") {
             dataHandler.setMobility(1);
         }
-        else{
+        else {
             dataHandler.setMobility(0);
         }
     });
