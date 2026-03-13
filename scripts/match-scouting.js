@@ -20,21 +20,19 @@ function setButtons() {
         title.textContent = "Auton"
     });
 
-    document.getElementById("nav-teleop2").addEventListener("click", () => {
-        frame.src = "teleop2.html"
+    document.getElementById("nav-teleop").addEventListener("click", () => {
+        frame.src = "teleop.html"
         title.textContent = "Teleop"
     });
 
-    document.getElementById("nav-teleop3").addEventListener("click", () => {
-        frame.src = "teleop3.html"
-    });
-
-    document.getElementById("nav-teleop4").addEventListener("click", () => {
+    document.getElementById("nav-defense").addEventListener("click", () => {
         frame.src = "defense.html"
+        title.textContent = "Defense"
     });
 
     document.getElementById("nav-endgame").addEventListener("click", () => {
         frame.src = "endgame.html"
+        title.textContent = "Endgame"
     });
 
 }
