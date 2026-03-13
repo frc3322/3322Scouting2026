@@ -72,7 +72,6 @@ function increment(){
 function updateDataHandler(){
     dataHandler.setTeleScored(values[0]);
     dataHandler.setTelePassed(values[1]);
-    console.log(dataContainer.teleScored);
 }
 
 

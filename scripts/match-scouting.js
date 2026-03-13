@@ -40,14 +40,12 @@ function setButtons() {
 
 
 function initialData(shootingRate) {
-    console.log(matchData.teamNumber)
     if (matchData.scouterInitials != "") {
         dataHandler.setScouterInitials(matchData.scouterInitials );
     }
     if (matchData.teamNumber != "") {
         dataHandler.setTeamNumber(matchData.teamNumber);
         teamNumber.textContent = matchData.teamNumber ;
-        console.log(shootingRate)
         if (shootingRate != 0) {
             teamNumber.textContent += " - " + shootingRate + " bps"
         }
@@ -56,7 +54,6 @@ function initialData(shootingRate) {
         dataHandler.setMatchNumber(matchData.matchNumber );
     }
 
-    console.log(dataContainer)
 }
 
 
@@ -70,7 +67,6 @@ fetch('../res/shooting-rates.json')
     })
     .then(data => {
         let number = matchData.teamNumber;
-        console.log(data[number]);
         if(data[number] == undefined){
             initialData(0)
         }

@@ -28,7 +28,6 @@ export class DataContainer {
 
     endClimb;
     downTime;
-    rating;
     comments;
 
     constructor() {
@@ -60,7 +59,6 @@ export class DataContainer {
 
         this.endClimb = 0;
         this.downTime = 0;
-        this.rating = 0;
         this.comments = "";
     }
 
