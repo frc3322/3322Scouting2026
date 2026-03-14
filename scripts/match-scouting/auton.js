@@ -178,7 +178,6 @@ var multitap = false;
 function setButtons() {
 
     document.getElementById("canvas").addEventListener('mousedown', function (e) {
-        e.preventDefault()
         clearTimeout(multitapTimer);
         multitapTimer = setTimeout(() => {
             multitap = true;
@@ -191,8 +190,6 @@ function setButtons() {
     });
 
     document.getElementById("canvas").addEventListener('mouseup', function (e) {
-        e.preventDefault()
-
         if (multitap) {
             if (e.touches.length == 0) {
                 multitap = false;
