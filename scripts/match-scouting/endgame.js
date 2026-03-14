@@ -47,6 +47,12 @@ function setButtons() {
     
     document.getElementById("breakdown").addEventListener("click", breakdownToggle);
 
+    document.getElementById("clear-breakdown").addEventListener("click", () => {
+        breakdownTotal = 0;
+        dataHandler.setDownTime(0);
+        document.getElementById("breakdown").textContent = "0.0";
+    });
+
 
 }
 
