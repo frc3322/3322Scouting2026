@@ -12,6 +12,7 @@ const teamNumber = document.getElementById("teamNumber");
 
 
 
+const matchData = JSON.parse(localStorage.getItem('matchData'))
 
 
 function setButtons() {
@@ -39,21 +40,18 @@ function setButtons() {
 
 
 function initialData(shootingRate) {
-    let matchData = JSON.parse(localStorage.getItem('matchData'))
-    console.log(matchData)
     if (matchData.scouterInitials != "") {
-        dataHandler.setScouterInitials(window.localStorage.getItem("scouterInitials"));
+        dataHandler.setScouterInitials(matchData.scouterInitials );
     }
-    if (matchData.scouterInitials != "") {
-        dataHandler.setTeamNumber(window.localStorage.getItem("teamNumber"));
-        teamNumber.textContent = window.localStorage.getItem("teamNumber");
-        console.log(shootingRate)
+    if (matchData.teamNumber != "") {
+        dataHandler.setTeamNumber(matchData.teamNumber);
+        teamNumber.textContent = matchData.teamNumber ;
         if (shootingRate != 0) {
             teamNumber.textContent += " - " + shootingRate + " bps"
         }
     }
-    if (matchData.scouterInitials != "") {
-        dataHandler.setMatchNumber(window.localStorage.getItem("matchNumber"));
+    if (matchData.matchNumber  != "") {
+        dataHandler.setMatchNumber(matchData.matchNumber );
     }
 
 }
@@ -68,8 +66,7 @@ fetch('../res/shooting-rates.json')
         return response.json();
     })
     .then(data => {
-        let number = window.localStorage.getItem("teamNumber");
-        console.log(data[number]);
+        let number = matchData.teamNumber;
         if(data[number] == undefined){
             initialData(0)
         }

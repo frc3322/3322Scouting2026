@@ -21,7 +21,7 @@ var rate = 0;
 const modes = {
     shoot : 0,
     pass : 1,
-    test : 2,
+    shuttle : 2,
     delete : 3
 };
 var mode = modes.shoot;
@@ -31,10 +31,12 @@ const accuracySlider = document.getElementById("accuracy-slider");
 const toggles = document.getElementById("toggles").children
 const buttonContainers = document.getElementById("buttons").children
 
+
+const counter = document.getElementById('CyclesCounter');
+
 const buttons = [
     document.getElementById("fuel-button"),
-    document.getElementById("pass-button"),
-    document.getElementById("test-button"),
+    document.getElementById("pass-button")
 ];
 
 function setMode(val){
@@ -70,7 +72,6 @@ function increment(){
 function updateDataHandler(){
     dataHandler.setTeleScored(values[0]);
     dataHandler.setTelePassed(values[1]);
-    console.log(dataContainer.teleScored);
 }
 
 
@@ -91,16 +92,16 @@ ctx.canvas.width = canvasWidth;
 
 
 var ball = new Image;
-ball.src = '/images/ball.svg'
+ball.src = '../images/ball.svg'
 
 var bobot = new Image;
-bobot.src = '/images/bobot.png'
+bobot.src = '../images/bobot.png'
 bobot.onload = () => {
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300, 300);
 };
 
 var hub = new Image;
-hub.src = '/images/hub.svg'
+hub.src = '../images/hub.svg'
 hub.onload = () => {
     ctx.drawImage(hub, canvasWidth - 300, canvasHeight - 300, 300, 300);
 };
@@ -172,7 +173,8 @@ var multitap = false;
 
 function setButtons() {
 
-    document.getElementById("canvas").addEventListener('touchstart', function (e) {
+    document.getElementById("canvas").addEventListener('mousedown', function (e) {
+        e.preventDefault()
         clearTimeout(multitapTimer);
         multitapTimer = setTimeout(()=>{
             multitap = true;
@@ -184,7 +186,8 @@ function setButtons() {
         }
     });
 
-    document.getElementById("canvas").addEventListener('touchend', function (e) {
+    document.getElementById("canvas").addEventListener('mouseup', function (e) {
+        e.preventDefault()
         
         if(multitap){
             if(e.touches.length == 0){
@@ -257,6 +260,18 @@ function setButtons() {
         updateDataHandler();
     });
 
+    
+    document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
+    document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
+
+}
+
+function changeCount(amount) {
+    if(counter.textContent != 0 || amount >= 0){
+        dataHandler.incTeleShuttled(amount);
+        counter.textContent = dataContainer.teleShuttled;
+    }
+    
 }
 
 function newBall() {
@@ -267,6 +282,7 @@ function newBall() {
 function init() {
     window.requestAnimationFrame(draw);
     window.parent.framesLoaded = 1;
+    changeCount(0);
 }
 
 setMode(modes.shoot);

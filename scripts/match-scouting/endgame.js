@@ -55,8 +55,6 @@ function setButtons() {
 
 
 }
-
-
 document.getElementById("initials").value = dataContainer.scouterInitials;
 if (dataContainer.teamNumber != 0) {
     document.getElementById("teamNumber").value = dataContainer.teamNumber;
@@ -64,6 +62,9 @@ if (dataContainer.teamNumber != 0) {
 if (dataContainer.matchNumber != 0) {
     document.getElementById("matchNumber").value = dataContainer.matchNumber;
 }
+document.getElementById("comments").value = dataContainer.comments;
+document.getElementById("breakdown").textContent = (dataContainer.downTime);
+document.getElementById("climb").value = dataContainer.endClimb;
 
 function generateQRCodes() {
     document.getElementById("dataQR").innerHTML = ""

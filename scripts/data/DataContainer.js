@@ -13,6 +13,7 @@ export class DataContainer {
     teleScored;
     telePassed;
     teleAccuracy;
+    teleShuttled;
 
     defAZone;
     defABump;
@@ -44,6 +45,7 @@ export class DataContainer {
         this.teleScored = 0;
         this.telePassed = 0;
         this.teleAccuracy = 100;
+        this.teleShuttled =0;
 
         this.defAZone = 0;
         this.defABump = 0;

@@ -51,7 +51,7 @@ export class DataHandler {
 
     undoDef() {
         if (this.defStack.length > 0) {
-            var action = this.stackAuto.pop()
+            var action = this.defStack.pop()
             this.updateDef(action[0], -action[1])
         }
     }
@@ -128,6 +128,9 @@ export class DataHandler {
 
     setDownTime(downTime) {
         this.dataContainer.downTime = downTime;
+    }
+    incTeleShuttled(val) {
+        this.dataContainer.teleShuttled += val;
     }
 
     setComment(comment) {

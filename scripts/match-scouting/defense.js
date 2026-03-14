@@ -132,6 +132,13 @@ function setButtons() {
         
     }
 
+    document.getElementById('undo').addEventListener('click', ()=>{
+        dataHandler.undoDef();
+        for(let binding of bindings){
+            binding[1].textContent = dataHandler.incDef(binding[2], 0);
+        }
+    })
+
     document.getElementById("up1").addEventListener('click', () => { changeCount(1)
         console.log(dataContainer.defAZone);
      });
