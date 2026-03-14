@@ -177,7 +177,7 @@ var multitap = false;
 
 function setButtons() {
 
-    document.getElementById("canvas").addEventListener('mousedown', function (e) {
+    document.getElementById("canvas").addEventListener('touchstart', function (e) {
         clearTimeout(multitapTimer);
         multitapTimer = setTimeout(() => {
             multitap = true;
@@ -189,7 +189,7 @@ function setButtons() {
         }
     });
 
-    document.getElementById("canvas").addEventListener('mouseup', function (e) {
+    document.getElementById("canvas").addEventListener('touchend', function (e) {
         if (multitap) {
             if (e.touches.length == 0) {
                 multitap = false;
