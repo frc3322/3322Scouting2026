@@ -41,3 +41,34 @@ h1{
     font-weight: lighter;
     font-size: 50px;
 }
+
+
+.douglass{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapped{
+    position: relative;
+    width: 250px;
+    height: 250px
+}
+
+.speech{
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    left: 75%;
+}
+
+.logo{
+    position: absolute;
+    bottom: -25px;
+    width: 250px;
+    height: auto;
+    right: 1%;
+    /* right: 75%; */
+}
