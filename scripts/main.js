@@ -35,4 +35,7 @@ function setButtons() {
 if(window.localStorage.getItem("teamColor") == null){
     window.localStorage.setItem("teamColor", "red")
 }
+
 setButtons();
+
+

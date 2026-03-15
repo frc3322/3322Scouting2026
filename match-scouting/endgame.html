@@ -11,34 +11,79 @@
 
 <body>
     <!-- This is the visible content of the page -->
+
+    <h1>Endgame</h1>
+
     <div class="section">
 
-        <div style="margin-top:5vh;">
-            <label for="climb">Climb</label>
-            <select id="climb">
-                <option value=0>None</option>
-                <option value=1>L1 Climb</option>
-                <option value=2>L2 Climb</option>
-                <option value=3>L3 Climb</option>
+      <div class="Rating">
+        <p style="font-size: 40px; font-family: Arial, Helvetica, sans-serif; ">Rating: </p>
+
+        <div class = "Climb">
+            <p>
+                Climb Options:
+            </p>
+            <select id="climb">    
+                <option value=Failure>Climb Failed :( </option>
+                <option value=L1>L1 Climb</option>
+                <option value=L2>L2 Climb</option>
+                <option value=L3>L3 Climb</option>
             </select>
-        </div>
 
+        </div>
         
-        <label for="breakdown">Breakdown:</label>
-        <br>
-        <button id="breakdown" style="height: 100px; width: 200px;">0.0</button>
 
-        <div style="display:flex; justify-content: center; flex-direction: row;">
-            <input class="inputText" id="initials" placeholder="scouter initials"> <br>
-            <input class="inputText" id="teamNumber" placeholder="team number"> <br>
-            <input class="inputText" id="matchNumber" placeholder="match number"> <br>
 
+        <div class = "checkerRow">
+            <div class = "bumpWrap">
+                <p for="bump">Did they use Bump?</p>
+                <input type="checkbox" id="bump">
+            </div>
+
+
+            <div class = "trenchWrap">
+                <p for="trench">Did they use Trench?</p>
+                <input type="checkbox" id="trench">
+            </div>
+
+
+            <div class = "defenceWrap">
+                <p for="defence">Did they do Defence?</p>
+                <input type="checkbox" id="defence">
+            </div>
         </div>
-        <p>Comments:</p>
-        <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
+       
+
+        <div class="star-Raiting">
+          <p id="rate1" >&nbsp;</p><p id="rate2" ></p><p id="rate3" ></p> <p id="rate4" ></p><p id="rate5" ></p>
+        </div>
+
+
+        <div class = "breakDown">
+            <p for="breakdown">Breakdown:</p>
+            <button id="breakdown">0.00</button>
+        </div>
+   
+        
+
+        <div class = "input-container">
+          <input class="inputText" id="initials" placeholder="scouter initials"> 
+          <input class="inputText" id="teamNumber" placeholder="team number"> 
+          <input class="inputText" id="matchNumber" placeholder="match number"> 
+        </div>
+
+        <div class = "comment-section"> 
+          <p>Comments:</p>
+          <textarea id="comments" style="font-size: 5vh; width: 30vw; height: 30vh;"> </textarea>
+        </div>
 
         <button id="submit"> Submit</button>
+        
+      </div>
+
     </div>
+   
+
     <div class="section" style="margin-top: 2vh">
         <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
             <div class="qr" id="dataQR"></div>
@@ -48,8 +93,6 @@
 
 
         <button id="exit"> Exit</button>
-
-
     </div>
 
 
@@ -57,8 +100,9 @@
 
 
     <!-- You can link JavaScript files here -->
-    <script src="../scripts/qrcode.min.js"></script>
-    <script type="module" src="../scripts/data/DataContainer.js"></script>
+
+    <!-- <script src="./scripts/qrcode.min.js"></script> -->
+    <!-- <script type="module" src="../scripts/qrcode.min.js"></script> -->
     <script type="module" src="../scripts/data/DataHandler.js"></script>
     <script type="module" src="../scripts/match-scouting/endgame.js"></script>
 

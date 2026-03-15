@@ -12,6 +12,10 @@ try{
 }
 catch{}
 
+const blueZone = document.querySelector(".blueZone");
+const redZone = document.querySelector(".redZone");
+let isRedTeam = false;
+
 
 
 
@@ -19,26 +23,36 @@ var dataQR;
 var commentQR;
 
 
+function updateTeamStatus(teamStatus){
+    if(teamStatus == true)
+    {
+        dataHandler.setTeamColor("Red");
+    }
+    else{
+        dataHandler.setTeamColor("Blue");
+    }
+}
+
+
 
 function setButtons() {
-
- 
     document.getElementById("submit").addEventListener("click", () => {
         dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
         dataHandler.setComment(document.getElementById("comments").value);
+        dataHandler.setTrenchCheck(document.getElementById("trench").checked);
+        dataHandler.setBumpCheck(document.getElementById("bump").checked);
+        dataHandler.setDefenceCheck(document.getElementById("defence").checked);
         saveScoutedMatch(dataContainer);
 
         generateQRCodes();
     });
 
     document.getElementById("exit").addEventListener("click", () => {
+        window.localStorage.clear
         window.top.location.href = "/index.html"
     });
-
-    
-    document.getElementById("breakdown").addEventListener("click", breakdownToggle);
 
     document.getElementById('comments').addEventListener('input', ()=>{
         dataHandler.setComment(document.getElementById("comments").value);
@@ -48,6 +62,13 @@ function setButtons() {
     document.getElementById("climb").addEventListener("input", ()=>{
         dataHandler.setEndClimb(document.getElementById("climb").value);
     })
+
+    
+
+    document.getElementById("breakdown").addEventListener("click", breakdownToggle);
+    document.getElementById("comments").value = dataContainer.comments;
+    document.getElementById("breakdown").textContent = (dataContainer.downTime);
+    document.getElementById("climb").value = dataContainer.endClimb;
 
 }
 
@@ -59,19 +80,13 @@ if (dataContainer.teamNumber != 0) {
 if (dataContainer.matchNumber != 0) {
     document.getElementById("matchNumber").value = dataContainer.matchNumber;
 }
-document.getElementById("comments").value = dataContainer.comments;
-document.getElementById("breakdown").textContent = (dataContainer.downTime);
-document.getElementById("climb").value = dataContainer.endClimb;
-
 
 function generateQRCodes() {
     document.getElementById("dataQR").innerHTML = ""
     document.getElementById("commentQR").innerHTML = ""
+
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
-    
-    console.log(data[0])
-    console.log(data[1])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
@@ -88,7 +103,6 @@ function generateQRCodes() {
 }
 
 let breakdownTotal = dataContainer.downTime * 1000;
-let breakdownInterval;
 let isBroken = false;
 let starting = 0;
 
@@ -103,7 +117,7 @@ function breakdownToggle() {
       document.getElementById("breakdown").textContent = (((Date.now() - starting)+ breakdownTotal) / 1000 ).toFixed(1);
     }, 100);
 }
-  else{
+else{
     document.getElementById("breakdown").style.backgroundColor = "LightGray";
     isBroken = false;
     //alert(Date.now() - starting);

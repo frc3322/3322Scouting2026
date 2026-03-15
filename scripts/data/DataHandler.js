@@ -1,7 +1,5 @@
 import { DefenseType } from "../Constants.js";
 
-
-
 export class DataHandler {
     dataContainer;
     defStack;
@@ -99,12 +97,12 @@ export class DataHandler {
         this.dataContainer.telePassed += val;
     }
 
-    incTeleShuttled(val) {
-        this.dataContainer.teleShuttled += val;
-    }
-
     setTeleScored(val) {
         this.dataContainer.teleScored = val;
+    }
+    
+    incTeleShuttled(val) {
+        this.dataContainer.teleShuttled += val;
     }
 
     setTelePassed(val) {
@@ -136,6 +134,27 @@ export class DataHandler {
 
     setComment(comment) {
         this.dataContainer.comments = comment;
+    }
+
+    setTeamColor(teamColor){
+        this.dataContainer.teamColor = teamColor;
+    }
+
+    setTrenchCheck(trenchCheck){
+        if(trenchCheck == true) this.dataContainer.trenchCheck = 1;
+    }
+
+    setBumpCheck(bumpCheck){
+        if(bumpCheck == true) this.dataContainer.bumpCheck = 1;
+    }
+
+    setDefenceCheck(defenceCheck){
+        if(defenceCheck == true) this.dataContainer.defenceCheck = 1;
+    }
+
+    setSettingsAlianceNumber(alianceNumber){
+        this.dataContainer.settingsAlianceNumber = alianceNumber;
+        // console.log(settingsAlianceNumber);
     }
 
 }

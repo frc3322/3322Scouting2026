@@ -35,26 +35,27 @@ h1,h2,h3,p,label {
 {
     position: relative;
     border: 0;
-    margin: -2.2px;
+    /* margin: 22x;  */
     width: 25%;
     color: aliceblue;
     font-size: 16px;
     padding: 15px;
+
 
 }
 
 
 .redZone{
     background-color: rgb(181, 35, 15);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-radius: 12px;
+
 }
 
 .blueZone{
     background-color: rgb(35, 49, 151);
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-radius: 12px;
 }
+
 
 .activated{
     transform: scale(1.1);
