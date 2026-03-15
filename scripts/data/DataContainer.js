@@ -12,6 +12,7 @@ export class DataContainer {
 
     teleScored;
     telePassed;
+    teleShuttled;
     teleAccuracy;
 
     defAZone;
@@ -27,7 +28,6 @@ export class DataContainer {
 
     endClimb;
     downTime;
-    rating;
     comments;
 
     constructor() {
@@ -43,6 +43,7 @@ export class DataContainer {
 
         this.teleScored = 0;
         this.telePassed = 0;
+        this.teleShuttled = 0;
         this.teleAccuracy = 100;
 
         this.defAZone = 0;
@@ -58,7 +59,6 @@ export class DataContainer {
 
         this.endClimb = 0;
         this.downTime = 0;
-        this.rating = 0;
         this.comments = "";
     }
 

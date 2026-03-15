@@ -99,6 +99,10 @@ export class DataHandler {
         this.dataContainer.telePassed += val;
     }
 
+    incTeleShuttled(val) {
+        this.dataContainer.teleShuttled += val;
+    }
+
     setTeleScored(val) {
         this.dataContainer.teleScored = val;
     }

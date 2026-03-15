@@ -34,13 +34,20 @@ function setButtons() {
     });
 
     document.getElementById("exit").addEventListener("click", () => {
-        window.localStorage.clear
         window.top.location.href = "/index.html"
     });
 
     
     document.getElementById("breakdown").addEventListener("click", breakdownToggle);
 
+    document.getElementById('comments').addEventListener('input', ()=>{
+        dataHandler.setComment(document.getElementById("comments").value);
+    });
+
+    
+    document.getElementById("climb").addEventListener("input", ()=>{
+        dataHandler.setEndClimb(document.getElementById("climb").value);
+    })
 
 }
 
@@ -52,13 +59,19 @@ if (dataContainer.teamNumber != 0) {
 if (dataContainer.matchNumber != 0) {
     document.getElementById("matchNumber").value = dataContainer.matchNumber;
 }
+document.getElementById("comments").value = dataContainer.comments;
+document.getElementById("breakdown").textContent = (dataContainer.downTime);
+document.getElementById("climb").value = dataContainer.endClimb;
+
 
 function generateQRCodes() {
     document.getElementById("dataQR").innerHTML = ""
     document.getElementById("commentQR").innerHTML = ""
-
     var size = document.getElementById("dataQR").clientWidth;
     var data = dataContainer.exportData()
+    
+    console.log(data[0])
+    console.log(data[1])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
@@ -74,7 +87,7 @@ function generateQRCodes() {
     }
 }
 
-let breakdownTotal = 0;
+let breakdownTotal = dataContainer.downTime * 1000;
 let breakdownInterval;
 let isBroken = false;
 let starting = 0;

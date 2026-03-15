@@ -67,6 +67,21 @@ button{
     user-select: none;
 }
 
+
+.shuttle-button {
+    margin-top: 7px;
+    width: 10vw;
+    border-radius: 20px;
+    height: 10vw;
+    font-size: 3vw;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 5px;
+    margin-left: 5px;
+    user-select: none;
+}
+
 .button-container{
   display: flex;
   justify-content: center;
