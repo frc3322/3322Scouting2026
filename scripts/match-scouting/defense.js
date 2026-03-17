@@ -135,7 +135,7 @@ function setButtons() {
     document.getElementById('undo').addEventListener('click', ()=>{
         dataHandler.undoDef();
         for(let binding of bindings){
-            binding[1].textContent = dataHandler.incDef(binding[2], 0);
+            binding[1].textContent = dataHandler.updateDef(binding[2], 0);
         }
     })
 

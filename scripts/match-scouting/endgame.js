@@ -75,16 +75,22 @@ function generateQRCodes() {
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
-        width: size
+        width: size,
+        correctionLevel: QRCode.CorrectLevel.H
     });
+
+    window.localStorage.setItem("bd-"+dataContainer.matchNumber, data[1])
+    window.localStorage.setItem("c-bd-"+dataContainer.matchNumber, data[2])
 
     if (dataContainer.comments != "" || dataContainer.defComments != "") {
         commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,
-            width: size
+            width: size,
+            correctionLevel: QRCode.CorrectLevel.H
         });
     }
+
 }
 
 let breakdownTotal = 0;

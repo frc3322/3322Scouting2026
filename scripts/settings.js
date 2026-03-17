@@ -4,6 +4,10 @@ const blueZone = document.querySelector(".blueZone");
 
 let isRedTeam = false;
 
+
+var dataQR;
+var commentQR;
+
 redZone.addEventListener("click", () => {
     // console.log("e")
     zoneStyle(true);
@@ -53,3 +57,29 @@ else{
     zoneStyle(false)
 }
 
+document.getElementById('submit').addEventListener('click', generateQRCodes);
+
+
+function generateQRCodes() {
+    document.getElementById("dataQR").innerHTML = ""
+    document.getElementById("commentQR").innerHTML = ""
+
+    var size = document.getElementById("dataQR").clientWidth;
+    var data = window.localStorage.getItem("bd-" + document.getElementById('match').value);
+    var comment = window.localStorage.getItem("c-bd-" + document.getElementById('match').value);
+    dataQR = new window.QRCode(document.getElementById("dataQR"), {
+        text: data,
+        height: size,
+        width: size,
+        correctionLevel: QRCode.CorrectLevel.H
+    });
+    
+    commentQR = new window.QRCode(document.getElementById("commentQR"), {
+        text: comment,
+        height: size,
+        width: size,
+        correctionLevel: QRCode.CorrectLevel.H
+    });
+    
+
+}
