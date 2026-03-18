@@ -28,13 +28,7 @@ export class DataContainer {
 
     endClimb;
     downTime;
-    rating;
     comments;
-    teamColor;
-    trenchCheck;
-    bumpCheck;
-    defenceCheck;
-    settingsAlianceNumber;
 
     constructor() {
         this.matchNumber = 0;
@@ -49,9 +43,8 @@ export class DataContainer {
 
         this.teleScored = 0;
         this.telePassed = 0;
-        this.teleShuttled = 0
+        this.teleShuttled = 0;
         this.teleAccuracy = 100;
-
 
         this.defAZone = 0;
         this.defABump = 0;
@@ -66,13 +59,7 @@ export class DataContainer {
 
         this.endClimb = 0;
         this.downTime = 0;
-        this.rating = 0;
-        this.teamColor = "";
         this.comments = "";
-        this.trenchCheck = 0;
-        this.bumpCheck = 0;
-        this.defenceCheck = 0;
-        this.settingsAlianceNumber = 0;
     }
 
     exportData(){
