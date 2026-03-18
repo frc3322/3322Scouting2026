@@ -48,10 +48,21 @@ function setButtons() {
     document.getElementById("climb").addEventListener("input", ()=>{
         dataHandler.setEndClimb(document.getElementById("climb").value);
     })
+    document.getElementById("exit").addEventListener("click", () => {
+        window.top.location.href = "/index.html"
+    });
+
+    
+    document.getElementById("breakdown").addEventListener("click", breakdownToggle);
+
+    document.getElementById("clear-breakdown").addEventListener("click", () => {
+        breakdownTotal = 0;
+        dataHandler.setDownTime(0);
+        document.getElementById("breakdown").textContent = "0.0";
+    });
+
 
 }
-
-
 document.getElementById("initials").value = dataContainer.scouterInitials;
 if (dataContainer.teamNumber != 0) {
     document.getElementById("teamNumber").value = dataContainer.teamNumber;
@@ -62,7 +73,6 @@ if (dataContainer.matchNumber != 0) {
 document.getElementById("comments").value = dataContainer.comments;
 document.getElementById("breakdown").textContent = (dataContainer.downTime);
 document.getElementById("climb").value = dataContainer.endClimb;
-
 
 function generateQRCodes() {
     document.getElementById("dataQR").innerHTML = ""
@@ -75,16 +85,22 @@ function generateQRCodes() {
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
-        width: size
+        width: size,
+        correctionLevel: QRCode.CorrectLevel.H
     });
+
+    window.localStorage.setItem("bd-"+dataContainer.matchNumber, data[1])
+    window.localStorage.setItem("c-bd-"+dataContainer.matchNumber, data[2])
 
     if (dataContainer.comments != "" || dataContainer.defComments != "") {
         commentQR = new window.QRCode(document.getElementById("commentQR"), {
             text: data[2],
             height: size,
-            width: size
+            width: size,
+            correctionLevel: QRCode.CorrectLevel.H
         });
     }
+
 }
 
 let breakdownTotal = dataContainer.downTime * 1000;

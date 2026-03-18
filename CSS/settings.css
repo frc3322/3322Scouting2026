@@ -83,3 +83,21 @@ h1,h2,h3,p,label {
     margin-left: 5px;
     user-select: none;
 }
+
+input {
+    margin-top:5vh;
+    padding: 8px 8px;
+    margin: 1vw;
+    width:15vw;
+}
+
+.qr{
+    border-style: solid;
+    border-color: #e9fbff;
+    border-width: 0.5vw;
+    margin:1vw;
+    width: 70vw;
+    height: 70vw;
+}
+
+

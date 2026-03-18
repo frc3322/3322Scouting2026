@@ -132,7 +132,16 @@ function setButtons() {
         
     }
 
-    document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
+    document.getElementById('undo').addEventListener('click', ()=>{
+        dataHandler.undoDef();
+        for(let binding of bindings){
+            binding[1].textContent = dataHandler.updateDef(binding[2], 0);
+        }
+    })
+
+    document.getElementById("up1").addEventListener('click', () => { changeCount(1)
+        console.log(dataContainer.defAZone);
+     });
     document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
 }
 

@@ -38,6 +38,27 @@ input {
     width:15vw;
 }
 
+#climb{
+    border-radius: 10px;
+    background-color: #4caf50;
+    outline: none;
+    width: 20%;
+    padding: 20px;
+    display: inline;
+    align-items: center;
+}
+
+#climb option{
+    background-color: #5ec561;
+    border-radius: 20px;
+}
+
+
+#climb:active{
+    background-color: #255427;
+}
+
+
 input[type="checkbox"] {
     transform: scale(2.5);
     margin: 10px;
@@ -52,6 +73,12 @@ select {
     margin-bottom: 10px;
     width: 100%;
 }
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
 .qr{
     border-style: solid;

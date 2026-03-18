@@ -13,20 +13,23 @@
     <!-- This is the visible content of the page -->
     <div class="section">
 
-        <div style="margin-top:5vh;">
-            <label for="climb">Climb</label>
+        <div style="margin-bottom: 3vh;">
             <select id="climb">
-                <option value=0>None</option>
+                <option value=0>None </option>
                 <option value=1>L1 Climb</option>
                 <option value=2>L2 Climb</option>
                 <option value=3>L3 Climb</option>
             </select>
         </div>
 
-        
         <label for="breakdown">Breakdown:</label>
         <br>
-        <button id="breakdown" style="height: 100px; width: 200px;">0.0</button>
+        <div class="button-container">
+            <button id="breakdown">0.00</button>
+
+            <button id="clear-breakdown" style="margin-top: 1vh; width:20%; height:7.5vw; font-size: 2vw;">Clear
+                Breakdown</button>
+        </div>
 
         <div style="display:flex; justify-content: center; flex-direction: row;">
             <input class="inputText" id="initials" placeholder="scouter initials"> <br>
@@ -47,6 +50,8 @@
 
 
 
+
+
         <button id="exit"> Exit</button>
 
 
@@ -57,10 +62,10 @@
 
 
     <!-- You can link JavaScript files here -->
-    <script src="../scripts/qrcode.min.js"></script>
-    <script type="module" src="../scripts/data/DataContainer.js"></script>
-    <script type="module" src="../scripts/data/DataHandler.js"></script>
-    <script type="module" src="../scripts/match-scouting/endgame.js"></script>
+    <script src="/scripts/qrcode.min.js"></script>
+    <script type="module" src="/scripts/data/DataContainer.js"></script>
+    <script type="module" src="/scripts/data/DataHandler.js"></script>
+    <script type="module" src="/scripts/match-scouting/endgame.js"></script>
 
 </body>
 
