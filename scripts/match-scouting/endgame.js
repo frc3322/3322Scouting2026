@@ -22,19 +22,8 @@ var commentQR;
 
 function setButtons() {
 
-    document.getElementById("prescouting").addEventListener("click", (event) => {
-        alert(dataContainer.exportData()[1]);
-        console.log(dataContainer.exportData()[1]);
-        navigator.clipboard.writeText(dataContainer.exportData()[1]);
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLScn1V_LnwZ9ghq8Ot5MUyGtVT4NGMuHtlI56b68iy3xyjgaXA/viewform?usp=header", "_blank");
-
-
-
-    });
-
  
     document.getElementById("submit").addEventListener("click", () => {
-
         dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
