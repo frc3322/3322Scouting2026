@@ -173,28 +173,25 @@ var multitap = false;
 
 function setButtons() {
 
-    document.getElementById("canvas").addEventListener('mousedown', function (e) {
-        e.preventDefault()
+   document.getElementById("canvas").addEventListener('touchstart', function (e) {
         clearTimeout(multitapTimer);
-        multitapTimer = setTimeout(()=>{
+        multitapTimer = setTimeout(() => {
             multitap = true;
         }, 200);
-        if(multitap){
-            for(let i = 0; i < e.touches.length; i++){
+        if (multitap) {
+            for (let i = 0; i < e.touches.length; i++) {
                 increment();
             }
         }
     });
 
-    document.getElementById("canvas").addEventListener('mouseup', function (e) {
-        e.preventDefault()
-        
-        if(multitap){
-            if(e.touches.length == 0){
+    document.getElementById("canvas").addEventListener('touchend', function (e) {
+        if (multitap) {
+            if (e.touches.length == 0) {
                 multitap = false;
             }
         }
-        else{
+        else {
             clearTimeout(multitapTimer);
             increment();
         }
