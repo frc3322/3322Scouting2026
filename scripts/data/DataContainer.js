@@ -93,7 +93,25 @@ export class DataContainer {
         
     }
 
-    
+
+    exportDataForPrescouting(){
+        var keyString = ""
+        var dataString = ""
+        var commentString = ""
+
+        for (const [key, value] of Object.entries(this)) {
+            keyString += key + ",";
+                dataString += "" + value + ";";
+                commentString += "" + value + ";";
+
+            
+        
+            
+        }
+        
+        return [keyString, dataString, commentString];
+        
+    }
 
 
 

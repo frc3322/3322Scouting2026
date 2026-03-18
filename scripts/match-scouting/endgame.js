@@ -21,6 +21,10 @@ var commentQR;
 
 
 function setButtons() {
+    document.getElementById("prescoutingSubmit").addEventListener("click", () => {
+        navigator.clipboard.writeText(dataContainer.exportDataForPrescouting()[1]);
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLScn1V_LnwZ9ghq8Ot5MUyGtVT4NGMuHtlI56b68iy3xyjgaXA/viewform?usp=header");
+    });
 
  
     document.getElementById("submit").addEventListener("click", () => {
@@ -75,6 +79,7 @@ document.getElementById("breakdown").textContent = (dataContainer.downTime);
 document.getElementById("climb").value = dataContainer.endClimb;
 
 function generateQRCodes() {
+
     document.getElementById("dataQR").innerHTML = ""
     document.getElementById("commentQR").innerHTML = ""
     var size = document.getElementById("dataQR").clientWidth;
