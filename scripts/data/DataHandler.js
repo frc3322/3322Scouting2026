@@ -86,9 +86,6 @@ export class DataHandler {
         this.dataContainer.autoClimb = autoClimb;
     }
 
-    setMobility(mobility) {
-        this.dataContainer.mobility = mobility;
-    }
 
 
     incTeleScored(val) {

@@ -4,6 +4,7 @@ import { DataHandler } from "./data/DataHandler.js";
 const dataContainer = new DataContainer();
 const dataHandler = new DataHandler(dataContainer);
 window.dataHandler = dataHandler;
+window.rate = 0;
 
 
 const frame = document.getElementById("iframe");

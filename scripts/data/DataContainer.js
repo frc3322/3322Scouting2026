@@ -8,7 +8,6 @@ export class DataContainer {
     autoPassed;
     autoAccuracy;
     autoClimb;
-    mobility;
 
     teleScored;
     telePassed;
@@ -28,7 +27,6 @@ export class DataContainer {
 
     endClimb;
     downTime;
-    rating;
     comments;
 
     constructor() {
