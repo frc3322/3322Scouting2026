@@ -4,11 +4,11 @@ import { DataHandler } from "../data/DataHandler.js";
 
 var dataContainer = new DataContainer();
 var dataHandler = new DataHandler(dataContainer);
-try{
+try {
     dataHandler = window.parent.dataHandler;
     dataContainer = dataHandler.getDataContainer();
 }
-catch{}
+catch { }
 
 const values = [
     dataContainer.teleScored,
@@ -19,10 +19,10 @@ const values = [
 var rate = 0;
 
 const modes = {
-    shoot : 0,
-    pass : 1,
-    shuttle : 2,
-    delete : 3
+    shoot: 0,
+    pass: 1,
+    shuttle: 2,
+    delete: 3
 };
 var mode = modes.shoot;
 
@@ -39,14 +39,14 @@ const buttons = [
     document.getElementById("pass-button")
 ];
 
-function setMode(val){
+function setMode(val) {
     mode = val;
     ballList = [];
-    for(let i = 0; i < buttonContainers.length; i++){
-        if(i == val){
+    for (let i = 0; i < buttonContainers.length; i++) {
+        if (i == val) {
             buttonContainers[i].style.display = "flex";
         }
-        else{
+        else {
             buttonContainers[i].style.display = "none";
         }
     }
@@ -54,22 +54,22 @@ function setMode(val){
 
 var shootInterval = null;
 
-function updateRate(i){
+function updateRate(i) {
 
     clearInterval(shootInterval);
-    if(i != 0){
-        shootInterval = setInterval(increment , 1000/i)
+    if (i != 0) {
+        shootInterval = setInterval(increment, 1000 / i)
     }
 }
 
-function increment(){
+function increment() {
     newBall()
     let currentMode = mode;
     values[currentMode]++;
     updateDataHandler();
 }
 
-function updateDataHandler(){
+function updateDataHandler() {
     dataHandler.setTeleScored(values[0]);
     dataHandler.setTelePassed(values[1]);
 }
@@ -137,18 +137,18 @@ function draw(timeStamp) {
 
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300 * s, 300 * s);
     var textWidth;
-    if(mode == modes.shoot){
+    if (mode == modes.shoot) {
         ctx.drawImage(hub, canvasWidth - 425 * s, canvasHeight - 400 * s, 400 * s, 400 * s);
         textWidth = ctx.measureText("" + values[mode]).width;
         ctx.fillText(values[mode], canvasWidth - (215) * s - textWidth / 2, canvasHeight - 100 * s);
     }
-    if(mode == modes.pass){
+    if (mode == modes.pass) {
         ctx.drawImage(hub, canvasWidth - 725 * s, canvasHeight - 400 * s, 400 * s, 400 * s);
         textWidth = ctx.measureText("" + values[mode]).width;
         ctx.fillText(values[mode], canvasWidth - (515) * s - textWidth / 2, canvasHeight - 100 * s);
     }
 
-    if(mode == modes.delete){
+    if (mode == modes.delete) {
         ctx.fillStyle = "#FFFFFF";
 
         textWidth = ctx.measureText("Shot: " + values[0]).width;
@@ -156,15 +156,15 @@ function draw(timeStamp) {
 
         textWidth = ctx.measureText("Passed: " + values[1]).width;
         ctx.fillText("Passed: " + values[1], canvasWidth - (515) * s - textWidth / 2, canvasHeight - 100 * s);
-        
+
         ctx.fillStyle = "#000000";
     }
 
-    
-    
+
+
 
     previousFrame = timeStamp;
-    
+
     window.requestAnimationFrame(draw);
 }
 
@@ -173,54 +173,39 @@ var multitap = false;
 
 function setButtons() {
 
-   document.getElementById("canvas").addEventListener('touchstart', function (e) {
-        clearTimeout(multitapTimer);
-        multitapTimer = setTimeout(() => {
-            multitap = true;
-        }, 200);
-        if (multitap) {
-            for (let i = 0; i < e.touches.length; i++) {
-                increment();
-            }
+    document.getElementById("canvas").addEventListener('click', function (e) {
+        increment();
+    });
+
+    document.addEventListener("keypress", function onEvent(event) {
+        if (event.key === "q") {
+            increment()
         }
     });
 
-    document.getElementById("canvas").addEventListener('touchend', function (e) {
-        if (multitap) {
-            if (e.touches.length == 0) {
-                multitap = false;
-            }
-        }
-        else {
-            clearTimeout(multitapTimer);
-            increment();
-        }
-    });
-
-    
     slider.addEventListener("input", () => {
         rate = slider.value * (.3);
-        for(let button of buttons){
+        for (let button of buttons) {
             button.textContent = rate.toFixed(1) + " bps"
         }
     })
 
-    accuracySlider.addEventListener('input', ()=>{
+    accuracySlider.addEventListener('input', () => {
         dataHandler.setTeleAccuracy(accuracySlider.value);
     });
 
-    for(let button of buttons){
-            button.addEventListener("mousedown", () => { updateRate(rate); });
-            button.addEventListener("mouseup", () => { updateRate(0); });
-            button.addEventListener("mouseleave", () => { updateRate(0); });
+    for (let button of buttons) {
+        button.addEventListener("mousedown", () => { updateRate(rate); });
+        button.addEventListener("mouseup", () => { updateRate(0); });
+        button.addEventListener("mouseleave", () => { updateRate(0); });
 
-            button.addEventListener("touchstart", () => { updateRate(rate); });
-            button.addEventListener("touchend", () => { updateRate(0); });
-            button.addEventListener("touchmove", () => { updateRate(0); });
-        
+        button.addEventListener("touchstart", () => { updateRate(rate); });
+        button.addEventListener("touchend", () => { updateRate(0); });
+        button.addEventListener("touchmove", () => { updateRate(0); });
+
     }
 
-    for(let i = 0; i < toggles.length; i++){
+    for (let i = 0; i < toggles.length; i++) {
         toggles[i].addEventListener('mousedown', () => {
             setMode(i);
         })
@@ -229,46 +214,46 @@ function setButtons() {
         values[0] = Math.max(values[0] - 1, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("fuel-del-5").addEventListener("click", function () {
         values[0] = Math.max(values[0] - 5, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("fuel-del-all").addEventListener("click", function () {
         values[0] = 0;
         updateDataHandler();
     });
-    
-    
+
+
     // Passed buttons
     document.getElementById("pass-del-1").addEventListener("click", function () {
         values[1] = Math.max(values[1] - 1, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("pass-del-5").addEventListener("click", function () {
         values[1] = Math.max(values[1] - 5, 0);
         updateDataHandler();
     });
-    
+
     document.getElementById("pass-del-all").addEventListener("click", function () {
         values[1] = 0;
         updateDataHandler();
     });
 
-    
+
     document.getElementById("up1").addEventListener('click', () => { changeCount(1) });
     document.getElementById("down1").addEventListener('click', () => { changeCount(-1) });
 
 }
 
 function changeCount(amount) {
-    if(counter.textContent != 0 || amount >= 0){
+    if (counter.textContent != 0 || amount >= 0) {
         dataHandler.incTeleShuttled(amount);
         counter.textContent = dataContainer.teleShuttled;
     }
-    
+
 }
 
 function newBall() {
