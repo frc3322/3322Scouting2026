@@ -40,6 +40,15 @@ function zoneStyle(bool){
 document.getElementById("back").addEventListener("click", () => {
     window.location.href = "./index.html";
 })
+document.getElementById("all-1").addEventListener("click", () => {
+    window.localStorage.setItem("alliance number", 1)
+})
+document.getElementById("all-2").addEventListener("click", () => {
+    window.localStorage.setItem("alliance number", 2)
+})
+document.getElementById("all-3").addEventListener("click", () => {
+    window.localStorage.setItem("alliance number", 3)
+})
 
 function updateTeamStatus(teamStatus){
     if(teamStatus == true)
@@ -81,5 +90,10 @@ function generateQRCodes() {
         correctionLevel: QRCode.CorrectLevel.H
     });
     
+}
+try{
+ document.getElementById("all-" + window.localStorage.getItem("alliance number")).checked = true;
+}
+catch{
 
 }
