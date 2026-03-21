@@ -4,6 +4,7 @@ import { DataHandler } from "./data/DataHandler.js";
 const dataContainer = new DataContainer();
 const dataHandler = new DataHandler(dataContainer);
 window.dataHandler = dataHandler;
+window.rate = 0;
 
 
 const frame = document.getElementById("iframe");
@@ -55,7 +56,21 @@ function initialData(shootingRate) {
     }
 
 }
+let teamNumberVal = 0;
+fetch('../res/matches.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                let matchData = JSON.parse(window.localStorage.getItem("matchData"))
+                teamNumberVal = data["match" + matchData["matchNumber"]][window.localStorage.getItem("teamColor") + window.localStorage.getItem("alliance number")];
+                dataHandler.setTeamNumber(teamNumberVal);
 
+            })
+            .catch(error => console.error('Failed to fetch data:', error));
 
 
 fetch('../res/shooting-rates.json')
@@ -66,15 +81,15 @@ fetch('../res/shooting-rates.json')
         return response.json();
     })
     .then(data => {
-        let number = matchData.teamNumber;
-        if(data[number] == undefined){
+        if(data[teamNumberVal] == undefined){
             initialData(0)
         }
         else{
-            initialData(data[number])
+            initialData(data[teamNumberVal])
         }
     })
     .catch(error => console.error('Failed to fetch data:', error));
+
 
 
 setButtons()

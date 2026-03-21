@@ -8,8 +8,9 @@ const prompt = document.querySelector(".prompt");
 const startScouting = document.querySelector(".startScouting");
 
 const initials = document.querySelector(".promptOneInput");
-const team = document.querySelector(".promptTwoInput");
 const match = document.querySelector(".promptThreeInput")
+
+let teamNumber = 0;
 
 
 
@@ -20,19 +21,22 @@ function setButtons() {
     startScouting.addEventListener("click", () => {
         let matchData = {
             "scouterInitials": initials.value,
-            "teamNumber": team.value,
+            "teamNumber": teamNumber,
             "matchNumber": match.value
         }
-        window.localStorage.setItem("matchData",JSON.stringify(matchData));
+        window.localStorage.setItem("matchData", JSON.stringify(matchData));
         window.location.href = "./match-scouting/match-scouting.html";
     })
+
     document.getElementById("settings").addEventListener("click", () => {
         window.location.href = "./settings.html";
     })
 
 }
 
-if(window.localStorage.getItem("teamColor") == null){
+
+
+if (window.localStorage.getItem("teamColor") == null) {
     window.localStorage.setItem("teamColor", "red")
 }
 setButtons();

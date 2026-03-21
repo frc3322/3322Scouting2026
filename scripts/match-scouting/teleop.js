@@ -16,7 +16,9 @@ const values = [
     0
 ];
 
-var rate = 0;
+var rate = window.parent.rate;
+const slider = document.getElementById("slider")
+slider.value = rate * 5;
 
 const modes = {
     shoot : 0,
@@ -38,6 +40,11 @@ const buttons = [
     document.getElementById("fuel-button"),
     document.getElementById("pass-button")
 ];
+
+
+for(let button of buttons){
+    button.textContent = JSON.parse(rate).toFixed(1) + " bps"
+}
 
 function setMode(val){
     mode = val;
@@ -199,10 +206,11 @@ function setButtons() {
 
     
     slider.addEventListener("input", () => {
-        rate = slider.value * (.3);
+        rate = slider.value * (.2);
         for(let button of buttons){
             button.textContent = rate.toFixed(1) + " bps"
         }
+        window.parent.rate = rate;
     })
 
     accuracySlider.addEventListener('input', ()=>{

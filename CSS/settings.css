@@ -22,6 +22,12 @@ input {
     width:15vw;
 }
 
+input[type="radio"] {
+    margin: 1vw;
+    margin-top:5vh;
+    width: 5vw;
+}
+
 h1,h2,h3,p,label {
     color: #e9fbff;
 }

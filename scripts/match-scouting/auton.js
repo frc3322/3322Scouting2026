@@ -18,7 +18,9 @@ const values = [
 ];
 
 
-var rate = 0;
+var rate = window.parent.rate;
+const slider = document.getElementById("slider")
+slider.value = rate * 5;
 
 const modes = {
     shoot: 0,
@@ -37,6 +39,10 @@ const buttons = [
     document.getElementById("test-button"),
 ];
 
+
+for(let button of buttons){
+    button.textContent = JSON.parse(rate).toFixed(1) + " bps"
+}
 
 const accuracySlider = document.getElementById("accuracy-slider");
 
@@ -203,10 +209,11 @@ function setButtons() {
 
 
     slider.addEventListener("input", () => {
-        rate = slider.value * (.3);
+        rate = slider.value * (0.2);
         for (let button of buttons) {
-            button.textContent = rate.toFixed(1) + " bps"
+            button.textContent = JSON.parse(rate).toFixed(1) + " bps"
         }
+        window.parent.rate = rate;
     })
 
     for (let button of buttons) {
@@ -267,14 +274,6 @@ function setButtons() {
         }
         else {
             dataHandler.setAutoClimb(0);
-        }
-    });
-    document.getElementById("mobility").addEventListener("click", () => {
-        if (document.getElementById("mobility").value == "on") {
-            dataHandler.setMobility(1);
-        }
-        else {
-            dataHandler.setMobility(0);
         }
     });
 

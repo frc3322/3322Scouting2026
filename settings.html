@@ -2,29 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scouting App</title>
-    <!-- You can link CSS files here -->
-    <link rel="stylesheet" href="../CSS/settings.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scouting App</title>
+  <!-- You can link CSS files here -->
+  <link rel="stylesheet" href="../CSS/settings.css">
 
 </head>
 
 <body>
-    <!-- This is the visible content of the page -->
-     <h1>Settings</h1>
-    <div class="section">
-        <div class = "toggleButton">
-        <button class = "redZone"> Red Team </button>
-        <button class = "blueZone"> Blue Team </button>
+  <!-- This is the visible content of the page -->
+  <h1>Settings</h1>
+  <div class="section">
+    <div class="toggleButton">
+      <button class="redZone"> Red Team </button>
+      <button class="blueZone"> Blue Team </button>
+    </div >
+    <div style = "display:flex; flex-direction:row; justify-content: center;">
+      <div>
+        <input type="radio" id="all-1" name="alliance" value=1 />
+        <label for="all-1">1</label>
       </div>
       
-      
-      <textarea id="match" style="font-size: 2vw; width: 50vw; height: 10vh; margin-top:5vh;"></textarea><br>
-      <button id="submit"> Submit</button>
-      <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
-        <div class="qr" id="dataQR"></div>
-        <div class="qr" id="commentQR"></div>
+      <div>
+        <input type="radio" id="all-2" name="alliance" value=2 />
+        <label for="all-2">2</label>
+      </div>
+
+      <div>
+        <input type="radio" id="all-3" name="alliance" value=3 />
+        <label for="all-3">3</label>
+      </div>
+    </div>
+
+
+    <textarea id="match" style="font-size: 2vw; width: 50vw; height: 10vh; margin-top:5vh;"></textarea><br>
+    <button id="submit"> Submit</button>
+    <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
+      <div class="qr" id="dataQR"></div>
+      <div class="qr" id="commentQR"></div>
     </div>
 
 

@@ -8,7 +8,6 @@ export class DataContainer {
     autoPassed;
     autoAccuracy;
     autoClimb;
-    mobility;
 
     teleScored;
     telePassed;
