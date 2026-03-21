@@ -35,6 +35,10 @@ function setButtons() {
         frame.src = "endgame.html"
         title.textContent = "Endgame"
     });
+    document.getElementById("nav-testTeleop").addEventListener("click", () => {
+        frame.src = "testTeleop.html"
+        title.textContent = "Test Teleop"
+    });
 
 }
 
