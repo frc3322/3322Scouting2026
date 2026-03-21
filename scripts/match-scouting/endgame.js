@@ -21,6 +21,7 @@ var commentQR;
 
 
 function setButtons() {
+    console.log(dataContainer.exportDataForPrescouting()[0])
     document.getElementById("prescoutingSubmit").addEventListener("click", () => {
         navigator.clipboard.writeText(dataContainer.exportDataForPrescouting()[1]);
         window.open("https://docs.google.com/forms/d/e/1FAIpQLScn1V_LnwZ9ghq8Ot5MUyGtVT4NGMuHtlI56b68iy3xyjgaXA/viewform?usp=header");
@@ -86,7 +87,6 @@ function generateQRCodes() {
     var data = dataContainer.exportData()
     
     console.log(data[0])
-    console.log(data[1])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,

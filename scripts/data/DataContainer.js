@@ -70,7 +70,7 @@ export class DataContainer {
         var commentString = ""
 
         for (const [key, value] of Object.entries(this)) {
-            keyString += key + ",";
+            keyString += key + ";";
             if(key == "matchNumber" || key == "teamNumber" ){
                 dataString += "" + value + ";";
                 commentString += "" + value + ";";
@@ -97,19 +97,13 @@ export class DataContainer {
     exportDataForPrescouting(){
         var keyString = ""
         var dataString = ""
-        var commentString = ""
 
         for (const [key, value] of Object.entries(this)) {
-            keyString += key + ",";
-                dataString += "" + value + ";";
-                commentString += "" + value + ";";
-
-            
-        
-            
+            keyString += key + ";";
+            dataString += "" + value + ";";
         }
         
-        return [keyString, dataString, commentString];
+        return [keyString, dataString];
         
     }
 
