@@ -177,29 +177,11 @@ var multitap = false;
 
 function setButtons() {
 
-    document.getElementById("canvas").addEventListener('touchstart', function (e) {
-        clearTimeout(multitapTimer);
-        multitapTimer = setTimeout(() => {
-            multitap = true;
-        }, 200);
-        if (multitap) {
-            for (let i = 0; i < e.touches.length; i++) {
-                increment();
-            }
-        }
+    document.getElementById("canvas").addEventListener('click', function (e) {
+        increment();
     });
 
-    document.getElementById("canvas").addEventListener('touchend', function (e) {
-        if (multitap) {
-            if (e.touches.length == 0) {
-                multitap = false;
-            }
-        }
-        else {
-            clearTimeout(multitapTimer);
-            increment();
-        }
-    });
+    
 
 
     slider.addEventListener("input", () => {
