@@ -102,16 +102,16 @@ ctx.canvas.width = canvasWidth;
 
 
 var ball = new Image;
-ball.src = '../images/ball.svg'
+ball.src = '/images/ball.svg'
 
 var bobot = new Image;
-bobot.src = '../images/bobot.png'
+bobot.src = '/images/bobot.png'
 bobot.onload = () => {
     ctx.drawImage(bobot, 0, canvasHeight - 300 * s, 300, 300);
 };
 
 var hub = new Image;
-hub.src = '../images/hub.svg'
+hub.src = '/images/hub.svg'
 hub.onload = () => {
     ctx.drawImage(hub, canvasWidth - 300, canvasHeight - 300, 300, 300);
 };
