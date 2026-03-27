@@ -1,0 +1,141 @@
+
+body {
+    background-color: #1b1b1b;
+    font-family: "Barlow", sans-serif;
+    text-align: center;
+    overflow:hidden;
+}
+
+.section{
+    margin: auto;
+    width: 80%;
+    /* border: 1px solid black; */
+    border-radius: 50px;
+    padding: 10px;
+    background-color: #101010;
+}
+
+button{
+    margin-top: 7px;
+    border-radius: 10px;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 5px;
+    margin-left: 5px;
+    user-select: none;
+    font-size: 3vw;
+}
+
+.field{
+    position: relative;
+    width:60vw;
+    height: fit-content;
+    margin-inline: auto;
+}
+
+.main-buttons button{
+    position:absolute;
+    width:10vw;
+    height:10vw;
+    opacity: 40%;
+    transform:translate(-50%,-50%);
+}
+
+.fieldButton-L{
+    left:34%;
+    top:90%;
+} 
+.fieldButton-R{
+    left:63%;
+    top:90%;
+} 
+.fieldButton-O{
+    left:20%;
+    top:9%;
+} 
+.fieldButton-D{
+    left:71.5%;
+    top:9%;
+}
+.fieldButton-S{
+    left:49%;
+    top:49%;
+}
+.fieldButton-C{
+    left:45%;
+    top:13%;
+}
+.fieldButton-BR{
+    left:100%;
+    top:50%;
+}
+
+.start-buttons{
+    display:flex;
+    position:absolute;
+    width:100%;
+    height:20%;
+    top:30%;
+    align-content: center;
+}
+
+.start-buttons button{
+    width:32%;
+    height: 100%;
+    opacity:30%;
+    margin-inline: auto;
+
+}
+
+.action-grid{
+    display:grid;
+    width: fit-content;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    margin-inline: auto;
+}
+
+.action-container {
+  border: .5vw solid white;
+  width : 15vw;
+  height : 15vw;
+  margin: 1vw;
+  position: relative
+}
+.action{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.action h1{
+    font-size:7.5vw;
+    margin:0;
+    width:100%;
+    margin-inline:auto;
+    user-select: none;
+}
+
+h1{
+    color:#e9fbff;
+}
+
+h2{
+    color:#e9fbff;
+    user-select: none;
+}
+
+h3{
+    color:#e9fbff;
+    user-select: none;
+}
+
+p{
+    color:#e9fbff;
+    user-select: none;
+}
+
+label{
+    color: #e9fbff;
+}

@@ -5,10 +5,12 @@ import { DefenseType } from "../Constants.js";
 export class DataHandler {
     dataContainer;
     defStack;
+    autoAction;
 
     constructor(DataContainer) {
         this.dataContainer = DataContainer;
         this.defStack = [];
+        this.autoAction = 0;
     }
 
     getDataContainer(){
@@ -71,21 +73,24 @@ export class DataHandler {
         this.dataContainer.scouterInitials = scouterInitials;
     }
 
-    setAutoScored(val) {
-        this.dataContainer.autoScored = val;
+    incAutoScored(val) {
+        this.dataContainer.autoScored += val;
     }
-    setAutoPassed(val) {
-        this.dataContainer.autoPassed = val;
-    }
-
-    setAutoAccuracy(autoAccuracy) {
-        this.dataContainer.autoAccuracy = autoAccuracy;
-    }
-
-    setAutoClimb(autoClimb) {
-        this.dataContainer.autoClimb = autoClimb;
+    
+    
+    setAutoAction(action){
+        if(this.autoAction < 8){
+        this.dataContainer["autoAction" + this.autoAction] = action;
+        this.autoAction += 1;
+        }
     }
 
+    undoAutoAction(){
+        if(this.autoAction > 0){
+            this.dataContainer["autoAction" + this.autoAction] = 0;
+            this.autoAction -= 1;
+        }
+    }
 
 
     incTeleScored(val) {

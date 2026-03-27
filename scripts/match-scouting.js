@@ -15,10 +15,11 @@ const teamNumber = document.getElementById("teamNumber");
 
 const matchData = JSON.parse(localStorage.getItem('matchData'))
 
+frame.src = "autondnd.html"
 
 function setButtons() {
     document.getElementById("nav-auton").addEventListener("click", () => {
-        frame.src = "auton.html"
+        frame.src = "autondnd.html"
         title.textContent = "Auton"
     });
 

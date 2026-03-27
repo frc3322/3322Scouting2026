@@ -20,6 +20,19 @@ select {
     padding: 18px 18px;
 }
 
+button{
+    margin-top: 7px;
+    width: 30%;
+    border-radius: 20px;
+    height: 10vw;
+    font-size: 3vw;
+    padding: 10px;
+    border-width: 0px;
+    font-family: 'Inter', sans-serif;
+    margin-right: 5px;
+    margin-left: 5px;
+    user-select: none;
+}
 
 .vertical-slider{
     writing-mode:vertical-lr;
@@ -44,6 +57,7 @@ canvas{
 }
 
 
+
 .section{
     margin: auto;
     width: 80%;
@@ -53,19 +67,9 @@ canvas{
     background-color: #101010;
 }
 
-button{
-    margin-top: 7px;
-    width: 30%;
-    border-radius: 20px;
-    height: 10vw;
-    font-size: 3vw;
-    padding: 10px;
-    border-width: 0px;
-    font-family: 'Inter', sans-serif;
-    margin-right: 5px;
-    margin-left: 5px;
-    user-select: none;
-}
+
+
+
 
 .button-container{
   display: flex;
