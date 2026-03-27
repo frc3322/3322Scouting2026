@@ -131,9 +131,6 @@ var shootStartNumber = 0;
 
 if(window.localStorage.getItem("teamColor") == "red"){
     document.getElementById('field-image').src="../images/red-field.svg"
-    document.getElementById('outpost').style.left = "80%"
-    document.getElementById('depot').style.left = "29.5%"
-    document.getElementById('climb').style.left = "55%"
 }
 
 

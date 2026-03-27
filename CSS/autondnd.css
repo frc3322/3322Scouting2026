@@ -30,6 +30,7 @@ button{
 .field{
     position: relative;
     width:60vw;
+    margin-bottom: 12vw;
     height: fit-content;
     margin-inline: auto;
 }
@@ -44,11 +45,11 @@ button{
 
 .fieldButton-L{
     left:34%;
-    top:90%;
+    top:87%;
 } 
 .fieldButton-R{
     left:63%;
-    top:90%;
+    top:87%;
 } 
 .fieldButton-O{
     left:20%;
@@ -67,8 +68,8 @@ button{
     top:13%;
 }
 .fieldButton-BR{
-    left:100%;
-    top:50%;
+    left:50%;
+    top:97%;
 }
 
 .start-buttons{
