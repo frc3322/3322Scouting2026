@@ -40,7 +40,6 @@ input {
 
 #climb{
     border-radius: 10px;
-    background-color: #4caf50;
     outline: none;
     width: 20%;
     padding: 20px;
@@ -49,7 +48,6 @@ input {
 }
 
 #climb option{
-    background-color: #5ec561;
     border-radius: 20px;
 }
 
@@ -85,8 +83,8 @@ select {
     border-color: #e9fbff;
     border-width: 0.5vw;
     margin:1vw;
-    width: 70vw;
-    height: 70vw;
+    width: 60vw;
+    height: 60vw;
 }
 
 .section{

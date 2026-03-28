@@ -81,7 +81,6 @@ function generateQRCodes() {
     var data = dataContainer.exportData()
     
     console.log(data[0])
-    console.log(data[1])
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data[1],
         height: size,
@@ -91,6 +90,7 @@ function generateQRCodes() {
 
     window.localStorage.setItem("bd-"+dataContainer.matchNumber, data[1])
     window.localStorage.setItem("c-bd-"+dataContainer.matchNumber, data[2])
+    window.localStorage.setItem("latest-match", dataContainer.matchNumber)
 
     if (dataContainer.comments != "" || dataContainer.defComments != "") {
         commentQR = new window.QRCode(document.getElementById("commentQR"), {

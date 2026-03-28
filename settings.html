@@ -17,13 +17,13 @@
     <div class="toggleButton">
       <button class="redZone"> Red Team </button>
       <button class="blueZone"> Blue Team </button>
-    </div >
-    <div style = "display:flex; flex-direction:row; justify-content: center;">
+    </div>
+    <div style="display:flex; flex-direction:row; justify-content: center;">
       <div>
         <input type="radio" id="all-1" name="alliance" value=1 />
         <label for="all-1">1</label>
       </div>
-      
+
       <div>
         <input type="radio" id="all-2" name="alliance" value=2 />
         <label for="all-2">2</label>
@@ -38,17 +38,23 @@
 
     <textarea id="match" style="font-size: 2vw; width: 50vw; height: 10vh; margin-top:5vh;"></textarea><br>
     <button id="submit"> Submit</button>
-    <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
-      <div class="qr" id="dataQR"></div>
-      <div class="qr" id="commentQR"></div>
+    <div style="display:flex; justify-content: center; flex-direction: row; align-items: center;">
+      <button id="left">&lt</button>
+      <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
+        <p id="match-text">Match: </p>
+        <div class="qr" id="dataQR"></div>
+        <div class="qr" id="commentQR"></div>
+      </div>
+      <button id="right">&gt</button>
     </div>
 
 
 
-      <button id="back" class="button" style = "background-color: #99ccff;">Back</button>
-    </div> <!-- You can link JavaScript files here -->
-    <script src="../scripts/qrcode.min.js"></script>
-    <script type="module" src="../scripts/settings.js"></script>
+
+    <button id="back" class="button" style="background-color: #99ccff;">Back</button>
+  </div> <!-- You can link JavaScript files here -->
+  <script src="../scripts/qrcode.min.js"></script>
+  <script type="module" src="../scripts/settings.js"></script>
 
 </body>
 

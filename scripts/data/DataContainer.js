@@ -79,7 +79,7 @@ export class DataContainer {
         var commentString = ""
 
         for (const [key, value] of Object.entries(this)) {
-            keyString += key + ",";
+            keyString += key + ";";
             if (key == "matchNumber" || key == "teamNumber") {
                 dataString += "" + value + ";";
                 commentString += "" + value + ";";

@@ -7,7 +7,9 @@ let isRedTeam = false;
 
 var dataQR;
 var commentQR;
+var currentMatch = Number(window.localStorage.getItem("latest-match"))
 
+var matchText = document.getElementById("match-text");
 redZone.addEventListener("click", () => {
     // console.log("e")
     zoneStyle(true);
@@ -50,6 +52,24 @@ document.getElementById("all-3").addEventListener("click", () => {
     window.localStorage.setItem("alliance number", 3)
 })
 
+document.getElementById("left").addEventListener("click", () => {
+    try{
+    currentMatch -= 1;
+    generateQRCodes(currentMatch)
+    matchText.innerText = "Match: " + currentMatch;
+    }
+    catch{}
+})
+
+document.getElementById("right").addEventListener("click", () => {
+    try{
+    currentMatch += 1;
+    generateQRCodes(currentMatch)
+    matchText.innerText = "Match: " + currentMatch;
+    }
+    catch{}
+})
+
 function updateTeamStatus(teamStatus){
     if(teamStatus == true)
     {
@@ -69,13 +89,13 @@ else{
 document.getElementById('submit').addEventListener('click', generateQRCodes);
 
 
-function generateQRCodes() {
+function generateQRCodes(match) {
     document.getElementById("dataQR").innerHTML = ""
     document.getElementById("commentQR").innerHTML = ""
 
     var size = document.getElementById("dataQR").clientWidth;
-    var data = window.localStorage.getItem("bd-" + document.getElementById('match').value);
-    var comment = window.localStorage.getItem("c-bd-" + document.getElementById('match').value);
+    var data = window.localStorage.getItem("bd-" + match);
+    var comment = window.localStorage.getItem("c-bd-" + match);
     dataQR = new window.QRCode(document.getElementById("dataQR"), {
         text: data,
         height: size,
@@ -89,10 +109,13 @@ function generateQRCodes() {
         width: size,
         correctionLevel: QRCode.CorrectLevel.H
     });
-    
 }
+
+
 try{
  document.getElementById("all-" + window.localStorage.getItem("alliance number")).checked = true;
+generateQRCodes(currentMatch);
+matchText.innerText = "Match: " + currentMatch;
 }
 catch{
 
