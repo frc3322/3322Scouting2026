@@ -67,14 +67,13 @@ function setAction(action) {
     if (dataHandler.autoAction < 8) {
         actionGrid.children[dataHandler.autoAction].innerHTML = document.getElementById("act-" + action).innerHTML;
         if (action == "s") {
-            setShootListeners()
+            setShootListeners(actionGrid.children[dataHandler.autoAction].children[0])
         }
         dataHandler.setAutoAction(action);
     }
 }
 
-function setShootListeners(){
-    var shootAction = actionGrid.children[dataHandler.autoAction].children[0];
+function setShootListeners(shootAction){
             shootAction.addEventListener('touchstart', (e) => {
                 mouseDown = true;
                 touchId = e.touches.length - 1;
@@ -127,12 +126,28 @@ var shootMouseDiff = 0;
 var shootDiff = 0;
 var shootStartNumber = 0;
 
+function initialize(){
+    if(dataHandler.autoAction > 0){
+        let start = dataContainer.autoAction0;
+        
+        actionGrid.children[0].innerHTML = document.getElementById("act-" + start).innerHTML;
+        mainButtons.style.display = "inline";
+        startButtons.style.display = "none"
+    }
+    for(let i = 1; i < dataHandler.autoAction; i++){
+        let action = dataContainer["autoAction" + i];
+        actionGrid.children[i].innerHTML = document.getElementById("act-" + action).innerHTML;
+        if (action == "s") {
+            setShootListeners(actionGrid.children[i].children[0])
+        }
+    }
+}
 
 
 if(window.localStorage.getItem("teamColor") == "red"){
     document.getElementById('field-image').src="../images/red-field.svg"
 }
 
-
+initialize()
 
 setButtons()

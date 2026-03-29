@@ -12,9 +12,7 @@ const title = document.getElementById("title");
 const teamNumber = document.getElementById("teamNumber");
 
 
-
 const matchData = JSON.parse(localStorage.getItem('matchData'))
-
 frame.src = "autondnd.html"
 
 function setButtons() {
@@ -43,22 +41,36 @@ function setButtons() {
 
 function initialData(shootingRate) {
     if (matchData.scouterInitials != "") {
-        dataHandler.setScouterInitials(matchData.scouterInitials );
+        dataHandler.setScouterInitials(matchData.scouterInitials);
     }
-    if (matchData.teamNumber != "") {
-        dataHandler.setTeamNumber(matchData.teamNumber);
-        teamNumber.textContent = matchData.teamNumber ;
+    if (teamNumberVal != 0) {
+        dataHandler.setTeamNumber(teamNumberVal);
+        teamNumber.textContent = teamNumberVal;
         if (shootingRate != 0) {
             teamNumber.textContent += " - " + shootingRate + " bps"
         }
     }
-    if (matchData.matchNumber  != "") {
-        dataHandler.setMatchNumber(matchData.matchNumber );
+    if (matchData.matchNumber != "") {
+        dataHandler.setMatchNumber(matchData.matchNumber);
     }
 
 }
 let teamNumberVal = 0;
 fetch('../res/matches.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        let matchData = JSON.parse(window.localStorage.getItem("matchData"))
+        teamNumberVal = data["match" + matchData.matchNumber][window.localStorage.getItem("teamColor") + window.localStorage.getItem("alliance number")];
+        console.log(teamNumberVal)
+        dataHandler.setTeamNumber(teamNumberVal);
+
+
+        fetch('../res/shooting-rates.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -66,31 +78,20 @@ fetch('../res/matches.json')
                 return response.json();
             })
             .then(data => {
-                let matchData = JSON.parse(window.localStorage.getItem("matchData"))
-                teamNumberVal = data["match" + matchData["matchNumber"]][window.localStorage.getItem("teamColor") + window.localStorage.getItem("alliance number")];
-                dataHandler.setTeamNumber(teamNumberVal);
-
+                if (data[teamNumberVal] == undefined) {
+                    initialData(0)
+                }
+                else {
+                    initialData(data[teamNumberVal])
+                }
             })
             .catch(error => console.error('Failed to fetch data:', error));
 
 
-fetch('../res/shooting-rates.json')
-.then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if(data[teamNumberVal] == undefined){
-            initialData(0)
-        }
-        else{
-            initialData(data[teamNumberVal])
-        }
+
+
     })
     .catch(error => console.error('Failed to fetch data:', error));
-
 
 
 setButtons()
