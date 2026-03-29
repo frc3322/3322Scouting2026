@@ -29,7 +29,7 @@ const blueTrenchBottom = document.querySelector("#midRight4");
 const blueZone = document.querySelector("#rightMostButton");
 
 const counter = document.getElementById('CyclesCounter');
-var count = 0;
+var stealCount = dataContainer.fuelStolen;
 
 const star1 = document.getElementById("rate1");
 const star2 = document.getElementById("rate2");
@@ -163,22 +163,12 @@ function flipField(flipped){
 }
 
 function changeCount(amount) {
-    var downwardsCounter = 0;
-    count += amount;
-    if (count < 0) {
-        count = 0;
-        downwardsCounter++;
+    stealCount += amount;
+    if (stealCount < 0) {
+        stealCount = 0;
     }
-    counter.textContent = count;
-    if (downwardsCounter == 10) {
-        alert("What are we doing gang? The counter only goes down to 0.");
-        downwardsCounter += 1;
-    }
-    if (downwardsCounter == 20) {
-        alert("I'm genuinly gonna report you to Stone Cold Joe. Get better at scouting little bro.");
-        downwardsCounter += 1;
-    }
-    dataHandler.incFuelStolen(amount);
+    counter.textContent = stealCount;
+    dataHandler.setFuelStolen(stealCount);
 }
 
 function setBindings(reverse){
@@ -200,4 +190,5 @@ else{
 
 
 updateStars(dataContainer.defRating);
+changeCount(0)
 setButtons()

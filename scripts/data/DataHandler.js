@@ -117,8 +117,8 @@ export class DataHandler {
         this.dataContainer.teleAccuracy = teleAccuracy;
     }
 
-    incFuelStolen(val) {
-        this.dataContainer.fuelStolen += val;
+    setFuelStolen(val) {
+        this.dataContainer.fuelStolen = val;
     }
 
     setDefComment(comment) {
