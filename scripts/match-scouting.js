@@ -17,23 +17,36 @@ frame.src = "autondnd.html"
 
 function setButtons() {
     document.getElementById("nav-auton").addEventListener("click", () => {
-        frame.src = "autondnd.html"
-        title.textContent = "Auton"
+        console.log(frame.src)
+        if(title.textContent != "Auton"){
+            frame.src = "autondnd.html"
+            title.textContent = "Auton"
+
+        }
     });
 
     document.getElementById("nav-teleop").addEventListener("click", () => {
-        frame.src = "teleop.html"
-        title.textContent = "Teleop"
+        if(title.textContent != "Teleop"){
+            frame.src = "teleop.html"
+            title.textContent = "Teleop"
+
+        }
     });
 
     document.getElementById("nav-defense").addEventListener("click", () => {
-        frame.src = "defense.html"
-        title.textContent = "Defense"
+        if(title.textContent != "Defense"){
+            frame.src = "defense.html"
+            title.textContent = "Defense"
+
+        }
     });
 
     document.getElementById("nav-endgame").addEventListener("click", () => {
-        frame.src = "endgame.html"
-        title.textContent = "Endgame"
+        if(title.textContent != "Endgame"){
+            frame.src = "endgame.html"
+            title.textContent = "Endgame"
+
+        }
     });
 
 }
