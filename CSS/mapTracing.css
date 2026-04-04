@@ -1,0 +1,20 @@
+.field-set{
+    position:relative;
+    display: inline-block;
+    /* width: 80%; */
+}
+
+.fieldImg{
+    width: 100%;
+}
+
+.trace{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* .section {
+    padding: 0;
+    margin: 0;
+} */
