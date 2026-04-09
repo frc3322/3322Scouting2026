@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scouting App</title>
+  <!-- You can link CSS files here -->
+  <link rel="stylesheet" href="../CSS/autondnd.css">
+
+</head>
+
+<body>
+  <!-- This is the visible content of the page -->
+  <div class="section">
+    <div class="action-grid" id="action-grid">
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+      <div class="action-container"></div>
+    </div>
+    <div class="field">
+      <img id = "field-image" style="width:100%; " src="../images/blue-field.svg"></img>
+      <div class="main-buttons" id="main-buttons">
+        <button class="fieldButton-L" id="middle-left">L</button>
+        <button class="fieldButton-R" id="middle-right">R</button>
+        <button class="fieldButton-D" id="depot">D</button>
+        <button class="fieldButton-O" id="outpost">O</button>
+        <button class="fieldButton-S" id="shoot">S</button>
+        <button class="fieldButton-C" id="climb">C</button>
+        <button class="fieldButton-BR" id="breakdown" style="width:90%; background-color: #f16e6e; transform: translate(-50%,0);">BR</button>
+      </div>
+
+      <div class="start-buttons" id="start-buttons">
+        <button id="start-left">L</button>
+        <button id="start-center">C</button>
+        <button id="start-right">R</button>
+      </div>
+    </div>
+
+    <button id="undo" style="background-color: red; color:white;">undo</button>
+
+
+    <div id="act-l" style="display: none;">
+      <div class="action">
+        <h1>L</h1>
+      </div>
+    </div>
+
+
+    <div id="act-r" style="display: none;">
+      <div class="action">
+        <h1>R</h1>
+      </div>
+    </div>
+
+    <div style="display: none;" id="act-c">
+      <div class="action">
+        <h1>C</h1>
+      </div>
+    </div>
+
+    <div style="display: none;" id="act-d">
+      <div class="action">
+        <h1>D</h1>
+      </div>
+    </div>
+
+    <div style="display: none;" id="act-o">
+      <div class="action">
+        <h1>O</h1>
+      </div>
+    </div>
+
+    <div style="display: none;" id="act-br">
+      <div class="action">
+        <h1>BR</h1>
+      </div>
+    </div>
+
+    <div style="display: none;" id="act-s">
+      <div class="action" id="action-shoot">
+        <h2 style="margin:0">Shot:</h2>
+        <h1>0</h1>
+      </div>
+    </div>
+
+
+
+
+
+
+    </div> <!-- You can link JavaScript files here -->
+    <script type="module" src="../scripts/data/DataHandler.js"></script>
+    <script type="module" src="../scripts/match-scouting/autondnd.js"></script>
+
+</body>
+
+</html>
