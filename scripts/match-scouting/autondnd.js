@@ -74,21 +74,20 @@ function setAction(action) {
 }
 
 function setShootListeners(shootAction){
-            shootAction.addEventListener('touchstart', (e) => {
+            shootAction.addEventListener('mousedown', (e) => {
                 mouseDown = true;
-                touchId = e.touches.length - 1;
                 shootModule = shootAction;
-                shootMouseStart = e.touches[touchId].clientY;
+                shootMouseStart = e.clientY;
                 shootMouseDiff = 0;
                 shootDiff = 0;
                 shootStartNumber = JSON.parse(shootModule.children[1].textContent)
             })
-            document.addEventListener('touchmove', (e) => {
+            document.addEventListener('mousemove', (e) => {
                 if (mouseDown) {
                     if(shootStartNumber + shootMouseDiff >= 0){
                         shootModule.children[1].textContent = shootStartNumber + shootMouseDiff;
                         shootDiff = shootMouseDiff;
-                        shootMouseDiff = Math.floor((shootMouseStart - e.touches[touchId].clientY) / 25)
+                        shootMouseDiff = Math.floor((shootMouseStart - e.clientY) / 25)
                     }
                     else{
                         shootMouseDiff = -shootStartNumber;
@@ -96,7 +95,7 @@ function setShootListeners(shootAction){
                     }
                 }
             })
-            document.addEventListener('touchend', (e) => {
+            document.addEventListener('mouseup', (e) => {
                 if(mouseDown){
                     mouseDown = false;
                     dataHandler.incAutoScored(shootDiff)
@@ -119,7 +118,6 @@ function undoAction() {
 }
 
 var mouseDown = false;
-var touchId = false;
 var shootModule;
 var shootMouseStart;
 var shootMouseDiff = 0;

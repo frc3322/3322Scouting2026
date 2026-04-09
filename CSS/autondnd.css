@@ -3,7 +3,6 @@ body {
     background-color: #1b1b1b;
     font-family: "Barlow", sans-serif;
     text-align: center;
-    overflow:hidden;
 }
 
 .section{
@@ -29,16 +28,16 @@ button{
 
 .field{
     position: relative;
-    width:60vw;
-    margin-bottom: 12vw;
+    width: min(60vw, 90vh);
+    margin-bottom: min(12vw, 18vh);
     height: fit-content;
     margin-inline: auto;
 }
 
 .main-buttons button{
     position:absolute;
-    width:10vw;
-    height:10vw;
+    width:min(10vw, 15vh);
+    height:min(10vw, 15vh);
     opacity: 40%;
     transform:translate(-50%,-50%);
 }
@@ -99,8 +98,8 @@ button{
 
 .action-container {
   border: .5vw solid white;
-  width : 15vw;
-  height : 15vw;
+  width : min(15vw, 22vh);
+  height : min(15vw, 22vh);
   margin: 1vw;
   position: relative
 }
@@ -111,7 +110,7 @@ button{
     transform:translate(-50%,-50%);
 }
 .action h1{
-    font-size:7.5vw;
+    font-size:min(7.5vw, 11vh);
     margin:0;
     width:100%;
     margin-inline:auto;
