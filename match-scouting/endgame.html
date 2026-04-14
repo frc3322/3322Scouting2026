@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
-    <!-- You can link CSS files here -->
-    <link rel="stylesheet" href="../CSS/endgame.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Title</title>
+        <!-- You can link CSS files here -->
+        <link rel="stylesheet" href="../CSS/endgame.css">
+    </head>
 
-<body>
-    <!-- This is the visible content of the page -->
-    <div class="section">
+    <body>
+        <!-- This is the visible content of the page -->
+        <div class="section">
 
-        <div style="margin-bottom: 3vh;">
-            <select id="climb">
-                <option value=0>None </option>
-                <option value=1>L1 Climb</option>
-                <option value=2>L2 Climb</option>
-                <option value=3>L3 Climb</option>
-            </select>
+
+            <div class = "climb-sect">
+                <p style="margin: 5px;">Climb:</p>
+                <select id="climb">
+                    <option value=0>None </option>
+                    <option value=1>L1 Climb</option>
+                    <option value=2>L2 Climb</option>
+                    <option value=3>L3 Climb</option>
+                </select>
+            </div>
+
+
+            <div class = "break-sect">
+                <label for="breakdown">Breakdown:</label>
+                <div class="button-container">
+                    <button id="breakdown">0.00</button>
+                    <button id="clear-breakdown">Clear
+                    Breakdown</button>
+                </div>
+            </div>
+        
+            <div class = "input-sect">
+                <div class = "inputGroup">
+                    <input class="inputText" id="initials" placeholder="scouter initials"> <br>
+                    <input class="inputText" id="teamNumber" placeholder="team number"> <br>
+                    <input class="inputText" id="matchNumber" placeholder="match number"> <br>
+
+
+                </div>
+            </div>
+
+
+        
+            <div class = "commentSection">
+                <p>Comments:</p>
+                <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
+            </div>
+        
+            <button id="submit"> Submit</button>
+        </div>
+        <div class="section" style="margin-top: 2vh">
+            <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
+                <div class="qr" id="dataQR"></div>
+                <div class="qr" id="commentQR"></div>
+            </div>
+            <button id="exit"> Exit</button>
+
         </div>
 
-        <label for="breakdown">Breakdown:</label>
-        <br>
-        <div class="button-container">
-            <button id="breakdown">0.00</button>
 
-            <button id="clear-breakdown" style="margin-top: 1vh; width:20%; height:7.5vw; font-size: 2vw;">Clear
-                Breakdown</button>
-        </div>
-
-        <div style="display:flex; justify-content: center; flex-direction: row;">
-            <input class="inputText" id="initials" placeholder="scouter initials"> <br>
-            <input class="inputText" id="teamNumber" placeholder="team number"> <br>
-            <input class="inputText" id="matchNumber" placeholder="match number"> <br>
-
-        </div>
-        <p>Comments:</p>
-        <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
-
-        <button id="prescoutingSubmit"> Submit to Prescouting</button>
-    </div>
+        <!-- You can link JavaScript files here -->
+        <script src="../scripts/qrcode.min.js"></script>
+        <script type="module" src="../scripts/data/DataContainer.js"></script>
+        <script type="module" src="../scripts/data/DataHandler.js"></script>
+        <script type="module" src="../scripts/match-scouting/endgame.js"></script>
 
 
-
-
-
-
-        <button id="exit"> Exit</button>
-        <br>
-
-
-    </div>
-
-
-
-
-
-    <!-- You can link JavaScript files here -->
-    <script src="../scripts/qrcode.min.js"></script>
-    <script type="module" src="../scripts/data/DataContainer.js"></script>
-    <script type="module" src="../scripts/data/DataHandler.js"></script>
-    <script type="module" src="../scripts/match-scouting/endgame.js"></script>
-
-</body>
+    </body>
 
 </html>
