@@ -51,7 +51,7 @@ input {
 
 
 #climb option{
-    background-color: #5ec561;
+    background-color: #5e8bc5;
     border-radius: 20px;
 }
 
@@ -227,8 +227,8 @@ h1,h2,h3,p,label{
 
 
 .inputText:focus, #comments:focus {
-    border-color: #4caf50;
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+    border-color: #4c74af;
+    box-shadow: 0 0 8px rgba(76, 102, 175, 0.4);
     outline: none;
 }
 
