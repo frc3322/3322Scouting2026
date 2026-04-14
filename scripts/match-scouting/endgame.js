@@ -20,7 +20,7 @@ catch{}
 
 function setButtons() {
     console.log(dataContainer.exportDataForPrescouting()[0])
-    document.getElementById("prescoutingSubmit").addEventListener("click", () => {
+    document.getElementById("prescouting-submit").addEventListener("click", () => {
         dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);

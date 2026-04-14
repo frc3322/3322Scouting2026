@@ -84,6 +84,7 @@ select {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom:25px;
 }
 
 
@@ -146,14 +147,10 @@ h1,h2,h3,p,label{
 } */
 
 
-.button-container{
-    flex-direction: row;
-    margin-bottom: 20px;
-}
+
 
 
 #climb{
-    height: 25px;
     width: 40%;
 }
 
