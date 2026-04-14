@@ -52,59 +52,27 @@ function setButtons() {
 }
 
 
-function initialData(shootingRate) {
+function initialData(number) {
     if (matchData.scouterInitials != "") {
         dataHandler.setScouterInitials(matchData.scouterInitials);
     }
-    if (teamNumberVal != 0) {
-        dataHandler.setTeamNumber(teamNumberVal);
-        teamNumber.textContent = teamNumberVal;
-        if (shootingRate != 0) {
-            teamNumber.textContent += " - " + shootingRate + " bps"
-        }
+    if (number != 0) {
+        dataHandler.setTeamNumber(number);
+        teamNumber.textContent = number;
     }
     if (matchData.matchNumber != "") {
         dataHandler.setMatchNumber(matchData.matchNumber);
     }
 
 }
-let teamNumberVal = 0;
-fetch('../res/matches.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+
+let number = matchData.teamNumber;
+        if(number == undefined){
+            initialData(0)
         }
-        return response.json();
-    })
-    .then(data => {
-        let matchData = JSON.parse(window.localStorage.getItem("matchData"))
-        teamNumberVal = data["match" + matchData.matchNumber][window.localStorage.getItem("teamColor") + window.localStorage.getItem("alliance number")];
-        console.log(teamNumberVal)
-        dataHandler.setTeamNumber(teamNumberVal);
-
-
-        fetch('../res/shooting-rates.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data[teamNumberVal] == undefined) {
-                    initialData(0)
-                }
-                else {
-                    initialData(data[teamNumberVal])
-                }
-            })
-            .catch(error => console.error('Failed to fetch data:', error));
-
-
-
-
-    })
-    .catch(error => console.error('Failed to fetch data:', error));
+        else{
+            initialData(number)
+        }
 
 
 setButtons()
