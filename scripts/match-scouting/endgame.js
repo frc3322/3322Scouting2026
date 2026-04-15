@@ -41,11 +41,11 @@ function setButtons() {
  
 
     document.getElementById("exit").addEventListener("click", () => {
-        window.top.location.href = "../../index.html"
+        window.top.location.href = "../index.html"
     });
 
     document.getElementById("exit-gacha").addEventListener("click", () => {
-        window.top.location.href = "../../index.html"
+        window.top.location.href = "../index.html"
     });
 
     
@@ -59,9 +59,6 @@ function setButtons() {
     document.getElementById("climb").addEventListener("input", ()=>{
         dataHandler.setEndClimb(document.getElementById("climb").value);
     })
-    document.getElementById("exit").addEventListener("click", () => {
-        window.top.location.href = "../index.html"
-    });
 
     
     document.getElementById("breakdown").addEventListener("click", breakdownToggle);
