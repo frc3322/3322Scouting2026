@@ -133,7 +133,7 @@ const positions = [
     },
     {
         slide: 10,
-        text: "Leave comments and submit! Thank you for scouting!",
+        text: "Leave comments and submit! Your data is copied to your clipboard, so just paste it into the form. Thank you for scouting!",
         position: { x: 31, y: 45 },
         joowon: "up"
     }
