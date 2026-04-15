@@ -276,3 +276,117 @@ label, p {
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
+
+
+.dim{
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: #101010;
+    opacity:70%;
+    width:100vw;
+    height:100vh;
+}
+.card{
+    position:fixed;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index: 100;
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front{
+    background: radial-gradient(circle, rgb(70, 134, 236), rgb(161, 190, 253));
+    transform: rotateY(180deg);
+    border: 6px solid white;
+    box-sizing: border-box;
+}
+
+.back{
+    background: radial-gradient(circle, rgb(208, 226, 255), rgb(42, 106, 245));
+    border: 6px solid white;
+    box-sizing: border-box;
+}  
+
+.card:hover {
+    transform:translate(-50%,-55%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.card.open {
+    animation: openCard 1s forwards;
+}
+
+@keyframes openCard {
+    0% {
+        transform: translate(-50%,-50%) rotateY(0deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%,-50%) rotateY(90deg) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%,-50%) rotateY(180deg) scale(1);
+    }
+}
+
+.card-char{
+    position:absolute;
+    width:100%;
+    bottom:0%;
+    left:0%;
+}
+.card-acc{
+    position:absolute;
+    width:70%;
+    bottom:50%;
+    left:15%;
+}
+
+.logo{
+    position:absolute;
+    width:50%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.gacha button{
+    position: fixed;
+    width:20%;
+    top:80%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.gacha-text1{
+    position: fixed;
+    top:15%;
+    left:50%;
+    font-size: 20px;
+    color:#e9fbff;
+    transform: translateX(-50%);
+
+}
+.gacha-text2{
+    position: fixed;
+    top:20%;
+    left:50%;
+    font-size: 30px;
+    color:#e9fbff;
+    transform: translateX(-50%);
+
+}

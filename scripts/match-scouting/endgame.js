@@ -14,18 +14,25 @@ catch{}
 
 
 
+const gacha = document.getElementById("gacha");
+const gachaChar = document.getElementById("card-char");
+const gachaAcc = document.getElementById("card-acc");
+var gachaCode = "";
 
-
+gacha.style.display = "none";
 
 
 function setButtons() {
     console.log(dataContainer.exportDataForPrescouting()[0])
+
+    document.getElementById("open-gacha").addEventListener('click', rollGacha)
+
     document.getElementById("prescouting-submit").addEventListener("click", () => {
+        
         dataHandler.setScouterInitials(document.getElementById("initials").value.toLowerCase());
         dataHandler.setTeamNumber(document.getElementById("teamNumber").value);
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
         dataHandler.setComment(document.getElementById("comments").value);
-        saveScoutedMatch(dataContainer);
 
         navigator.clipboard.writeText(dataContainer.exportDataForPrescouting()[1]);
         window.open("https://forms.gle/J8mob1XknuaDmDy89");
@@ -60,6 +67,11 @@ function setButtons() {
         dataHandler.setDownTime(0);
         document.getElementById("breakdown").textContent = "0.0";
     });
+    
+    document.getElementById("card").addEventListener('click', ()=>{
+        document.getElementById("card").classList.add("open");
+        document.getElementById("gacha-text2").textContent = gachaCode;
+    })
 
 
 }
@@ -101,5 +113,58 @@ function breakdownToggle() {
     document.getElementById("breakdown").textContent = (breakdownTotal/1000).toFixed(1);
     dataHandler.setDownTime((breakdownTotal/1000).toFixed(1));
   }}
+
+
+const gachaChars = [
+    "",
+    "Dillon",
+    "Joowon",
+    "Goodson",
+    "Meng",
+    "Marek"
+]; 
+const gachaAccs = [
+    "",
+    "Common ",
+    "Propeller Hat ",
+    "Cowboy Hat ",
+    "Douglass + "
+]; 
+function rollGacha(){
+    gacha.style.display = "inline";
+    let acc = 0;
+    let char = 0;
+
+    let charRoll = Math.random() * 100
+    let accRoll = Math.random() * 100
+    let blueRoll = Math.random() * 100
+    if(charRoll > 10){
+        char = Math.floor(Math.random() * 3) + 1;
+    }
+    else{
+        char = Math.floor(Math.random() * 1) + 3;
+    }
+
+    if(accRoll > 90){
+        acc = 5;
+    }
+    else if(accRoll > 40){
+        acc = Math.floor(Math.random() * 3) + 2;
+    }
+    else{
+        acc = 1;
+    }
+
+    gachaChar.src = "../images/card-assets/char-" + char + ".png"
+    gachaAcc.src = "../images/card-assets/acc-" + acc + ".png"
+    
+    let blue = ""
+    if(blueRoll > 95){
+        gachaChar.style.filter = "hue-rotate(200deg) saturate(1.5)"
+        blue = "Blue "
+    }
+    
+    gachaCode = blue + gachaAccs[acc] + gachaChars[char];
+}
 
 setButtons();
