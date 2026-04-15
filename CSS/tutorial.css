@@ -8,6 +8,12 @@ img{
     height:90vh;
 }
 
+.content{
+    position: relative;
+    margin-inline: auto;
+    width:fit-content;
+}
+
 .textbox{
     position:relative;
     background-color: #1b1b1b;
@@ -27,7 +33,7 @@ img{
 }
 
 .dialogue{
-    position:fixed;
+    position:absolute;
     width:300px;
     left:0%;
     top:0%;

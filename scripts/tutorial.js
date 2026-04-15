@@ -14,25 +14,25 @@ const positions = [
     {
         slide: 1,
         text: "Welcome to the 2026 Scouting App",
-        position: { x: 47, y: 40 },
+        position: { x: 47, y: 50 },
         joowon: "up"
     },
     {
         slide: 1,
         text: "Click on Douglas to Start",
-        position: { x: 47, y: 40 },
+        position: { x: 47, y: 50 },
         joowon: "up"
     },
     {
         slide: 2,
         text: "Enter your initials, team number, and match number",
-        position: { x: 47, y: 40 },
+        position: { x: 47, y: 50 },
         joowon: "up"
     },
     {
         slide: 3,
         text: "This is the auto slide. Choose the starting position of the bot",
-        position: { x: 34, y: 20 },
+        position: { x: 25, y: 34 },
         joowon: "up"
     },
     {
@@ -50,7 +50,7 @@ const positions = [
     {
         slide: 5,
         text: "On the shoot box, click and drag up and down to indicate how many balls the bot scored",
-        position: { x: 29, y: 23 },
+        position: { x: 21, y: 23 },
         joowon: "up"
     },
     {
@@ -62,25 +62,25 @@ const positions = [
     {
         slide: 6,
         text: "Shoot indicates shooting into the hub",
-        position: { x: 16, y: 20 },
+        position: { x: 0, y: 21 },
         joowon: "up"
     },
     {
         slide: 6,
         text: "Pass indicates shooting balls from the neutral zone into the alliance zone",
-        position: { x: 30, y: 20 },
+        position: { x: 22, y: 21 },
         joowon: "up"
     },
     {
         slide: 6,
         text: "Shuttle indicates intaking balls to outtake in the alliance zone",
-        position: { x: 44, y: 20 },
+        position: { x: 42, y: 21 },
         joowon: "up"
     },
     {
         slide: 6,
         text: "Delete allows mistakes to be rectified",
-        position: { x: 59, y: 20 },
+        position: { x: 62, y: 21 },
         joowon: "up"
     },
     {
@@ -92,13 +92,13 @@ const positions = [
     {
         slide: 6,
         text: "or slide the bar to set a rate. Press and hold the button to shoot",
-        position: { x: 34, y: 29 },
+        position: { x: 26, y: 34 },
         joowon: "down"
     },
     {
         slide: 6,
         text: "We want to count the number of balls shot, and the accuracy bar indicates the accuracy of the bot.",
-        position: { x: 62, y: 29 },
+        position: { x: 65, y: 29 },
         joowon: "up"
     },
     {
@@ -110,13 +110,13 @@ const positions = [
     {
         slide: 8,
         text: "Click the buttons to indicate the number of cycles of fuel stolen by the bot",
-        position: { x: 36, y: 51 },
+        position: { x: 35, y: 59 },
         joowon: "up"
     },
     {
         slide: 8,
         text: "You can give a rating out of five and leave comments on defense",
-        position: { x: 33, y: 28 },
+        position: { x: 26, y: 32 },
         joowon: "down"
     },
     {
