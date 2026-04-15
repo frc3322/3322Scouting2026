@@ -147,10 +147,10 @@ function rollGacha(){
     }
 
     if(accRoll > 90){
-        acc = 5;
+        acc = 4;
     }
     else if(accRoll > 40){
-        acc = Math.floor(Math.random() * 3) + 2;
+        acc = Math.floor(Math.random() * 2) + 2;
     }
     else{
         acc = 1;
