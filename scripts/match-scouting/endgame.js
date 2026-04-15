@@ -34,7 +34,7 @@ function setButtons() {
         dataHandler.setMatchNumber(document.getElementById("matchNumber").value);
         dataHandler.setComment(document.getElementById("comments").value);
 
-        navigator.clipboard.writeText(dataContainer.exportDataForPrescouting()[1]);
+        navigator.clipboard.writeText(dataContainer.exportDataForPrescouting()[1] +";" + btoa(gachaCode));
         window.open("https://forms.gle/J8mob1XknuaDmDy89");
     });
 
