@@ -49,7 +49,7 @@ function setButtons() {
         dataHandler.setEndClimb(document.getElementById("climb").value);
     })
     document.getElementById("exit").addEventListener("click", () => {
-        window.top.location.href = "/index.html"
+        window.top.location.href = "../../index.html"
     });
 
     
