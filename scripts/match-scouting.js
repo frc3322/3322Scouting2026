@@ -66,13 +66,12 @@ function initialData(number) {
 
 }
 
-let number = matchData.teamNumber;
-        if(number == undefined){
-            initialData(0)
-        }
-        else{
-            initialData(number)
-        }
+if(matchData.teamNumber == undefined){
+    initialData(0)
+}
+else{
+    initialData(matchData.teamNumber)
+}
 
 
 setButtons()

@@ -26,6 +26,15 @@ function setButtons() {
         window.localStorage.setItem("matchData",JSON.stringify(matchData));
         window.location.href = "./match-scouting/match-scouting.html";
     })
+    document.getElementById("tutorial").addEventListener("click", () => {
+        let matchData = {
+            "scouterInitials": "scj",
+            "teamNumber": 0,
+            "matchNumber": "tutorial"
+        }
+        window.localStorage.setItem("matchData",JSON.stringify(matchData));
+        window.location.href = "./tutorial.html";
+    })
     document.getElementById("settings").addEventListener("click", () => {
         window.location.href = "./settings.html";
     })
