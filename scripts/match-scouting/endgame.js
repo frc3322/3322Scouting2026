@@ -44,6 +44,10 @@ function setButtons() {
         window.top.location.href = "../../index.html"
     });
 
+    document.getElementById("exit-gacha").addEventListener("click", () => {
+        window.top.location.href = "../../index.html"
+    });
+
     
     document.getElementById("breakdown").addEventListener("click", breakdownToggle);
 

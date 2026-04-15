@@ -9,9 +9,9 @@ button{
     margin-top: 7px;
     /* /* width: 30%; */
     border-radius: 5px;
-    height: 10vw;
+    height: min(10vh,10vw);
     width:30%;
-    font-size: 3vw;
+    font-size: min(3vw,3vh);
     padding: 10px;
     border-width: 0px;
     font-family: 'Inter', sans-serif;
@@ -130,16 +130,6 @@ h1,h2,h3,p,label{
 } */
 
 
-#clear-breakdown{
-    margin-top: 1vh;
-    width:35%;
-    height:8.5vw;
-    font-size: 2.5vw;
-    /* background-color: rgb(167, 47, 47); */
-    /* color: #94e2f3; */
-
-
-}
 
 
 /* #breakdown{
@@ -363,13 +353,25 @@ label, p {
     left:50%;
     transform: translate(-50%,-50%);
 }
+.gacha{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+}
+.gacha .buttons{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 
-.gacha button{
-    position: fixed;
-    width:20%;
-    top:80%;
     left:50%;
     transform: translateX(-50%);
+
+    width:45%;
+    height:20vh;
+    bottom:0%;
 }
 
 .gacha-text1{
