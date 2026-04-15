@@ -9,6 +9,8 @@ var dataQR;
 var commentQR;
 var currentMatch = Number(window.localStorage.getItem("latest-match"))
 
+var clearDataCounter = 0;
+
 var matchText = document.getElementById("match-text");
 redZone.addEventListener("click", () => {
     // console.log("e")
@@ -68,6 +70,14 @@ document.getElementById("right").addEventListener("click", () => {
     matchText.innerText = "Match: " + currentMatch;
     }
     catch{}
+})
+
+document.getElementById("clear-data").addEventListener("click", ()=>{
+    clearDataCounter++
+    console.log(clearDataCounter);
+    if(clearDataCounter == 5){
+        window.localStorage.clear();
+    }
 })
 
 function updateTeamStatus(teamStatus){
