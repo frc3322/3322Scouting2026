@@ -214,8 +214,8 @@ function rollGacha() {
     let acc = Math.floor(Math.random() * gachaAccs[accRarity].length)
     let char = Math.floor(Math.random() * gachaChars[charRarity].length)
 
-    gachaChar.src = "../images/card-assets/" + gachaChars[charRarity][char]["src"]
-    gachaAcc.src = "../images/card-assets/" + gachaAccs[accRarity][acc]["src"]
+    gachaChar.src = "/images/card-assets/" + gachaChars[charRarity][char]["src"]
+    gachaAcc.src = "/images/card-assets/" + gachaAccs[accRarity][acc]["src"]
 
     let blue = ""
     if (blueRoll > 95) {
