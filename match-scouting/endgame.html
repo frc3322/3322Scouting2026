@@ -7,14 +7,19 @@
     <title>Page Title</title>
     <!-- You can link CSS files here -->
     <link rel="stylesheet" href="../CSS/endgame.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <!-- This is the visible content of the page -->
     <div class="section">
 
-        <h2>Climb:</h2>
-        <div style="margin-bottom: 3vh;">
+
+        <div class="climb-sect">
+            <p style="margin: 5px;">Climb:</p>
             <select id="climb">
                 <option value=0>None </option>
                 <option value=1>L1 Climb</option>
@@ -23,42 +28,62 @@
             </select>
         </div>
 
-        <label for="breakdown">Breakdown:</label>
-        <br>
-        <div class="button-container">
-            <button id="breakdown">0.00</button>
 
-            <button id="clear-breakdown" style="margin-top: 1vh; width:20%; height:7.5vw; font-size: 2vw;">Clear
-                Breakdown</button>
+        <div class="break-sect">
+            <label for="breakdown">Breakdown:</label>
+            <div class="button-container">
+                <button id="breakdown">0.00</button>
+                <button id="clear-breakdown">Clear
+                    Breakdown</button>
+            </div>
         </div>
 
-        <div style="display:flex; justify-content: center; flex-direction: row;">
-            <input class="inputText" id="initials" placeholder="scouter initials"> <br>
-            <input class="inputText" id="teamNumber" placeholder="team number"> <br>
-            <input class="inputText" id="matchNumber" placeholder="match number"> <br>
+        <div class="input-sect">
+            <div class="inputGroup">
+                <input class="inputText" id="initials" placeholder="scouter initials"> <br>
+                <input class="inputText" id="teamNumber" placeholder="team number"> <br>
+                <input class="inputText" id="matchNumber" placeholder="match number"> <br>
 
+
+            </div>
         </div>
-        <p>Comments:</p>
-        <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
+
+
+
+        <div class="commentSection">
+            <p>Comments:</p>
+            <textarea id="comments" style="font-size: 2vw; width: 50vw; height: 10vh;"></textarea><br>
+        </div>
 
         <button id="submit"> Submit</button>
     </div>
-    <div class="section" style="margin-top: 2vh">
+
+    <div class="section">
         <div style="display:flex; justify-content: center; flex-direction: column; align-items: center;">
             <div class="qr" id="dataQR"></div>
             <div class="qr" id="commentQR"></div>
         </div>
 
-
-
-
-
-        <button id="exit"> Exit</button>
-
-
+        <button id="open-gacha">Exit</button>
     </div>
 
-
+    <div class="gacha" id="gacha" style="display: none;">
+        <div class="dim"></div>
+        <div class="gacha-text1">You discovered:</div>
+        <div id="gacha-text2" class="gacha-text2"></div>
+        <div class="card" id="card">
+            <div class="front">
+                <img class="card-char" id="card-char" src="../images/card-assets/char-0.png"></img>
+                <img class="card-acc" id="card-acc" src="../images/card-assets/acc-1.png"></img>
+            </div>
+            <div class="back">
+                <img class="logo" src="../images/card-assets/logo.png"></img>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="exit">Exit</button>
+        </div>
+    </div>
 
 
 
@@ -67,6 +92,7 @@
     <script type="module" src="../scripts/data/DataContainer.js"></script>
     <script type="module" src="../scripts/data/DataHandler.js"></script>
     <script type="module" src="../scripts/match-scouting/endgame.js"></script>
+
 
 </body>
 
