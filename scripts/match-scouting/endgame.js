@@ -159,7 +159,9 @@ const gachaChars = {
         { text: "Joowon", src: "joowon.png" },
         { text: "Goodson", src: "goodson.png" },
         { text: "Meng", src: "meng.png" },
-        { text: "Elliot", src: "elliot.png" }
+        { text: "Elliot", src: "elliot.png" },
+        { text: "Colin", src: "colin.png" },
+        { text: "Evan", src: "evan.png" }
     ],
     2 : [
         { text: "Marek", src: "marek.png" }
