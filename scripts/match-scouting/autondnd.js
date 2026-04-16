@@ -18,7 +18,7 @@ const actionGrid = document.getElementById("action-grid")
 mainButtons.style.display = "none";
 
 function setButtons() {
-    document.getElementById("start-left").addEventListener('mousemove', () => {
+    document.getElementById("start-left").addEventListener('click', () => {
         setStart("l");
     });
     document.getElementById("start-center").addEventListener("click", () => {
