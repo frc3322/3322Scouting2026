@@ -139,11 +139,11 @@ function rollGacha(){
     let charRoll = Math.random() * 100
     let accRoll = Math.random() * 100
     let blueRoll = Math.random() * 100
-    if(charRoll > 10){
-        char = Math.floor(Math.random() * 3) + 1;
+    if(charRoll < 90){
+        char = Math.floor(Math.random() * 4) + 1;
     }
     else{
-        char = Math.floor(Math.random() * 1) + 3;
+        char = 5;
     }
 
     if(accRoll > 90){
