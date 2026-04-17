@@ -7,49 +7,63 @@ window.dataHandler = dataHandler;
 window.rate = 0;
 
 
-const frame = document.getElementById("iframe");
+const autonFrame = document.getElementById("auton-iframe");
+const teleopFrame = document.getElementById("teleop-iframe");
+const defenseFrame = document.getElementById("defense-iframe");
+const endgameFrame = document.getElementById("endgame-iframe");
+
+
 const title = document.getElementById("title");
 const teamNumber = document.getElementById("teamNumber");
 
 
 const matchData = JSON.parse(localStorage.getItem('matchData'))
-frame.src = "autondnd.html"
 
 function setButtons() {
     document.getElementById("nav-auton").addEventListener("click", () => {
-        console.log(frame.src)
-        if(title.textContent != "Auton"){
-            frame.src = "autondnd.html"
+        
+        
+            autonFrame.style.display = "block";
+            teleopFrame.style.display = "none";
+            defenseFrame.style.display = "none";
+            endgameFrame.style.display = "none";
             title.textContent = "Auton"
 
-        }
+        
     });
 
     document.getElementById("nav-teleop").addEventListener("click", () => {
-        if(title.textContent != "Teleop"){
-            frame.src = "teleop.html"
+        
+            autonFrame.style.display = "none";
+            teleopFrame.style.display = "block";
+            defenseFrame.style.display = "none";
+            endgameFrame.style.display = "none";
             title.textContent = "Teleop"
-
-        }
+        
     });
 
     document.getElementById("nav-defense").addEventListener("click", () => {
-        if(title.textContent != "Defense"){
-            frame.src = "defense.html"
+        
+            autonFrame.style.display = "none";
+            teleopFrame.style.display = "none";
+            defenseFrame.style.display = "block";
+            endgameFrame.style.display = "none";
             title.textContent = "Defense"
-
-        }
+       
     });
 
     document.getElementById("nav-endgame").addEventListener("click", () => {
-        if(title.textContent != "Endgame"){
-            frame.src = "endgame.html"
-            title.textContent = "Endgame"
-
-        }
+       
+            autonFrame.style.display = "none";
+            teleopFrame.style.display = "none";
+            defenseFrame.style.display = "none";
+            endgameFrame.style.display = "block";
+            title.textContent = "Endgame" 
+        
     });
 
 }
+
 
 
 function initialData(shootingRate) {
@@ -107,4 +121,5 @@ fetch('../res/matches.json')
     .catch(error => console.error('Failed to fetch data:', error));
 
 
+autonFrame.style.display = "block";
 setButtons()

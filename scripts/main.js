@@ -31,6 +31,11 @@ function setButtons() {
     document.getElementById("settings").addEventListener("click", () => {
         window.location.href = "./settings.html";
     })
+    
+    document.getElementById("tutorial").addEventListener("click", () => {
+        window.location.href = "./tutorial.html";
+    })
+
 
 }
 
